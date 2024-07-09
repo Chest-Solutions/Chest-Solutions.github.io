@@ -1,4 +1,4 @@
-loader.load('model.glb', function (gltf) {
+loader.load('chest.glb', function (gltf) {
   const model = gltf.scene;
   model.traverse((child) => {
     if (child.isMesh) {
