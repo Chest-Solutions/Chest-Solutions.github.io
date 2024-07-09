@@ -65,12 +65,16 @@ scene.add(directionalLight);
       function animate() {
         requestAnimationFrame(animate);
         if (model) {
-            model.rotation.y += 0.05;
-            model.rotation.x += 0.05
-            model.rotation.z += 0.05
+            model.rotation.y += getRandomValue(0.01, 0.07);
+            model.rotation.x += getRandomValue(0.01, 0.07);
+            model.rotation.z += getRandomValue(0.01, 0.07);
         }
         renderer.render(scene, camera);
-      }
+}
+
+       function getRandomValue(min, max) {
+            return Math.random() * (max - min) + min;
+        }
     </script>
   </body>
 </html>
