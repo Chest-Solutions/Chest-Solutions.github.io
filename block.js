@@ -1,10 +1,7 @@
 // Create a scene
-var scene = new THREE.Scene();
-
-// Create a WebGL renderer
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('webgl-container').appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.6, 1200);
+const renderer = new THREE.WebGLRenderer({antialias: true});
 
 // Handle loading errors
 loader.load('chest.glb', function (gltf) {
