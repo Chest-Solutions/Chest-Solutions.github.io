@@ -9,7 +9,7 @@
     let model;
   
     loader.load(
-  '/chest.glb/', // Example path assuming the file is in a 'models' directory
+  '/models/chest.glb', // Example path assuming the file is in a 'models' directory
   function (gltf) {
     model = gltf.scene;
     // ... rest of the loading process remains the same
