@@ -1,15 +1,34 @@
 // Create a scene
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.6, 1200);
-const renderer = new THREE.WebGLRenderer({antialias: true});
+var scene = new THREE.Scene();
+
+// Create a WebGL renderer
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('webgl-container').appendChild(renderer.domElement);
 
 // Handle loading errors
 loader.load('chest.glb', function (gltf) {
     scene.add(gltf.scene);
   }, undefined, function (error) {
     console.error('Error loading the 3D model', error);
+  
+    // Show a browser notification
+    if (Notification.permission === 'granted') {
+      // If the user has already granted permission for notifications
+      new Notification('Error', {
+        body: 'Oops! There was an error loading the 3D model.'
+      });
+    } else if (Notification.permission !== 'denied') {
+      // If the user hasn't denied permission but hasn't granted it yet
+      Notification.requestPermission().then(function (permission) {
+        if (permission === 'granted') {
+          new Notification('Error', {
+            body: 'Oops! There was an error loading the 3D model.'
+          });
+        }
+      });
+    }
   });
-
 // Add a directional light to the scene
 var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(1, 1, 1);
