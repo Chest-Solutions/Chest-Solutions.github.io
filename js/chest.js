@@ -27,7 +27,7 @@ scene.add(directionalLight);
   const loader = new GLTFLoader();
 
   loader.load(
-    'models/chest.glb',
+    '/models/chest.glb',
     function (gltf) {
       model = gltf.scene;
       model.traverse((child) => {
