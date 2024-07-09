@@ -65,7 +65,9 @@ scene.add(directionalLight);
       function animate() {
         requestAnimationFrame(animate);
         if (model) {
-            model.rotation.y += 0.01;
+            model.rotation.y += 0.05;
+            model.rotation.x += 0.05
+            model.rotation.z += 0.05
         }
         renderer.render(scene, camera);
       }
