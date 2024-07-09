@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple 3D Model Viewer</title>
+  <title>Simple White 3D Cube</title>
   <style>
     body {
       margin: 0;
@@ -12,32 +12,6 @@
   </style>
 </head>
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-    
-    const loader = new THREE.GLTFLoader();
-    
-    loader.load('chest.glb', function (gltf) {
-      const model = gltf.scene;
-      scene.add(model);
-    }, undefined, function (error) {
-      console.error('Error loading the 3D model', error);
-    });
-    
-    camera.position.z = 5;
-    
-    function animate() {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    }
-    
-    animate();
-  </script>
+  <script type="module" src="block.js"></script>
 </body>
 </html>
