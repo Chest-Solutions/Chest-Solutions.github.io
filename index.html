@@ -65,20 +65,12 @@ scene.add(directionalLight);
       function animate() {
         requestAnimationFrame(animate);
         if (model) {
-            model.rotation.y += Math.random(0.01, 0.05)
-            model.rotation.x += Math.random(0.01, 0.05)
-            model.rotation.z += Math.random(0.01, 0.05)
+            model.rotation.y += 0.05;
+            model.rotation.x += 0.1
+            model.rotation.z += 0.1
         }
         renderer.render(scene, camera);
-}
-    </script>
-    <script type='text/javascript' charset='utf-8'>     
-     var iframe = document.createElement('iframe');       
-     document.body.appendChild(iframe);
-
-     iframe.src = 'URL OF CONTENT YOU WANT TO PROVIDE';       
-     iframe.width = 'THE WIDTH YOU WANT';
-     iframe.height = 'THE HEIGHT YOU WANT';
+      }
     </script>
   </body>
 </html>
