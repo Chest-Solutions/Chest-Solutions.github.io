@@ -65,9 +65,9 @@ scene.add(directionalLight);
       function animate() {
         requestAnimationFrame(animate);
         if (model) {
-            model.rotation.y += Math.random(0.01, 0.07)
-            model.rotation.x += Math.random(0.01, 0.07)
-            model.rotation.z += Math.random(0.01, 0.07)
+            model.rotation.y += Math.random(0.01, 0.05)
+            model.rotation.x += Math.random(0.01, 0.05)
+            model.rotation.z += Math.random(0.01, 0.05)
         }
         renderer.render(scene, camera);
 }
