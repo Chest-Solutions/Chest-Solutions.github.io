@@ -14,11 +14,11 @@ function init() {
   camera.position.z = 500;
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 
-  // Set the position of the light
-  directionalLight.position.set(5, 5, 5); // Adjust the position according to your scene setup
+// Set the position of the light
+directionalLight.position.set(5, 5, 5); // Adjust the position according to your scene setup
 
-  // Add the light to the scene
-  scene.add(directionalLight);
+// Add the light to the scene
+scene.add(directionalLight);
 
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -31,25 +31,25 @@ function init() {
     function (gltf) {
       model = gltf.scene;
       model.traverse((child) => {
-    });
-    scene.add(model);
+      });
+      scene.add(model);
     },
     undefined,
     function (error) {
       console.error(error);
     }
-    );
+  );
 
   const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
   scene.add(light);
-  }
+}
 
 function animate() {
   requestAnimationFrame(animate);
   if (model) {
-    model.rotation.y += 0.05;
-    model.rotation.x += 1
-    model.rotation.z += 0.02
+      model.rotation.y += 0.05
+      model.rotation.x += 0.01;
+      model.rotation.z += 0.02
   }
   renderer.render(scene, camera);
-  }
+}
