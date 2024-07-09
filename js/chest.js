@@ -27,7 +27,7 @@ function init() {
   const loader = new GLTFLoader();
 
   loader.load(
-    'chest.glb',
+    '/models/chest.glb',
     function (gltf) {
       model = gltf.scene;
       model.traverse((child) => {
