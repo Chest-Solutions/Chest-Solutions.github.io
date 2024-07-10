@@ -102,7 +102,7 @@ footer {
 
 .name {
   position: absolute;
-  top: 5px; /* Adjust as per your preference */
+  top: 0px; /* Adjust as per your preference */
   left: 85px; /* Adjust as per your preference */
   font-size: 30px;
 }
