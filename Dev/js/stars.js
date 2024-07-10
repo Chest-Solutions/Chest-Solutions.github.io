@@ -45,9 +45,10 @@ camera.position.z = 500
 
 
 
+
 // Animation loop
 function animate() {
-  requestAnimationFrame(animate);
+  //requestAnimationFrame(animate);
 
   stars.rotation.x += 0.04;
   stars.rotation.y += 0.04;
