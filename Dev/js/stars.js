@@ -39,28 +39,6 @@ const ambientLight = new THREE.AmbientLight(0x404040);
 scene.add(ambientLight);
 const loader = new GLTFLoader();
 
-loader.load(
-  'models/chest.glb',
-  function (gltf) {
-    model = gltf.scene;
-
-    model.traverse((child) => {
-        //hello!
-    });
-    
-    model.renderOrder = 2;
-
-    // Clone the model
-    clonedModel = model.clone();
-    scene.add(clonedModel);
-    scene.add(model);
-  },
-  undefined,
-  function (error) {
-    console.error(error);
-  }
-);
-
 const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
 scene.add(light);
 camera.position.z = 500
@@ -73,7 +51,6 @@ function animate() {
 
   stars.rotation.x += 0.04;
   stars.rotation.y += 0.04;
-  renderer.render(scene, camera);
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 animate();
