@@ -4,6 +4,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
 canvas {
   position: fixed;
   top: 0;
@@ -12,16 +13,19 @@ canvas {
   background-color: black;
   opacity: 1;
 }
+
 header {
   background-color: #333;
   color: #fff;
   padding: 1em;
   text-align: center;
 }
+
 nav ul {
   list-style: none;
   padding: 0;
 }
+
 nav ul li {
   display: inline;
   margin: 0 10px;
@@ -54,9 +58,11 @@ footer {
   color: #ffff;
   font-size: 50px;
 }
+
 .warningtext {
   color: #ff7b00;
 }
+
 .loading-screen {
     position: fixed;
     z-index: 9999;
@@ -87,10 +93,17 @@ footer {
 #mainContent {
   display: none; /* Initially hide the main content */
 }
+
 .logo {
   position: absolute;
   top: 10px; /* Adjust as per your preference */
   left: 10px; /* Adjust as per your preference */
+}
+
+.name {
+  position: absolute;
+  top: 10px; /* Adjust as per your preference */
+  left: 16px; /* Adjust as per your preference */
 }
 
 @keyframes fadeUpAnimation {
