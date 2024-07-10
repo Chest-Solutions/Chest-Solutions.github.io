@@ -10,10 +10,6 @@ animate();
 function init() {
   scene = new THREE.Scene();
 
-  const textureLoader = new THREE.TextureLoader();
-  const backgroundTexture = textureLoader.load('images/sky.png');
-  scene.background = backgroundTexture; // Set the background to the loaded image texture
-
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 500;
   const directionalLight = new THREE.DirectionalLight(0x8787ff, 1);
