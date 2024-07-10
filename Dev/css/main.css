@@ -52,7 +52,6 @@ footer {
   transform: translateY(20px);
   animation: fadeUpAnimation 1s ease forwards;
   color: #ffff;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 50px;
 }
 
