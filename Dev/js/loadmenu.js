@@ -27,11 +27,11 @@ function load() {
       loadingScreen.style.opacity = 0;
       setTimeout(() => {
         loadingScreen.style.display = 'none';
-      }, 1000);
+      },);
       
       // Show main content
       mainContent.style.display = 'block';
-    }, 2000);
+    },);
   });
 }
 
