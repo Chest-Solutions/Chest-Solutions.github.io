@@ -13,6 +13,7 @@ body {
 }
     
 .welcome {
-  position: relative;
-  text-align: top-center;
+  position: absolute;
+  top: 2.5%;
+  left: 20%;
 }
