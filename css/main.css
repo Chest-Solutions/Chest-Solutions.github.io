@@ -1,1 +1,19 @@
-
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+    
+body {
+  margin: 0;
+}
+    
+.large-text {
+  font-size: 500px; 
+}
+    
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
