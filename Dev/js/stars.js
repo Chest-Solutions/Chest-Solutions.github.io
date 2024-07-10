@@ -43,29 +43,6 @@ const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
 scene.add(light);
 camera.position.z = 500
 
-
-loader.load(
-  'models/chest.glb',
-  function (gltf) {
-    model = gltf.scene;
-
-    model.traverse((child) => {
-        //hello!
-    });
-
-    model.renderOrder = 2;
-
-    // Clone the model
-    clonedModel = model.clone();
-    scene.add(clonedModel);
-    scene.add(model);
-  },
-  undefined,
-  function (error) {
-    console.error(error);
-  }
-);
-
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
