@@ -1,11 +1,14 @@
 function detectWebGLContext() {
   const canvas = document.createElement("canvas");
   const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-  paragraph.textContent =
-  gl instanceof WebGLRenderingContext
-  ? return true || true
-  : return false || false
+
+  if (gl instanceof WebGLRenderingContext) {
+    return true;
+  } else {
+    return false;
+  }
 }
+
 
 window.addEventListener('load', () => {
     const loadingScreen = document.getElementById('loadingScreen');
