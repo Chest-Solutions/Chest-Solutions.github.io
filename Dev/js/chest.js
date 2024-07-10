@@ -11,7 +11,7 @@ function init() {
   scene = new THREE.Scene();
 
   const textureLoader = new THREE.TextureLoader();
-  const backgroundTexture = textureLoader.load('images/sky.png');
+  const backgroundTexture = textureLoader.load('image/sky.png');
   scene.background = backgroundTexture; // Set the background to the loaded image texture
 
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
