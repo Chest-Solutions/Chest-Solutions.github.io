@@ -5,10 +5,14 @@ let scene, camera, renderer;
 let model, clonedModel;
 
 init();
-//animate();
+animate();
 
 function init() {
   scene = new THREE.Scene();
+
+  const textureLoader = new THREE.TextureLoader();
+  const backgroundTexture = textureLoader.load('images/sky.png');
+  scene.background = backgroundTexture; // Set the background to the loaded image texture
 
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 500;
@@ -31,7 +35,7 @@ function init() {
       model.traverse((child) => {
         // Set any special properties for the main model here if needed
       });
-      model.renderOrder = 1;
+      
       // Clone the model
       clonedModel = model.clone();
       scene.add(clonedModel);
@@ -66,20 +70,14 @@ function loadMainWebsite() {
   //scrolldown()
 }
 
-function scroll() {
-  if (model) {
-    console.log("Scroll")
-    model.rotation.y += 0.02
-    model.rotation.x += 0.05;
-    model.rotation.z += 0.01
-    animate()
-  }
-}
-
 // Add event listener for mouse click
 document.addEventListener('mousedown', loadMainWebsite, false);
 function animate() {
-  console.log("Animate")
   requestAnimationFrame(animate);
+  if (model) {
+    model.rotation.y += 0.02
+    model.rotation.x += 0.05;
+    model.rotation.z += 0.01
+  }
   renderer.render(scene, camera);
 }
