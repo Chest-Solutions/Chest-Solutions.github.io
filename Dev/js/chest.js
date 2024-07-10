@@ -5,7 +5,7 @@ let scene, camera, renderer;
 let model, clonedModel;
 
 init();
-animate();
+//animate();
 
 function init() {
   scene = new THREE.Scene();
@@ -71,6 +71,7 @@ function scroll() {
     model.rotation.y += 0.02
     model.rotation.x += 0.05;
     model.rotation.z += 0.01
+    animate()
   }
 }
 
