@@ -10,18 +10,31 @@ function detectWebGLContext() {
 }
 
 
-window.addEventListener('load', () => {
-    const loadingScreen = document.getElementById('loadingScreen');
-    const mainContent = document.getElementById('mainContent');
-  
-    // Set a timeout to gradually hide the loading screen
-    setTimeout(() => {
-      loadingScreen.style.opacity = 0; // Set opacity to 0
+function onReady(callback) {
+  var intervalId = window.setInterval(function() {
+    if (document.getElementsByTagName('body')[0] !== undefined) {
+      window.clearInterval(intervalId);
+      callback.call(this);
+    }
+  }, 1000);
+}
+
+function load() {
+  const loadingScreen = document.getElementById('loadingScreen');
+  const mainContent = document.getElementById('mainContent');
+
+  setTimeout(() => {
+      loadingScreen.style.opacity = 0;
       setTimeout(() => {
-        loadingScreen.style.display = 'none'; // Hide the loading screen after the transition
-      }, 1000); // Wait for the transition duration (in milliseconds)
+        loadingScreen.style.display = 'none';
+      }, 1000);
       
       // Show main content
       mainContent.style.display = 'block';
-    }, 2000); // Delay before starting the transition
+    }, 2000);
   });
+}
+
+onReady(function() {
+  load();
+});
