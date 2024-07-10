@@ -71,8 +71,8 @@ camera.position.z = 500
 function animate() {
   requestAnimationFrame(animate);
 
-  stars.rotation.x += 0.0005;
-  stars.rotation.y += 0.0005;
+  stars.rotation.x += 0.04;
+  stars.rotation.y += 0.04;
   if (model) {
     model.rotation.y += 0.02
     model.rotation.x += 0.05;
