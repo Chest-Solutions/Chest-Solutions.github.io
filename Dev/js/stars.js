@@ -73,12 +73,6 @@ function animate() {
 
   stars.rotation.x += 0.04;
   stars.rotation.y += 0.04;
-  if (model) {
-    model.rotation.y += 0.02
-    model.rotation.x += 0.05;
-    model.rotation.z += 0.01
-  }
-
   renderer.render(scene, camera);
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
