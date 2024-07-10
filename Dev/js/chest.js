@@ -78,10 +78,5 @@ window.onscroll = function (e) {
 document.addEventListener('mousedown', loadMainWebsite, false);
 function animate() {
   requestAnimationFrame(animate);
-  if (model) {
-    model.rotation.y += 0.02
-    model.rotation.x += 0.05;
-    model.rotation.z += 0.01
-  }
   renderer.render(scene, camera);
 }
