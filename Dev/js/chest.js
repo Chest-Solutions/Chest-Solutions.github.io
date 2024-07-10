@@ -68,6 +68,7 @@ function loadMainWebsite() {
 
 function scroll() {
   if (model) {
+    console.log("Scroll")
     model.rotation.y += 0.02
     model.rotation.x += 0.05;
     model.rotation.z += 0.01
@@ -78,6 +79,7 @@ function scroll() {
 // Add event listener for mouse click
 document.addEventListener('mousedown', loadMainWebsite, false);
 function animate() {
+  console.log("Animate")
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
