@@ -7,7 +7,7 @@ function displayMainContent() {
     var mainContent = document.createElement('div');
     
     // Apply a CSS class to increase the text size
-    mainContent.classList.add('medium-text');
+    mainContent.classList.add('small-text');
 
     // Set the text content
     mainContent.textContent = "Chest Solutions"; // Example content - replace this with your actual website content
