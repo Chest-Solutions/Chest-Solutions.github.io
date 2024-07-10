@@ -63,7 +63,7 @@ function loadMainWebsite() {
   }
   // Load the main website's JavaScript dynamically
   var script = document.createElement('script');
-  script.src = 'js/mainwebsite.js'; // Replace with the actual path to your main website's JavaScript file
+  script.src = 'js/main.js'; // Replace with the actual path to your main website's JavaScript file
   document.head.appendChild(script);
   scene.remove(model)
   scene.remove(scene)
