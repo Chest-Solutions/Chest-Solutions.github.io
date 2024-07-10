@@ -14,7 +14,7 @@ body {
     
 .welcome {
   position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translate(-0%, -50%);
+  top: 2%;
+  left: 48%;
+  //transform: translate(top, left);
 }
