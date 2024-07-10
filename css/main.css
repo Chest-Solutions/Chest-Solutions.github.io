@@ -16,5 +16,5 @@ body {
   position: absolute;
   top: 0%;
   left: 50%;
-  transform: translate(top, left);
+  transform: translate(-0%, -50%);
 }
