@@ -66,6 +66,14 @@ function loadMainWebsite() {
   //scrolldown()
 }
 
+window.onscroll = function (e) {
+  if (model) {
+    model.rotation.y += 0.02
+    model.rotation.x += 0.05;
+    model.rotation.z += 0.01
+  }
+}
+
 // Add event listener for mouse click
 document.addEventListener('mousedown', loadMainWebsite, false);
 function animate() {
