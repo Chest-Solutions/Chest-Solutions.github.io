@@ -90,7 +90,7 @@ footer {
 .chestimage {
   position: absolute;
   top: 10px; /* Adjust as per your preference */
-  right: -10px; /* Adjust as per your preference */
+  left: 10px; /* Adjust as per your preference */
 }
 
 @keyframes fadeUpAnimation {
