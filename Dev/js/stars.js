@@ -48,7 +48,7 @@ loader.load(
         //hello!
     });
     
-    model.renderOrder = 1;
+    model.renderOrder = 2;
 
     // Clone the model
     clonedModel = model.clone();
