@@ -104,7 +104,7 @@ footer {
   position: absolute;
   top: 10px; /* Adjust as per your preference */
   left: 85px; /* Adjust as per your preference */
-  font-size: 10px;
+  font-size: 30px;
 }
 
 @keyframes fadeUpAnimation {
