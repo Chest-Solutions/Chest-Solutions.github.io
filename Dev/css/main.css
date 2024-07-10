@@ -87,6 +87,11 @@ footer {
   #mainContent {
     display: none; /* Initially hide the main content */
   }
+  .chestimage {
+    position: absolute;
+    top: 10px; /* Adjust as per your preference */
+    right: 10px; /* Adjust as per your preference */
+  }
 
 @keyframes fadeUpAnimation {
   from {
