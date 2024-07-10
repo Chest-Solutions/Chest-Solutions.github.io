@@ -13,8 +13,6 @@ body {
 }
     
 .welcome {
-  position: absolute;
-  top: 2.5%;
-  left: 20%;
-  //transform: translate(top, left);
+  position: relative;
+  text-align: top-center;
 }
