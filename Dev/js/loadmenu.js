@@ -1,3 +1,5 @@
+import js/webgl.js
+
 window.addEventListener('load', () => {
     const loadingScreen = document.getElementById('loadingScreen');
     const mainContent = document.getElementById('mainContent');
