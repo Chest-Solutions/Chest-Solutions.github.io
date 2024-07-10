@@ -32,7 +32,6 @@ function load() {
       // Show main content
       mainContent.style.display = 'block';
     },);
-  };
 }
 
 onReady(function() {
