@@ -1,3 +1,13 @@
+html {
+  @apply bg-background-light-10 dark:(bg-background-dark-90 text-white) smooth-scroll;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#__next {
+  @apply flex flex-col h-screen;
+}
+
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
