@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+    
+body {
+  margin: 0;
+}
+    
+.large-text {
+  font-size: 500px; 
+}
+    
+.welcome {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 5%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -50px;
+}
