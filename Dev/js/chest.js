@@ -66,7 +66,7 @@ function loadMainWebsite() {
   //scrolldown()
 }
 
-window.onscroll = function (e) {
+function scroll() {
   if (model) {
     model.rotation.y += 0.02
     model.rotation.x += 0.05;
