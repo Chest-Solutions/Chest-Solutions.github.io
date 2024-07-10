@@ -12,8 +12,12 @@ body {
   font-size: 500px; 
 }
     
-.welcome {
-  position: absolute;
-  top: 2.5%;
-  left: 20%;
+.center {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 5%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -50px;
 }
