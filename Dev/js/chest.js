@@ -31,7 +31,7 @@ function init() {
       model.traverse((child) => {
         // Set any special properties for the main model here if needed
       });
-      
+      model.renderOrder = 1;
       // Clone the model
       clonedModel = model.clone();
       scene.add(clonedModel);
