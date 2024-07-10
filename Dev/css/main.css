@@ -100,12 +100,15 @@ footer {
   left: 10px; /* Adjust as per your preference */
 }
 
-.name {
-  position: absolute;
-  top: -5px; /* Adjust as per your preference */
-  left: 85px; /* Adjust as per your preference */
-  font-size: 30px;
-}
+  .name {
+    position: absolute;
+    top: -5px; /* Adjust as per your preference */
+    left: 85px; /* Adjust as per your preference */
+    font-size: 30px;
+    font-family: 'Times New Roman';
+    font-weight: bold;
+    font-style: italic;
+  }
 
 @keyframes fadeUpAnimation {
   from {
