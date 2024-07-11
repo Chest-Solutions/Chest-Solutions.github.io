@@ -129,6 +129,16 @@ footer {
   font-weight: bold;
   font-style: italic;
 }
+
+.icon {
+  background: url('images/chest.png');
+  height: 16px;
+  width: 16px;
+  display: block;
+  /* Other styles here */
+}
+
+
 /*
 .text-blue-500 {
   color: rgb(59 130 246);
