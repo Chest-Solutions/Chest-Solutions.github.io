@@ -130,7 +130,12 @@ footer {
 .text-blue-500 {
   color: rgb(59 130 246);
 }
-
+.text-4xl {
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.5rem; /* 40px */
+}
+.text-5xl {
+}
 @keyframes fadeUpAnimation {
   from {
       opacity: 0;
