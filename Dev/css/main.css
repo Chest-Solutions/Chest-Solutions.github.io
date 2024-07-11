@@ -135,9 +135,8 @@ footer {
   line-height: 1;
 }
 
-.font-medium { 
-  font-weight: 500; 
-}
+.font-medium { font-weight: 500; }
+.leading-normal { line-height: 1.5; }
 
 @keyframes fadeUpAnimation {
   from {
