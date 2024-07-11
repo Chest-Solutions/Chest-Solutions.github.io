@@ -138,6 +138,11 @@ footer {
   font-size: 3rem; /* 48px */
   line-height: 1;
 }
+
+.font-medium { 
+  font-weight: 500; 
+}
+
 @keyframes fadeUpAnimation {
   from {
       opacity: 0;
