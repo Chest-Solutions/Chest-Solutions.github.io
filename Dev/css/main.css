@@ -120,9 +120,6 @@ footer {
   font-weight: bold;
   font-style: italic;
 }
-.text-blue-500 {
-  color: rgb(59 130 246);
-}
 
 @keyframes fadeUpAnimation {
   from {
