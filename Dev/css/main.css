@@ -1,3 +1,5 @@
+/*
+
 @media (min-width: 1024px) {
   .lg\text-base {
     font-size: 1.5rem;
@@ -6,12 +8,10 @@
 
 
 html {
-  /*
   @apply bg-background-light-10 dark:(bg-background-dark-90 text-white) smooth-scroll;
   -webkit-tap-highlight-color: transparent;
-  */
 }
-
+*/
 #__next {
   @apply flex flex-col h-screen;
 }
@@ -116,34 +116,35 @@ footer {
 
 .logo {
   position: absolute;
-  top: 10px; /* Adjust as per your preference */
-  left: 10px; /* Adjust as per your preference */
+  top: 10px;
+  left: 10px;
 }
 
 .name {
   position: absolute;
-  top: -5px; /* Adjust as per your preference */
-  left: 85px; /* Adjust as per your preference */
+  top: -5px;
+  left: 85px;
   font-size: 30px;
   font-family: 'Times New Roman';
   font-weight: bold;
   font-style: italic;
 }
-
+/*
 .text-blue-500 {
   color: rgb(59 130 246);
 }
 .text-4xl {
-  font-size: 2.25rem; /* 36px */
-  line-height: 2.5rem; /* 40px */
+  font-size: 2.25rem; 
+  line-height: 2.5rem; 
 }
 .text-5xl {
-  font-size: 3rem; /* 48px */
+  font-size: 3rem;
   line-height: 1;
 }
 
 .font-medium { font-weight: 500; }
 .leading-normal { line-height: 1.5; }
+*/
 
 @keyframes fadeUpAnimation {
   from {
