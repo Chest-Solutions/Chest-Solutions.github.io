@@ -130,14 +130,11 @@ footer {
   font-style: italic;
 }
 
-.icon {
-  background: url('images/chest.png');
-  height: 16px;
-  width: 16px;
-  display: block;
-  /* Other styles here */
+.modern {
+  position: absolute;
+  top: 60px;
+  left: 10px;
 }
-
 
 /*
 .text-blue-500 {
