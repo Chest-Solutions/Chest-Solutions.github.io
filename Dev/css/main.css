@@ -135,6 +135,8 @@ footer {
   line-height: 2.5rem; /* 40px */
 }
 .text-5xl {
+  font-size: 3rem; /* 48px */
+  line-height: 1;
 }
 @keyframes fadeUpAnimation {
   from {
