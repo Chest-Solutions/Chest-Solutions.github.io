@@ -3,18 +3,11 @@ function displayMainContent() {
         top: document.body.scrollHeight,
         behavior: 'smooth'
     });
-    // Create a container div
-    var mainContent = document.createElement('div');
-    
-    // Apply a CSS class to increase the text size
-    //mainContent.classList.add('small-text');
 
-    // Set the text content
-    mainContent.textContent = "Chest Solutions"; // Example content - replace this with your actual website content
-    
-    // Append the content to the document body
+    var mainContent = document.createElement('div');
+    mainContent.classList.add('main-content');
+    mainContent.textContent = "Chest Solutions";
     document.body.appendChild(mainContent);
 }
 
-// Call the function to display the main website content
 displayMainContent();
