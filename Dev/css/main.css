@@ -1,16 +1,26 @@
+html {
+  @apply bg-background-light-10 dark:(bg-background-dark-90 text-white) smooth-scroll;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#__next {
+  @apply flex flex-col h-screen;
+}
+
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f4f4f4;
+  background-color: rgb(24, 24, 24);
 }
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -1; 
   background-color: black;
   opacity: 1;
 }
@@ -25,31 +35,21 @@ header {
 nav ul {
   list-style: none;
   padding: 0;
-  display: flex;
-  justify-content: center;
 }
 
 nav ul li {
+  display: inline;
   margin: 0 10px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover {
-  color: #ddd;
-}
-
-main {
-  padding: 20px;
-  text-align: center;
 }
 
 section {
-  margin: 20px 0;
+  padding: 20px;
+  text-align: center;
 }
 
 footer {
@@ -57,7 +57,7 @@ footer {
   color: #fff;
   padding: 1em;
   text-align: center;
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
@@ -66,32 +66,68 @@ footer {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUpAnimation 1s ease forwards;
-  color: #333;
-  font-family: 'Arial Narrow Bold', sans-serif;
+  color: #ffff;
+  font-size: 50px;
+}
+
+.warningtext {
+  color: #ff7b00;
+}
+
+.loading-screen {
+    position: fixed;
+    z-index: 9999;
+    background-color: rgb(24, 24, 24);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+  
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+  
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  
+#mainContent {
+  display: none; /* Initially hide the main content */
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.name {
+  position: absolute;
+  top: -5px;
+  left: 85px;
   font-size: 30px;
+  font-family: 'Times New Roman';
+  font-weight: bold;
+  font-style: italic;
 }
 
 @keyframes fadeUpAnimation {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-  }
-  
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  .fade-up {
-    font-size: 24px;
+      opacity: 1;
+      transform: translateY(0);
   }
 }
