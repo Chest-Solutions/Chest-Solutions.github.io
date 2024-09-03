@@ -3,79 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chest Solutions | Open-Source Minecraft Plugins UWU</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1; /* Ensure the canvas is behind everything else */
-            background-color: black;
-            opacity: 1;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUpAnimation 1s ease forwards;
-            color: #ffff;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-size: 50px;
-        }
-
-        @keyframes fadeUpAnimation {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-        }
-        }
-    </style>
+    <title>Chest Solutions - Open Source Plugins</title>
+    <!-- WindiCSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/windicss">
 </head>
-<body>
-    <script type="module" src="js/stars.js" class="canvas"></script>
-    <section class="fade-up">
-        <h1>Welcome to Chest Solutions</h1>
-        <p>Your home for Free, open-source Minecraft plugins</p>
-    </section>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-4xl font-bold text-center">Chest Solutions</h1>
+        <p class="text-center text-lg">Your Home To Free Opensourced Plugins.</p>
+    </header>
+
+    <main class="p-6">
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
+            <p>At Chest Solutions, we aim to create free and open-source plugins that are both powerful and easy to use. Our plugins are designed to be lightweight, fast, and user-friendly.</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Our Plugins</h2>
+            <ul class="list-disc list-inside">
+                <li>ExpandFont - Lets you use Custom Fonts In PlaceholderApi</li>
+                <li>NULL - Easy to Integrate</li>
+                <li>NULL - Open Source</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
+            <p>Reach out to us at <a href="mailto:contact@chestsolutions.com" class="text-blue-500">contact@chestsolutions.com</a></p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2024 Chest Solutions. All rights reserved.</p>
+    </footer>
 </body>
 </html>
