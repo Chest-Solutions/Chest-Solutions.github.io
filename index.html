@@ -6,37 +6,49 @@
     <title>Chest Solutions - Open Source Plugins</title>
 </head>
 <style>
-    @import url("/windi.css");
+    @import url("css/windi.css");
 </style>
-<body class="bg-gray-100 text-gray-900">
-    <header class="bg-blue-600 text-white p-4">
-        <h1 class="text-4xl font-bold text-center">Chest Solutions</h1>
-        <p class="text-center text-lg">Your Home To Free Opensourced Plugins.</p>
+<body class="bg-black text-white font-sans">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 bg-black">
+        <div class="flex items-center">
+            <img src="images/chest.png" alt="Chest Solutions Logo" class="h-10 mr-3">
+            <h1 class="text-xl font-bold">CHEST SOLUTIONS</h1>
+        </div>
+        <nav class="space-x-4">
+            <a href="plugins" class="hover:text-blue-500">Plugins</a>
+            <a href="docs" class="hover:text-blue-500">Docs</a>
+            <a href="team" class="hover:text-blue-500">Team</a>
+            <a href="contribute" class="hover:text-blue-500">Contribute</a>
+        </nav>
+        <div class="space-x-4">
+            <a href="https://discord.gg/MsWqevupwh"><img src="../global_assets/icons/discord.svg" alt="Discord" class="h-6"></a>
+            <a href="#"><img src="../global_assets/icons/github.svg" alt="GitHub" class="h-6"></a>
+        </div>
     </header>
 
-    <main class="p-6">
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
-            <p>At Chest Solutions, we aim to create free and open-source plugins that are both powerful and easy to use. Our plugins are designed to be lightweight, fast, and user-friendly.</p>
-        </section>
-
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Our Plugins</h2>
-            <ul class="list-disc list-inside">
-                <li>ExpandFont - Lets you use Custom Fonts In PlaceholderApi</li>
-                <li>NULL - Easy to Integrate</li>
-                <li>NULL - Open Source</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
-            <p>Reach out to us at <a href="mailto:contact@chestsolutions.com" class="text-blue-500">contact@chestsolutions.com</a></p>
-        </section>
+    <!-- Main Content -->
+    <main class="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:py-24">
+        <div class="md:w-1/2">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Modern Plugins.<br> <span class="text-blue-500">Open Sourced & Free</span></h2>
+            <p class="text-lg mb-6">Chest Solutions Improves the Server Developement Industry by Making High Quality Light Weight Plugins That Are Open</p>
+            <div class="flex space-x-4">
+                <a href="downloads" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Plugins</a>
+                <a href="documentation" class="bg-gray-700 hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded">Documentation</a>
+            </div>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0">
+            <div class="bg-gray-900 rounded-lg p-4 text-sm">
+                <pre class="text-green-400">public class ChestSolutions extends JavaPlugin {<br><span class="text-yellow-500"></span><br>   public boolean onCommand(CommandSender sender, Command command) {<br>      if (sender instanceof Player) {<br>           return false;<br>      } else {<br>      chestsolutions.function.start() }}}</pre>
+            </div>
+        </div>
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-4">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-4" style="margin-top: 20px;">
         <p>&copy; 2024 Chest Solutions. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
