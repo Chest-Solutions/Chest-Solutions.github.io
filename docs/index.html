@@ -18,34 +18,6 @@
         width: 100%;
         bottom: 0;
     }
-        /* Sidebar Styles */
-    .sidebar {
-        position: fixed;
-        top: 50%; /* Center vertically */
-        right: 0;
-        transform: translateY(-50%); /* Offset by half its height */
-        width: 25%; /* Adjusted width (1/4 of the screen) */
-        background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
-        color: white;
-        padding: 20px;
-        border-top-left-radius: 20px; /* Curved top left corner */
-        border-bottom-left-radius: 20px; /* Curved bottom left corner */
-        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .sidebar a {
-        display: block;
-        color: white;
-        padding: 15px;
-        text-decoration: none;
-        font-size: 18px;
-        margin: 10px 0;
-    }
-
-    .sidebar a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-    }
 
     .logo img {
         float: left;
@@ -61,6 +33,41 @@
     body {
         font-family: "Fredoka", sans-serif;
     }
+	
+.spacer-20 {
+  height: 20px;
+  width: 100%;
+}
+
+.spacer-40 {
+	height: 40px;
+	width: 100%;
+}
+
+        /* Styling for the box */
+        .documentation-box {
+            width: 90%px;
+            height: 350px;
+            background-color: #0d0d0d; /* Blue color */
+            border-radius: 12px; /* Rounded corners */
+        }
+
+		/* Styling for the list */
+        .bulletin-list {
+            list-style-type: disc; /* Default bullet points */
+            padding-left: 20px; /* Adding space for bullets */
+        }
+
+        .bulletin-list li {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #ffa53d;
+        }
+
+        .bulletin-list li::before {
+            color: #eb6b34;
+            font-weight: bold;
+        }
   </style>
 
 
@@ -88,19 +95,20 @@
       </div>
     </header>
     <main class="flex-col md:flex-row items-center justify-between px-6 py-12 md:py-24">
-      <sidebar>
-        <div class="sidebar">
-          <h2>Quick Links</h2>
-          <a href="../">Home</a>
-          <a href="#top-of-page">To Top</a>
-        </div>
-      </sidebar>
-      <section id="top-of-page">
-        <h1>Documentation</h1>
-      </section>
-      <content class="docs-content">
-        
-      </content>
+		<h2 class="text-4xl md:text-6xl mb-4 text-center">Documentation</h2>
+	<div class="documentation-box">
+	<p class="text-white text-left py-2 px-4" >Welcome to Chest Solutions, your go-to resource for high-quality, open-source plugins designed to streamline server development. Our mission is to empower developers with modern tools that enhance functionality and performance. Explore our comprehensive documentation to discover how our plugins can elevate your projects. Join our community on Discord to connect with fellow developers, share insights, and stay updated on the latest developments. Contribute to our GitHub repository to help us grow and improve, ensuring that Chest Solutions remains at the forefront of server development innovation.
+</p>
+<!-- LINKS -->
+<div>
+<h2 class="text-4xl md:text-2xl mb-4 text-left px-4" style="color: #eb6b34;">Links</h2>
+	        <ul class="bulletin-list">
+            <li><a href="../docs/expandfonts/">Project 1: ExpandFonts Docs</a></li>
+			</ul>
+</div>
+
+</div>
+
     </main>
     <footer class="bg-gray-900 text-center py-4 copyright-footer" style="margin-top: 197px;">
       <p>&copy; 2025 Chest Solutions. All rights reserved.</p>
