@@ -302,6 +302,10 @@ img {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
