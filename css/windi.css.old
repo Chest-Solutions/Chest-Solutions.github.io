@@ -154,9 +154,6 @@ pre {
 .h-6 {
   height: 1.5rem;
 }
-.h-5 {
-  height: 1.25rem;
-}
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
