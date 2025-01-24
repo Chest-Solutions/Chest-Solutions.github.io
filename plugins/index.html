@@ -13,13 +13,27 @@
     @import url("../global_assets/css/tailwind.css");
 
     .copyright-footer {
-                font-family: 'Fredoka', sans-sherif;
-                text-align: center;
-                padding: 10px 0;
-                position: fixed;
-                width: 100%;
-                bottom: 0;
-        }
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .logo img {
+        float: left;
+    }
+
+    .logo h1 {
+        float: left;
+        position: relative;
+        top: 5px;
+        left: 7px;
+    }
+
+    body {
+        font-family: "Fredoka", sans-serif;
+    }
 </style>
 
 <link rel="icon" type="image/png" href="../global_assets/favicons/favicon-96x96.png" sizes="96x96" />
@@ -31,15 +45,15 @@
 <body class="bg-black text-white font-sans">
         <!-- Header -->
         <header class="flex justify-between items-center p-4 bg-black">
-            <div class="flex items-center">
+            <a class="items-center logo" href="../">
                 <img src="../global_assets/images/chest.png" style="color: #ffffff;" class="h-10"></i>
-                <h1 class="text-xl font-bold gap-4" style="font-family: 'Fredoka', sans-serif;" href="../">CHEST SOLUTIONS</h1>
-            </div>
-            <nav class="flex space-x-4">
+                <h1 class="text-xl font-bold gap-x-4" style="font-family: 'Fredoka', sans-serif;">CHEST SOLUTIONS</h1>
+            </a>
+            <nav class="flex space-x-4 text-lg">
                 <a href="../" class="hover:text-blue-500">Home</a>
-                <a href="/docs" class="hover:text-blue-500">Docs</a>
-                <a href="/team" class="hover:text-blue-500">Team</a>
-                <a href="/contribute" class="hover:text-blue-500">Contribute</a>
+                <a href="../docs" class="hover:text-blue-500">Docs</a>
+                <a href="../team" class="hover:text-blue-500">Team</a>
+                <a href="../contribute" class="hover:text-blue-500">Contribute</a>
             </nav>
             <div class="flex space-x-4">
                 <a href="https://discord.gg/MsWqevupwh"><img src="../global_assets/icons/discord.svg" alt="Discord" class="h-6"></a>
@@ -56,7 +70,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <!-- Plugin Button 1 -->
-            <button href="https://github.com/Chest-Solutions/Expandfont" class="items-start bg-gray-900 hover:bg-gray-800 rounded-lg p-6 focus:outline-none transition duration-200 ease-in-out transform hover:scale-105">
+            <button href="https://github.com/Chest-Solutions/Expandfont" class="flex items-start bg-gray-900 hover:bg-gray-800 rounded-lg p-6 focus:outline-none transition duration-200 ease-in-out transform hover:scale-105">
                 <div class="bg-gray-800 p-4 rounded-lg mr-4 hover:bg-blue-500 transition duration-200 ease-in-out">
                     <a href="https://github.com/Chest-Solutions/Expandfont">
                         <img src="icons/lightning.svg" alt="ExpandFont Plugin Icon" class="h-15 w-15 hover:brightness-125">
@@ -71,7 +85,7 @@
             </button>
 
             <!-- Plugin Button 2 -->
-            <button class="items-start bg-gray-900 hover:bg-gray-800 rounded-lg p-6 focus:outline-none transition duration-200 ease-in-out transform hover:scale-105">
+            <button class="flex items-start bg-gray-900 hover:bg-gray-800 rounded-lg p-6 focus:outline-none transition duration-200 ease-in-out transform hover:scale-105">
                 <div class="bg-gray-800 p-4 rounded-lg mr-4 hover:bg-blue-500 transition duration-200 ease-in-out">
                     <img src="icons/shield-dog.svg" alt="cat Plugin Icon" class="h-15 w-15 hover:brightness-125">
                 </div>
@@ -85,7 +99,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-center py-4 copyright-footer" style="margin-top: 160px;">
+    <footer class="bg-gray-900 text-center py-4 copyright-footer font-bold">
         <p>&copy; 2024 Chest Solutions. All rights reserved.</p>
     </footer>
 

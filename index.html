@@ -12,12 +12,27 @@
         @import url("global_assets/css/tailwind.css");
         
         .copyright-footer {
-                font-family: 'Fredoka', sans-sherif;
+                /* font-family: "Fredoka", sans-serif; */
                 text-align: center;
                 padding: 10px 0;
                 position: fixed;
                 width: 100%;
                 bottom: 0;
+        }
+
+        .logo img {
+            float: left;
+        }
+
+        .logo h1 {
+            float: left;
+            position: relative;
+            top: 5px;
+            left: 7px;
+        }
+
+        body {
+            font-family: "Fredoka", sans-serif;
         }
     </style>
 
@@ -31,11 +46,11 @@
 
         <!-- Header -->
         <header class="flex justify-between items-center p-4 bg-black">
-            <div class="flex items-center">
+            <a class="items-center logo" href="/">
                 <img src="global_assets/images/chest.png" style="color: #ffffff;" class="h-10"></i>
-                <h1 class="text-xl font-bold gap-4" style="font-family: 'Fredoka', sans-sherif">CHEST SOLUTIONS</h1>
-            </div>
-            <nav class="flex space-x-4">
+                <h1 class="text-xl font-bold">CHEST SOLUTIONS</h1>
+            </a>
+            <nav class="flex space-x-4 text-lg">
                 <a href="plugins" class="hover:text-blue-500">Plugins</a>
                 <a href="docs" class="hover:text-blue-500">Docs</a>
                 <a href="team" class="hover:text-blue-500">Team</a>
@@ -57,14 +72,14 @@
                 </div>
             </div>
             <div class="md:w-1/2 mt-8 md:mt-0">
-                <div class="bg-gray-900 rounded-lg p-4 text-sm">
+                <div class="bg-gray-900 rounded-lg p-4">
                     <pre class="text-green-400">public class ChestSolutions extends JavaPlugin {<br><span></span><br class="text-yellow-500">   public boolean onCommand(CommandSender sender, Command command) {<br>      if (sender instanceof Player) {<br>           return false;<br>      } else {<br>      chestsolutions.function.start() }}}</pre>
                 </div>
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 text-center py-4 copyright-footer" style="margin-top: 197px;">
+        <footer class="bg-gray-900 text-center py-4 copyright-footer font-bold">
             <p>&copy; 2025 Chest Solutions. All rights reserved.</p>
         </footer>
 
