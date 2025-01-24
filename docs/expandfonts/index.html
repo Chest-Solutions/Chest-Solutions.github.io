@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpandFonts Docs - Chest Solutions</title>
+
+    <!-- Font Families -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    @import url("../../global_assets/css/tailwind.css");
+
+    .copyright-footer {
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+	
+	/* Sidebar styles */
+.sidebar {
+  width: 13%; /* 2/8 of the screen */
+  height: 100vh; /* Full viewport height */
+  background-color: #0d0d0d; /* Dark background color */
+  color: white; /* White text color */
+  position: fixed; /* Sticks the sidebar to the left */
+  top: 0;
+  left: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 60px;
+  border-radius: 26px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+    .logo img {
+        float: left;
+    }
+
+    .logo h1 {
+        float: left;
+        position: relative;
+        top: 5px;
+        left: 7px;
+    }
+
+    body {
+        font-family: "Fredoka", sans-serif;
+    }
+  </style>
+
+
+  <link rel="icon" type="image/png" href="../../global_assets/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../../global_assets/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="../../global_assets/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../global_assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="../../global_assets/favicons/site.webmanifest" />
+  
+  <body class="text-white bg-black">
+    <header class="flex justify-between items-center p-4 bg-black">
+      <a class="items-center logo" href="../">
+            <img src="../../global_assets/images/chest.png" style="color: #ffffff;" class="h-10"></i>
+            <h1 class="text-xl font-bold gap-x-4">CHEST SOLUTIONS</h1>
+      </a>
+      <nav class="flex space-x-4 text-lg">
+        <a href="../../" class="hover:text-blue-500">Home</a>
+        <a href="../../plugins" class="hover:text-blue-500">Plugins</a>
+        <a href="../../team" class="hover:text-blue-500">Team</a>
+        <a href="../../contribute" class="hover:text-blue-500">Contribute</a>
+      </nav>
+      <div class="flex space-x-4">
+        <a href="https://discord.gg/MsWqevupwh"><img src="../../global_assets/icons/discord.svg" alt="Discord" class="h-6"></a>
+        <a href="https://github.com/chest-solutions"><img src="../../global_assets/icons/github.svg" alt="GitHub" class="h-6"></a>
+      </div>
+    </header>
+    <main class="flex-col md:flex-row items-center justify-between px-6 py-12 md:py-24">
+		<h2 class="text-4xl md:text-6xl mb-4 text-center">ExpandFonts Docs</h2>
+		<div class="sidebar">
+			<ul>
+				<h2 class="text-4xl md:text-4xl font-bold mb-4">Quick Links</h2>
+				<li><a href="#getting_started">Getting Started</a></li>
+				<li><a href="#installation">Installation</a></li>
+				<li><a href="#how_to_use">How to Use</a></li>
+			</ul>
+		</div>
+    </main>
+    <footer class="bg-gray-900 text-center py-4 copyright-footer" style="margin-top: 197px;">
+      <p>&copy; 2025 Chest Solutions. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
