@@ -30,11 +30,6 @@
   --vp-home-hero-image-filter: blur(66px)
 }
 
-.VPHomeHero {
-  margin-top: 3rem !important;
-  margin-bottom: 6rem;
-}
-
 div.VPHero.has-image.VPHomeHero > div > div.image > div > img{
   margin-top: -16px !important;
 
