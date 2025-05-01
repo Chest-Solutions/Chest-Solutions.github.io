@@ -26,7 +26,7 @@ Stay updated and connect with the community:
 
 ## License
 
-Our projects are open-source and available under the [MIT License](https://github.com/Chest-Solutions/Chest-Solutions.github.io/blob/main/LICENSE).
+All of our open-source projects, unless specified, are licensed under the [MIT License](https://github.com/Chest-Solutions/Chest-Solutions.github.io/blob/main/LICENSE).
 
 ---
 
