@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Chest Solutions - Open Source Plugins</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preload" href="https://fonts.gstatic.com/s/fredoka/v16/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWu89U.woff2" as="font" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-" as="style" onload="this.onload=null;this.rel='stylesheet'">
         
-        <link rel="preload stylesheet" href="global_assets/css/tailwind.css" as="style">
-        <link rel="preload" href="global_assets/images/Chest.webp" as="image">
+        <link rel="preload stylesheet" href="/global_assets/css/tailwind.css" as="style">
+        <link rel="preload" href="/global_assets/images/Chest.webp" as="image">
+        <link href="/node_modules/header-footerify/dist/headerFooter.js" rel="preload" as="script">
         
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chest Solutions - Open Source Plugins</title>
         
         <meta name="google-site-verification" content="LMkcxrNI5vP7KNVu1tApmZRld0wUbaH-t4OqDCLSp_c">
         <meta name="description" content="Chest Solutions makes plugins that are open source and free.">
@@ -18,18 +21,9 @@
         <link rel="icon" type="image/svg+xml" href="/global_assets/favicons/favicon.svg">
         <link rel="shortcut icon" href="/global_assets/favicons/favicon.ico">
         <link rel="apple-touch-icon" sizes="180x180" href="/global_assets/favicons/apple-touch-icon.png">
-        <link rel="manifest" href="/global_assets/favicons/site.webmanifest">
+        <link rel="manifest" href="/global_assets/favicons/manifest.json" crossorigin="use-credentials">
         
         <style>
-            /* latin */
-            @font-face {
-                font-family: 'Fredoka';
-                font-weight: 400 700;
-                src: url(https://fonts.gstatic.com/s/fredoka/v16/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWu89U.woff2) format('woff2');
-                font-display: optional;
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-            }
-        
             .copyright-footer {
                 text-align: center;
                 padding: 10px 0;
@@ -42,27 +36,17 @@
                 font-family: "Fredoka", sans-serif;
             }
         </style>
+
+        <script src="/node_modules/header-footerify/dist/headerFooter.js"></script>
+        <script>
+            insertHeaderFooter("/global_assets/html/header.html", "/global_assets/html/footer.html")
+        </script>
     </head>
     
     <body class="bg-black text-white font-sans">
-
         <!-- Header -->
-        <banner class="justify-between items-center p-4 bg-black flex">
-            <a class="flex items-center" href="/">
-                <img alt="Chest Solutions Logo" src="global_assets/images/Chest.webp" style="width: 32px;height: 32px;" class="h-10" tabindex=0>
-                <h1 class="text-xl font-bold flex">CHEST SOLUTIONS</h1>
-            </a>
-            <navigation class="space-x-4 text-lg flex">
-                <a href="plugins" class="hover:text-blue-500" tabindex=1>Plugins</a>
-                <a href="docs" class="hover:text-blue-500" tabindex=2>Docs</a>
-                <a href="team" class="hover:text-blue-500" tabindex=3>Team</a>
-                <a href="contribute" class="hover:text-blue-500" tabindex=4>Contribute</a>
-            </navigation>
-            <div class="space-x-4 flex">
-                <a href="https://discord.gg/MsWqevupwh"><img src="global_assets/icons/discord.svg" alt="Discord" class="h-6" style="width: 32px;height: 32px;" tabindex=5></a>
-                <a href="https://github.com/chest-solutions"><img src="global_assets/icons/github.svg" alt="GitHub" class="h-6" style="width: 32px;height: 32px;" tabindex=6></a>
-            </div>
-        </banner>
+        <header class="justify-between items-center p-4 bg-black flex">
+        </header>
         <!-- Main Content -->
         <main class="items-center justify-between px-6 py-12 md:py-24 flex">
             <div class="md:w-1/2">
@@ -73,35 +57,14 @@
                 </h2>
                 <p class="text-lg mb-6">Chest Solutions Makes Server Developement Easier By Making High Quality Open Source Plugins.</p>
                 <div class="flex space-x-4">
-                    <a href="plugins" style="background-color: rgb(18, 69, 225)" class="hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded" tabindex=7>Plugins</a>
-                    <a href="docs" class="bg-gray-700 hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded" tabindex=8>Documentation</a>
+                    <a href="plugins" style="background-color: rgb(18, 69, 225)" class="hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Plugins</a>
+                    <a href="docs" class="bg-gray-700 hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded">Documentation</a>
                 </div>
             </div>
-            
-            <div class="md:w-1/2 mt-8 md:mt-0 flex">
-                <div class="bg-gray-900 rounded-lg p-8">
-                    <pre>
-                        <!--class="text-green-400"-->
-                        <!--class="text-yellow-500"-->
-                        <span>public class ChestSolutions extends JavaPlugin { </span>
-                        <span>    public boolean onCommand(CommandSender sender, Command command) { </span>
-                                    if (sender instanceof Player) {
-                                        return false;
-                                    } else {
-                                        chestsolutions.function.start() 
-                                    }
-                                }
-                            }
-                    </pre>
-                </div>
-            </div>
-            
         </main>
 
         <!-- Footer -->
-        <contentinfo class="bg-gray-900 text-center py-4 copyright-footer font-bold">
-            <p>&copy; 2025 Chest Solutions. All rights reserved.</p>
-        </contentinfo>
-
+        <footer class="bg-gray-900 text-center py-4 copyright-footer font-bold">
+        </footer>
     </body>
 </html>

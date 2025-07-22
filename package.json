@@ -1,0 +1,15 @@
+{
+  "name": "chest-solutions.github.io",
+  "version": "1.0.0",
+  "description": "Welcome to Chest Solutions! We specialize in creating high-quality, open-source plugins to enhance server development.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "header-footerify": "^1.0.0"
+  }
+}
