@@ -1,91 +1,86 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docs - Chest Solutions</title>
 
-    <!-- Font Families -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <link rel="preload stylesheet" href="/global_assets/css/tailwind.css" as="style">
     <link rel="preload" href="/global_assets/images/Chest.webp" as="image">
-  </head>
-  <style>
-    .copyright-footer {
+    <link href="/node_modules/header-footerify/dist/headerFooter.js" rel="preload" as="script">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="google-site-verification" content="LMkcxrNI5vP7KNVu1tApmZRld0wUbaH-t4OqDCLSp_c">
+    <meta name="description" content="Chest Solutions makes plugins that are open source and free.">
+
+    <link rel="icon" type="image/png" href="/global_assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/global_assets/favicons/favicon.svg">
+    <link rel="shortcut icon" href="/global_assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/global_assets/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/global_assets/favicons/manifest.json" crossorigin="use-credentials">
+
+    <script src="/node_modules/header-footerify/dist/headerFooter.js"></script>
+    <script>
+      insertHeaderFooter("/global_assets/html/header.html", "/global_assets/html/footer.html")
+    </script>
+
+    <style>
+      .copyright-footer {
         text-align: center;
+        margin-top: 197px;
         padding: 10px 0;
         position: fixed;
         width: 100%;
         bottom: 0;
-    }
+      }
 
-    .logo img {
+      .logo img {
         float: left;
-    }
+      }
 
-    .logo h1 {
+      .logo h1 {
         float: left;
         position: relative;
         top: 5px;
         left: 7px;
-    }
+      }
 
-    body {
+      body {
         font-family: "Fredoka", sans-serif;
-    }
-    /* Styling for the box */
-    .documentation-box {
-      width: 90%px;
-      height: 350px;
-      background-color: #0d0d0d; /* Blue color */
-      border-radius: 12px; /* Rounded corners */
-    }
+      }
+      /* Styling for the box */
+      .documentation-box {
+        width: 90%;
+        height: 350px;
+        background-color: #0d0d0d; /* Blue color */
+        border-radius: 12px; /* Rounded corners */
+      }
 
-    /* Styling for the list */
-    .bulletin-list {
-      list-style-type: disc; /* Default bullet points */
-      padding-left: 20px; /* Adding space for bullets */
-    }
+      /* Styling for the list */
+      .bulletin-list {
+        list-style-type: disc; /* Default bullet points */
+        padding-left: 20px; /* Adding space for bullets */
+      }
 
-    .bulletin-list li {
-      margin: 10px 0;
-      font-size: 18px;
-      color: #ffa53d;
-    }
+      .bulletin-list li {
+        margin: 10px 0;
+        font-size: 18px;
+        color: #ffa53d;
+      }
 
-    .bulletin-list li::before {
-      color: #eb6b34;
-      font-weight: bold;
-    }
-  </style>
+      .bulletin-list li::before {
+        color: #eb6b34;
+        font-weight: bold;
+      }
+    </style>
+  </head>
 
-
-  <link rel="icon" type="image/png" href="../global_assets/favicons/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="../global_assets/favicons/favicon.svg" />
-  <link rel="shortcut icon" href="../global_assets/favicons/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../global_assets/favicons/apple-touch-icon.png" />
-  <link rel="manifest" href="../global_assets/favicons/manifest.json" />
-  
   <body class="text-white bg-black">
-  <header class="justify-between items-center p-4 bg-black flex">
-    <a class="flex items-center" href="/">
-      <img alt="Chest Solutions Logo" src="/global_assets/images/Chest.webp" style="width: 32px;height: 32px;" class="h-10" tabindex=0>
-      <h1 class="text-xl font-bold flex">CHEST SOLUTIONS</h1>
-    </a>
-    <nav class="space-x-4 text-lg flex">
-      <a href="/" class="hover:text-blue-500">Home</a>
-      <a href="/plugins" class="hover:text-blue-500">Plugins</a>
-      <a href="/team" class="hover:text-blue-500">Team</a>
-      <a href="/contribute" class="hover:text-blue-500">Contribute</a>
-    </nav>
-    <div class="space-x-4 flex">
-      <a href="https://discord.gg/MsWqevupwh"><img src="/global_assets/icons/discord.svg" alt="Discord" class="h-6" style="width: 32px;height: 32px;"></a>
-      <a href="https://github.com/chest-solutions"><img src="/global_assets/icons/github.svg" alt="GitHub" class="h-6" style="width: 32px;height: 32px;"></a>
-    </div>
-  </header>
+  <header class="justify-between items-center p-4 bg-black flex"></header>
     <main class="flex-col md:flex-row items-center justify-between px-6 py-12 md:py-24">
 		<h2 class="text-4xl md:text-6xl mb-4 text-center">Documentation</h2>
 	<div class="documentation-box">
@@ -102,8 +97,6 @@
 </div>
 
     </main>
-    <footer class="bg-gray-900 text-center py-4 copyright-footer" style="margin-top: 197px;">
-      <p>&copy; 2025 Chest Solutions. All rights reserved.</p>
-    </footer>
+    <footer class="bg-gray-900 text-center py-4 copyright-footer"></footer>
   </body>
 </html>
