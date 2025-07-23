@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Welcome to Chest Solutions! We specialize in creating high-quality, open-source plugins to enhance server development.",
   "directories": {
-    "doc": "docs",
+    "doc": "docs"
    },
   "scripts": {
     "docs:dev": "vitepress dev docs/config",
