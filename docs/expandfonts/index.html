@@ -5,7 +5,7 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 	<link rel="preload stylesheet" href="/global_assets/css/tailwind.css" as="style">
 	<link rel="preload" href="/global_assets/images/Chest.webp" as="image">
@@ -27,86 +27,21 @@
 	<script>
 		insertHeaderFooter("/global_assets/html/header.html", "/global_assets/html/footer.html")
 	</script>
-
-	<style>
-		.copyright-footer {
-			text-align: center;
-			margin-top: 197px;
-			padding: 10px 0;
-			position: fixed;
-			width: 100%;
-			bottom: 0;
-		}
-
-		/* Sidebar styles */
-		.sidebar {
-			width: 11%; /* 2/8 of the screen */
-			height: 100vh; /* Full viewport height */
-			background-color: #0d0d0d; /* Dark background color */
-			color: white; /* White text color */
-			position: fixed; /* Sticks the sidebar to the left */
-			top: 0;
-			left: 0;
-			padding: 20px;
-			box-sizing: border-box;
-			margin-top: 60px;
-			border-radius: 26px;
-		}
-
-		.sidebar ul {
-			list-style: none;
-			padding: 0;
-		}
-
-		.sidebar li {
-			margin-bottom: 15px;
-		}
-
-		.sidebar a {
-			color: white;
-			text-decoration: none;
-			font-size: 16px;
-			transition: all 0.3s ease; /* Smooth hover transition */
-		}
-
-		.sidebar a:hover {
-			text-decoration: underline;
-			color: #eb6b34; /* Accent color */
-			background-color: #333333; /* Highlight background on hover */
-			padding: 5px 10px; /* Add some padding for a "button-like" effect */
-			border-radius: 5px; /* Rounded corners */
-		}
-
-		.logo img {
-			float: left;
-		}
-
-		.logo h1 {
-			float: left;
-			position: relative;
-			top: 5px;
-			left: 7px;
-		}
-
-		body {
-			font-family: "Comfortaa", sans-serif;
-		}
-	  </style>
   </head>
 
-  <body class="text-white bg-black">
-    <header class="flex justify-between items-center p-4 bg-black">
-    </header>
+  <body class="bg-[#111111] text-white font-['Comfortaa']">
+    <header></header>
+
     <main class="flex-col md:flex-row items-center justify-between px-6 py-12 md:py-24">
-		<div class="sidebar">
-			<ul>
-				<h2 class="text-lg md:text-4xl font-bold mb-4">Quick Links</h2>
-				<li><a href="#getting_started">Getting Started</a></li>
-				<li><a href="#installation">Installation</a></li>
-				<li><a href="#how_to_use">How to Use</a></li>
-				<li><a href="#faq">FAQ</a></li>
-				<li><a href="#troubleshooting">Troubleshooting</a></li>
-				<li><a href="#advanced_features">Advanced Features</a></li>
+		<div class="w-[14%] h-[100vh] bg-[#090909] fixed top-0 left-0 p-[20px] box-border mt-[60px]">
+			<ul class="list-none p-0">
+				<li class="text-lg md:text-4xl font-bold mb-4">Quick Links</li>
+				<li class="mb-[15px]"><a href="#getting_started" class="transition-all duration-300 ease-initial rounded-sm hover:underline hover:bg-zinc-800 hover:text-orange-500 hover:p-[10px]">Getting Started</a></li>
+				<li class="mb-[15px]"><a href="#installation" class="transition-all duration-300 ease-initial rounded-sm hover:underline hover:bg-zinc-800 hover:text-orange-500 hover:p-[10px]">Installation</a></li>
+				<li class="mb-[15px]"><a href="#how_to_use" class="transition-all duration-300 ease-initial rounded-sm hover:underline hover:bg-zinc-800 hover:text-orange-500 hover:p-[10px]">How to Use</a></li>
+				<li class="mb-[15px]"><a href="#faq" class="transition-all duration-300 ease-initial rounded-sm hover:underline hover:bg-zinc-800 hover:text-orange-500 hover:p-[10px]">FAQ</a></li>
+				<li class="mb-[15px]"><a href="#troubleshooting" class="transition-all duration-300 ease-initial rounded-sm hover:underline hover:bg-zinc-800 hover:text-orange-500 hover:p-[10px]">Troubleshooting</a></li>
+				<li class="mb-[15px]"><a href="#advanced_features" class="transition-all duration-300 ease-initial rounded-sm hover:underline hover:bg-zinc-800 hover:text-orange-500 hover:p-[10px]">Advanced Features</a></li>
 			</ul>
 		</div>
 		<h2 class="text-4xl md:text-6xl mb-4 text-center">ExpandFonts Docs</h2>
@@ -252,8 +187,8 @@
 		</div>
 	
 	</main>
-    <footer class="bg-gray-900 text-center py-4 copyright-footer font-bold">
-    </footer>
+
+    <footer></footer>
 
   	<script>
 		document.querySelectorAll('.faq-question').forEach(button => {
