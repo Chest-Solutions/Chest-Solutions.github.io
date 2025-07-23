@@ -26,14 +26,6 @@
 	<script src="/node_modules/header-footerify/dist/headerFooter.js"></script>
 	<script>
 		insertHeaderFooter("/global_assets/html/header.html", "/global_assets/html/footer.html")
-
-		document.querySelectorAll('.toggle-btn').forEach(button => {
-			button.addEventListener('click', () => {
-				const answer = button.parentElement.nextElementSibling;
-				answer.classList.toggle('hidden'); // Show/hide the answer
-				button.textContent = answer.classList.contains('hidden') ? '+' : '−'; // Change button symbol
-			});
-		});
 	</script>
 
 	<style>
@@ -262,5 +254,15 @@
 	</main>
     <footer class="bg-gray-900 text-center py-4 copyright-footer">
     </footer>
+
+  	<script>
+		document.querySelectorAll('.toggle-btn').forEach(button => {
+			button.addEventListener('click', () => {
+				const answer = button.parentElement.nextElementSibling;
+				answer.classList.toggle('hidden'); // Show/hide the answer
+				button.textContent = answer.classList.contains('hidden') ? '+' : '−'; // Change button symbol
+			});
+		});
+	</script>
   </body>
 </html>
