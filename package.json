@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "header-footerify": "^1.0.0"
+    "@tailwindcss/cli": "^4.1.11",
+    "header-footerify": "^1.0.0",
+    "tailwindcss": "^4.1.11"
   }
 }
