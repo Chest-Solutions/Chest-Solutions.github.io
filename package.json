@@ -10,19 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.11",
     "header-footerify": "^1.0.0"
-  },
-  "main": "index.js",
-  "devDependencies": {
-    "tailwindcss": "^4.1.11"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Chest-Solutions/Chest-Solutions.github.io.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Chest-Solutions/Chest-Solutions.github.io/issues"
-  },
-  "homepage": "https://github.com/Chest-Solutions/Chest-Solutions.github.io#readme"
+  }
 }
