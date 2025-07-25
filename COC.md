@@ -22,7 +22,7 @@ Project maintainers are responsible for ensuring a safe and welcoming environmen
 
 ## Reporting Issues
 
-If you witness or experience unacceptable behavior, please report it by emailing us at [support@chest-solutions.com](mailto:support@chest-solutions.com). All reports will be handled with confidentiality.
+If you witness or experience unacceptable behavior, please report it by DMing anmvc or RedSnicker on discord. All reports will be handled with confidentiality.
 
 ## Enforcement
 
