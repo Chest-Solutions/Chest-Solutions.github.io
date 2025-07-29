@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-    <a class="flex items-center" href="/">
-        <img alt="Chest Solutions Logo" src="/global_assets/images/Chest.webp" style="width: 32px;height: 32px;" class="h-10" tabindex=0>
-        <h1 class="text-xl font-bold flex">CHEST SOLUTIONS</h1>
+<body class="flex items-center justify-between px-4 py-2">
+    <!-- Logo & Title -->
+    <a class="flex items-center space-x-2" href="/">
+        <img alt="Chest Solutions Logo" src="/global_assets/images/Chest.webp" style="width: 28px; height: 28px;" class="h-8">
+        <h1 class="text-lg font-bold">CHEST SOLUTIONS</h1>
     </a>
-    <nav class="space-x-4 text-lg flex">
-        <a href="/downloads" class="hover:text-blue-500">Downloads</a>
+
+    <!-- Navigation Links -->
+    <nav class="flex items-center space-x-3 text-sm">
+        <a href="/downloads" class="flex items-center gap-1 hover:text-blue-500">
+            <span>Downloads</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+        </a>
         <a href="/docs" class="hover:text-blue-500">Docs</a>
         <a href="/team" class="hover:text-blue-500">Team</a>
-        <a href="/contribute" class="hover:text-blue-500">Contribute</a>
+        <!--<a href="/contribute" class="hover:text-blue-500">Contribute</a>-->
     </nav>
-    <div class="space-x-4 flex">
-        <a href="https://discord.gg/MsWqevupwh"><img src="/global_assets/icons/discord.svg" alt="Discord" class="h-6" style="width: 32px;height: 32px;"></a>
-        <a href="https://github.com/chest-solutions"><img src="/global_assets/icons/github.svg" alt="GitHub" class="h-6" style="width: 32px;height: 32px;"></a>
+
+    <!-- Social Icons -->
+    <div class="flex items-center space-x-2 ml-2">
+        <a href="https://discord.gg/MsWqevupwh">
+            <img src="/global_assets/icons/discord.svg" alt="Discord" class="w-5 h-5">
+        </a>
+        <a href="https://github.com/chest-solutions">
+            <img src="/global_assets/icons/github.svg" alt="GitHub" class="w-5 h-5">
+        </a>
     </div>
 </body>
 </html>
