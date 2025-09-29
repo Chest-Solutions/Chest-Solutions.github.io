@@ -1,43 +1,17 @@
-// Function to fetch and insert header and footer content
-function insertHeaderFooter(headerUrl, footerUrl) {
-    document.addEventListener("DOMContentLoaded", function () {
-        // Fetch and insert the header content
-        fetch(headerUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Failed to load header from ${headerUrl}`);
-                }
-                return response.text();
+// headerFooter.js
+function insertHeaderFooter(headerPath, footerPath) {
+    const loadContent = (selector, path) => {
+        fetch(path)
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector(selector).innerHTML = data;
             })
-            .then(headerContent => {
-                const header = document.querySelector("header");
-                if (header) {
-                    header.innerHTML = headerContent;
-                } else {
-                    console.error("Header element not found on the page.");
-                }
-            })
-            .catch(error => console.error(error));
+            .catch(error => console.error('Error loading content:', error));
+    };
 
-        // Fetch and insert the footer content
-        fetch(footerUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Failed to load footer from ${footerUrl}`);
-                }
-                return response.text();
-            })
-            .then(footerContent => {
-                const footer = document.querySelector("footer");
-                if (footer) {
-                    footer.innerHTML = footerContent;
-                } else {
-                    console.error("Footer element not found on the page.");
-                }
-            })
-            .catch(error => console.error(error));
-    });
+    loadContent('header', headerPath);
+    loadContent('footer', footerPath);
 }
 
-// Exporting the function for use in other scripts
-export { insertHeaderFooter };
+// Attach the function to the global window object
+window.insertHeaderFooter = insertHeaderFooter;
