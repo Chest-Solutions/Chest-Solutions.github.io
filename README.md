@@ -1,33 +1,16 @@
-# Chest Solutions
+# React + Vite
 
-Welcome to Chest Solutions! We specialize in creating high-quality, open-source plugins to enhance server development.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Our Plugins
+Currently, two official plugins are available:
 
-- **ExpandFont**: A Minecraft plugin for PlaceholderAPI that allows the use of custom fonts in placeholders.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- **Rino AC**: A fast and efficient Minecraft plugin based on Grim AC, designed to prevent players from using cheats. (Currently in beta)
+## React Compiler
 
-## Documentation
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Comprehensive documentation for our plugins is available on our [website](https://chest-solutions.github.io/docs).
+## Expanding the ESLint configuration
 
-## Contributing
-
-We welcome contributions from the community. If you're interested in contributing, please visit our [contribute page](https://chest-solutions.github.io/contribute) or by reading the Code of Conduct; [COC.md](https://github.com/Chest-Solutions/Chest-Solutions.github.io/blob/main/COC.md), and the [CONTRIBUTE.md](https://github.com/Chest-Solutions/Chest-Solutions.github.io/blob/main/CONTRIBUTE.md)!
-
-## Connect with Us
-
-Stay updated and connect with the community:
-
-- **Discord**: [Join our Discord server](https://discord.gg/hhAxBTatCM)
-
-- **GitHub**: [Explore our repositories](https://github.com/Chest-Solutions)
-
-## License
-
-All of our open-source projects, unless specified, are licensed under the [MIT License](https://github.com/Chest-Solutions/Chest-Solutions.github.io/blob/main/LICENSE).
-
----
-
-© 2025 Chest Solutions. All rights reserved.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
