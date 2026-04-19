@@ -27,22 +27,19 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className="fixed top-0 w-full z-50 glass"
+      className="fixed top-0 w-full z-50 bg-neutral-900 rounded-b-2xl"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-10">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center group">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <img 
-                src="/chest.png" 
+                src="/chest_short.png" 
                 alt="Chest Solutions" 
-                className="h-8 w-8 rounded-lg shadow-lg" 
+                className="h-8 w-20 shadow-lg" 
                 onError={(e) => {e.target.style.display='none'}} 
               />
             </motion.div>
-            <span className="font-bold text-lg tracking-tight group-hover:text-brand-blue transition-colors duration-300">
-                CHEST SOLUTIONS
-            </span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">

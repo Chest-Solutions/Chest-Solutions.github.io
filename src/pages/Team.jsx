@@ -65,7 +65,7 @@ const Team = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
           >
-            <h2 className="text-2xl font-bold mb-6 text-blue-400 border-b border-white/10 pb-2 inline-block">{role}</h2>
+            <h2 className="text-2xl font-bold mb-6 text-white border-b border-white/10 pb-2 inline-block">{role}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {members.map(member => (
                 <TeamMember key={member.name} member={member} />

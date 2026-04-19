@@ -20,7 +20,7 @@ const NavLink = ({ to, children, isExternal = false }) => {
 };
 
 const Footer = () => (
-  <footer className="border-t border-white/10 py-12 bg-black relative z-10">
+  <footer className="border-t border-white/10 py-12 bg-black relative z-90">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
       <div className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
         <img 

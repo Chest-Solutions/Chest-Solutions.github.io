@@ -23,10 +23,9 @@ const Privacy = () => (
       animate={{ opacity: 1, y: 0 }}
       className="mb-16 border-b border-white/10 pb-8"
     >
-      <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+      <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-center">
         Privacy Policy
       </h1>
-      <p className="text-gray-400 text-lg">We respect your privacy</p>
     </motion.div>
 
     <div className="relative">
