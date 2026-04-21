@@ -36,7 +36,6 @@ const Team = () => {
     { name: "Anmvc", role: "Founders", avatar: "https://cdn.discordapp.com/avatars/926199368518864966/de989e4d21de854a95968be1a90a45f9.png?size=1024", github: "https://github.com/anmvc", discord: "anmvc" },
     { name: "Lammy12k", role: "Staffs", avatar: "https://images-ext-1.discordapp.net/external/aKmhMALysXXHzvU7V7hm4aUU5vFlqNe-870kXb_QWNI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1334287928473551008/dad7e655ad762b8ee8b77780945fbf7c.png?format=webp&quality=lossless", github: "https://github.com/KyfStore11k", discord: "lammy12k" },
     { name: "Maiminhdung", role: "Contributors", avatar: "https://avatars.githubusercontent.com/u/99890979?v=4", github: "https://github.com/maiminhdung" },
-    { name: "FelixFoxxy", role: "Contributors", avatar: "https://images-ext-1.discordapp.net/external/9iZffzZedl32jJyYxY5mbeKAAqW6_V_ZPsNDjF81dTI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/416648572382216192/d3b4b2a318652a77cb4e6f62c4c07549.png?format=webp&quality=lossless&width=788&height=788", github: "https://github.com/felixfoxxy", discord: "felixfoxxy"}
   ];
 
   const grouped = teamMembers.reduce((acc, member) => {
