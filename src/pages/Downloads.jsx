@@ -153,14 +153,6 @@ const Downloads = () => {
       status: "Prealpha",
       icon: "plugins/foliamines.png",
     },
-    {
-      title: "RinoAC",
-      desc: "RinoAC is a minecraft anti-cheat plugin based on GrimAC, Designed to have little to no False positives.",
-      link: "https://github.com/Chest-Solutions/Rino-AC",
-      color: "#f6853a",
-      status: "Alpha",
-      icon: "plugins/rinoac2.png",
-    },
   ];
 
   return (
