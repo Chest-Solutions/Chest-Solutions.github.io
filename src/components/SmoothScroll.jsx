@@ -6,12 +6,12 @@ const SmoothScroll = ({ children }) => {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 0.2,
-      easing: (t) => Math.min(2, 2.001 - Math.pow(3, -11 * t)),
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 0.1,
-      touchMultiplier: 0.2,
+      touchMultiplier: 0.4,
     });
 
     function raf(time) {
