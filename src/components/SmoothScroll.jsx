@@ -6,7 +6,7 @@ const SmoothScroll = ({ children }) => {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 0.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      easing: (t) => Math.min(2, 2.001 - Math.pow(3, -11 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
