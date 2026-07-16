@@ -5,12 +5,8 @@ import { BookOpen, Shield, Bomb, X, Download, ChevronDown } from "lucide-react";
 
 const mockData = {
   FoliaMines: {
-    versions: ['1.20.4', '1.20.3', '1.20.2', '1.20.1', '1.19.4', '1.19.3'],
-    software: ['Folia', 'Paper', 'Spigot', 'Bukkit'],
-  },
-  RinoAC: {
-    versions: ['1.20.4', '1.20.3', '1.20.2', '1.19.4'],
-    software: ['Paper', 'Spigot'],
+    versions: {'1.21.11', '1.21.10', '1.21.9', '1.21.8', '1.21.7', '1.21.6', '1.21.5', '1.21.4', '1.21.3', '1.21.2', '1.21.1', '1.21', '1.20.5','1.20.4'],
+    software: ['Folia', 'Paper'],
   },
 };
 
