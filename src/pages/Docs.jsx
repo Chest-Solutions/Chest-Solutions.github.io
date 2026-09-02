@@ -57,6 +57,21 @@ export default function Docs() {
           )
         })}
       </div>
+
+      <Reveal delay={0.24}>
+        <p className="mt-12 text-sm leading-relaxed text-neutral-400">
+          Something missing? Ask in{' '}
+          <a
+            href="https://discord.gg/MsWqevupwh"
+            target="_blank"
+            rel="noreferrer"
+            className="text-white underline decoration-white/30 underline-offset-4 transition-colors duration-300 hover:decoration-white"
+          >
+            Discord
+          </a>{' '}
+          or open an issue on the repository.
+        </p>
+      </Reveal>
     </div>
   )
 }
