@@ -1,0 +1,58 @@
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import Downloads from './pages/Downloads.jsx'
+import Docs from './pages/Docs.jsx'
+import ExpandFontDocs from './pages/ExpandFontDocs.jsx'
+import Team from './pages/Team.jsx'
+import NotFound from './pages/NotFound.jsx'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
+function RoutedContent() {
+  const location = useLocation()
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.main
+        key={location.pathname}
+        initial={{ opacity: 0, y: 12, filter: 'blur(8px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        exit={{ opacity: 0, y: -8, filter: 'blur(8px)' }}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        className="flex-1"
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/downloads" element={<Downloads />} />
+          <Route path="/docs" element={<Docs />} />
+          <Route path="/docs/expandfonts" element={<ExpandFontDocs />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </motion.main>
+    </AnimatePresence>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="flex min-h-screen flex-col bg-neutral-800 text-white">
+        <Header />
+        <RoutedContent />
+        <Footer />
+      </div>
+    </BrowserRouter>
+  )
+}

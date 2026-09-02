@@ -1,15 +1,24 @@
 {
-  "name": "chest-solutions.github.io",
+  "name": "chest-solutions-site",
+  "private": true,
   "version": "1.0.0",
-  "description": "Welcome to Chest Solutions! We specialize in creating high-quality, open-source plugins to enhance server development.",
-  "directories": {
-    "doc": "docs"
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/copy404.mjs",
+    "preview": "vite preview"
   },
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "header-footerify": "^1.0.0"
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.11.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@vitejs/plugin-react": "^5.1.1",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.2.4"
   }
 }
