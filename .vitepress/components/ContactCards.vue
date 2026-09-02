@@ -3,21 +3,21 @@ const channels = [
   {
     title: 'Discord server',
     desc: 'Chat with the developers, report bugs, get help, or show off what you built.',
-    color: '#9d8fff',
+    color: '#7cc2fb',
     link: 'https://discord.gg/MsWqevupwh',
     icon: 'discord',
   },
   {
     title: 'Email',
     desc: "We don't have one yet — the Discord is the fastest way to reach us.",
-    color: '#8fe8ff',
+    color: '#a9d9ff',
     link: 'https://discord.gg/MsWqevupwh',
     icon: 'mail',
   },
   {
     title: 'Contribute',
     desc: 'Open issues or submit pull requests on our GitHub organization.',
-    color: '#59d8ff',
+    color: '#4aa8f0',
     link: 'https://github.com/Chest-Solutions',
     icon: 'github',
   },
@@ -33,7 +33,7 @@ const channels = [
       target="_blank"
       rel="noopener noreferrer"
       class="group relative flex h-full flex-col rounded-3xl border border-white/8 bg-ink-900 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
-      :style="{ background: `linear-gradient(225deg, ${c.color}14 0%, transparent 45%)` }"
+      :style="{ background: `${c.color}0d` }"
     >
       <div
         class="mb-6 w-fit rounded-2xl border border-white/10 bg-white/5 p-3.5"

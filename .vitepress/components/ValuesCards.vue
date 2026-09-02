@@ -45,7 +45,7 @@ const values = [
               class="h-full w-full object-cover opacity-90 mix-blend-screen transition-transform duration-700 group-hover:scale-105"
             />
             <div
-              class="absolute inset-0 bg-linear-to-t from-ink-900 via-transparent to-transparent"
+              class="absolute inset-0 bg-ink-900/45"
             />
           </div>
           <div class="p-7">

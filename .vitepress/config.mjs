@@ -42,9 +42,14 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      host: '0.0.0.0',
+      // Allow sandbox/preview hosts during local development.
+      allowedHosts: ['.e2b.app', 'localhost'],
+    },
   },
   themeConfig: {
-    logo: '/brand/mark-square.png',
+    logo: '/brand/mark-square.svg',
     siteTitle: 'chest solutions',
     nav: [
       { text: 'MoParticles', link: '/moparticles/' },
