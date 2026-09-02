@@ -25,7 +25,7 @@ const features = [
 
 <template>
   <section class="bleed">
-    <div class="site-container pt-24 md:pt-32">
+    <div class="site-container pt-24 pb-16 md:pt-32 md:pb-24">
       <div class="mb-16 text-center">
         <span
           class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium tracking-wide text-brand-300"
