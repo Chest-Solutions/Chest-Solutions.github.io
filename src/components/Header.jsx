@@ -78,7 +78,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <img src="/chest.svg" alt="" className="h-6 w-6" />
+          <img src="/img/chest.png" alt="" className="h-6 w-6" />
           <span className="text-[15px] font-semibold tracking-tight">Chest Solutions</span>
         </Link>
 

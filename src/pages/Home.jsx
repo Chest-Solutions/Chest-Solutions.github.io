@@ -26,6 +26,15 @@ export default function Home() {
             Documentation
           </Link>
         </div>
+        <div className="mt-16 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10">
+          <img
+            src="/img/hero-sunset.webp"
+            alt="Minecraft world at sunset over the water"
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        </div>
       </Reveal>
     </section>
   )

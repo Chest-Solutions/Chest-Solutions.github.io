@@ -4,18 +4,21 @@ export const products = [
     description: 'Renders custom resource pack fonts inside your placeholders.',
     href: 'https://github.com/Chest-Solutions/Expandfont',
     status: null,
+    image: '/img/glyphs.webp',
   },
   {
     name: 'FoliaMines',
     description: 'A fast and lightweight mines plugin for Folia and Paper.',
     href: 'https://github.com/Chest-Solutions/FoliaMines',
     status: 'Pre-alpha',
+    image: '/img/mining.webp',
   },
   {
     name: 'RinoAC',
     description: 'A fast Minecraft anticheat with little to no false positives.',
     href: 'https://github.com/Chest-Solutions/Rino-AC',
     status: 'Alpha',
+    image: '/img/arena.webp',
   },
 ]
 

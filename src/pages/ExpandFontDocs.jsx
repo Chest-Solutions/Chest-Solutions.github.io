@@ -88,6 +88,15 @@ export default function ExpandFontDocs() {
             <p className="mt-3 text-neutral-400">
               A PlaceholderAPI expansion that renders custom resource pack fonts inside placeholders.
             </p>
+            <div className="mt-8 aspect-[16/7] w-full overflow-hidden rounded-2xl border border-white/10">
+              <img
+                src="/img/glyphs.webp"
+                alt="Coloured glyphs from the Minecraft enchanting table"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </Reveal>
 
           <div className="mt-14 space-y-14">
