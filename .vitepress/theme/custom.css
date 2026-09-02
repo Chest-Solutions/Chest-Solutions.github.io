@@ -9,12 +9,15 @@
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, sans-serif;
 
-  /* Surfaces */
-  --color-ink-950: #060b12;
-  --color-ink-900: #0b131d;
-  --color-ink-800: #111c28;
-  --color-ink-700: #1a2735;
-  --color-ink-600: #263547;
+  /* Surfaces — a cool near-neutral, not navy. These used to sit at 30-50%
+     saturation (a distinctly blue #060b12); the page read blue behind the
+     brand accents, so the scale keeps its lightness and ~212° hue but drops
+     to ~15-33% saturation. Brand blues are untouched — they are accents. */
+  --color-ink-950: #080c10;
+  --color-ink-900: #101519;
+  --color-ink-800: #171c22;
+  --color-ink-700: #212730;
+  --color-ink-600: #2d343d;
 
   /* Brand — light blue */
   --color-brand-200: #d3ecff;
@@ -34,16 +37,16 @@
      block of overrides rather than a second stylesheet. Values below are the
      light defaults; `.dark` (further down) swaps in the dark palette. */
   --color-surface: #ffffff;
-  --color-surface-2: #f4f7fb;
-  --color-line: rgba(6, 11, 18, 0.12);
-  --color-line-strong: rgba(6, 11, 18, 0.24);
-  --color-fill: rgba(6, 11, 18, 0.04);
-  --color-fill-strong: rgba(6, 11, 18, 0.08);
-  --color-heading: #060b12;
+  --color-surface-2: #f5f6f8;
+  --color-line: rgba(15, 20, 26, 0.12);
+  --color-line-strong: rgba(15, 20, 26, 0.24);
+  --color-fill: rgba(15, 20, 26, 0.04);
+  --color-fill-strong: rgba(15, 20, 26, 0.08);
+  --color-heading: var(--color-ink-950);
   --color-body: #3d4757;
   --color-muted: #5c6879;
   --color-accent: #1f6cae;
-  --color-grid: rgba(6, 11, 18, 0.05);
+  --color-grid: rgba(15, 20, 26, 0.05);
 
   --animate-float: float 7s ease-in-out infinite;
 
@@ -61,8 +64,8 @@
 /* Light palette is the default above; this is the dark side of every token.
    Unlayered, so it beats the `:root` block Tailwind emits inside @layer theme. */
 .dark {
-  --color-surface: #0b131d;
-  --color-surface-2: rgba(6, 11, 18, 0.8);
+  --color-surface: var(--color-ink-900);
+  --color-surface-2: color-mix(in srgb, var(--color-ink-950) 80%, transparent);
   --color-line: rgba(255, 255, 255, 0.08);
   --color-line-strong: rgba(255, 255, 255, 0.2);
   --color-fill: rgba(255, 255, 255, 0.05);
@@ -127,10 +130,10 @@ html.dark {
 }
 
 .dark {
-  --vp-c-bg: #060b12;
-  --vp-c-bg-alt: #0b131d;
-  --vp-c-bg-elv: #111c28;
-  --vp-c-bg-soft: #111c28;
+  --vp-c-bg: var(--color-ink-950);
+  --vp-c-bg-alt: var(--color-ink-900);
+  --vp-c-bg-elv: var(--color-ink-800);
+  --vp-c-bg-soft: var(--color-ink-800);
 
   --vp-c-brand-1: #7cc2fb;
   --vp-c-brand-2: #a9d9ff;
@@ -199,8 +202,8 @@ h6.font-display {
 }
 
 .dark {
-  --vp-nav-bg-color: rgba(6, 11, 18, 0.85);
-  --vp-nav-screen-bg-color: rgba(6, 11, 18, 0.95);
+  --vp-nav-bg-color: color-mix(in srgb, var(--color-ink-950) 85%, transparent);
+  --vp-nav-screen-bg-color: color-mix(in srgb, var(--color-ink-950) 95%, transparent);
 }
 
 .VPNavBar {
