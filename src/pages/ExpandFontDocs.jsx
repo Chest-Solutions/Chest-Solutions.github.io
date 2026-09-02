@@ -118,14 +118,14 @@ export default function ExpandFontDocs() {
                 <ol className="list-decimal space-y-3 pl-5 text-sm leading-relaxed text-neutral-400">
                   <li>Open your server panel (Pterodactyl, Pelican, etc.).</li>
                   <li>
-                    Download the latest expandfont.jar from the{' '}
+                      Download the latest expandfont.jar from the{' '}
                     <a
                       href="https://github.com/Chest-Solutions/Expandfont/tree/main/expandfont/out/artifacts/expandfont_jar"
                       target="_blank"
                       rel="noreferrer"
                       className="text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
                     >
-                      releases
+                      artifacts
                     </a>
                     .
                   </li>
