@@ -56,6 +56,16 @@ body {
 }
 
 @layer components {
+  /* Brand-colored social hover states. Kept as explicit classes so they
+     always override the neutral gray link color. */
+  .social-modrinth {
+    @apply text-neutral-400 transition-colors duration-300 hover:text-[#1bd96a];
+  }
+
+  .social-discord {
+    @apply text-neutral-400 transition-colors duration-300 hover:text-[#5865F2];
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:bg-neutral-200;
   }
