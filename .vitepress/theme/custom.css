@@ -97,7 +97,7 @@ html {
 }
 
 .aurora-text {
-  background: linear-gradient(100deg, var(--color-brand-300) 0%, var(--color-aqua-300) 100%);
+  background: linear-gradient(100deg, var(--color-brand-300) 35%, var(--color-aqua-300) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -135,8 +135,8 @@ html {
   display: flex;
   align-items: center;
   background:
-    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(124, 107, 255, 0.22), transparent 70%),
-    radial-gradient(ellipse 40% 35% at 80% 60%, rgba(89, 216, 255, 0.08), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(124, 107, 255, 0.1), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 80% 60%, rgba(89, 216, 255, 0.04), transparent 70%),
     var(--vp-c-bg);
 }
 
@@ -189,7 +189,7 @@ html {
 }
 
 .hero-aurora {
-  background: linear-gradient(100deg, var(--color-brand-300) 0%, var(--color-aqua-300) 100%);
+  background: linear-gradient(100deg, var(--color-brand-300) 35%, var(--color-aqua-300) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -9,7 +9,7 @@ const latest = {
 <template>
   <div class="my-8 overflow-hidden rounded-[28px] border border-white/10 bg-ink-900">
     <div
-      class="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_15%_0%,rgba(124,107,255,0.14),transparent_60%)]"
+      class="absolute inset-0 bg-[radial-gradient(ellipse_55%_60%_at_15%_0%,rgba(124,107,255,0.07),transparent_60%)]"
     />
     <div class="relative flex flex-col gap-8 p-8 sm:flex-row sm:items-start">
       <img
@@ -47,7 +47,7 @@ const latest = {
             :href="latest.url"
             class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
             style="
-              background: linear-gradient(100deg, var(--color-brand-500), var(--color-aqua-500));
+              background: linear-gradient(100deg, var(--color-brand-500) 45%, var(--color-aqua-500));
               box-shadow: 0 0 24px rgba(124, 107, 255, 0.35);
             "
           >

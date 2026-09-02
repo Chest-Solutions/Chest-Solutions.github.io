@@ -58,7 +58,7 @@ const features = [
 
         <div class="relative">
           <div
-            class="absolute -inset-8 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_30%,rgba(124,107,255,0.18),transparent_65%)]"
+            class="absolute -inset-8 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_30%,rgba(124,107,255,0.09),transparent_65%)]"
           />
           <div
             class="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900 shadow-2xl shadow-brand-600/10"
