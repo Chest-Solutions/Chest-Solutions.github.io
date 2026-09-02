@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   title: 'Chest Solutions',
   description:
-    'Free, open-source software for Minecraft servers. MoParticles brings Bedrock-style MoLang particle effects to Paper.',
+    'Chest Solutions is a community-driven, open-source group making free software for Minecraft servers. Our first project, MoParticles, brings Bedrock-style MoLang particle effects to Paper.',
   lang: 'en-US',
   base: '/',
   outDir: 'dist',
@@ -28,7 +28,8 @@ export default defineConfig({
       'meta',
       {
         property: 'og:description',
-        content: 'Free, open-source software for Minecraft servers. Start with MoParticles.',
+        content:
+          'Chest Solutions — free, open-source software for Minecraft servers, built in the open by the community.',
       },
     ],
     ['meta', { property: 'og:type', content: 'website' }],

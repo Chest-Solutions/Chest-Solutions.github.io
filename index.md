@@ -2,27 +2,27 @@
 layout: Home
 title: Chest Solutions
 hero:
-  name: 'MoLang particles,'
-  text: '<span class="hero-aurora">on Paper.</span>'
-  tagline: "Chest Solutions makes free, open-source plugins for Minecraft servers. MoParticles bakes Bedrock's MoLang particle effects into animations that run on Java — no client mod, no custom protocol."
+  name: 'Chest Solutions'
+  text: '<span class="hero-aurora">Free software for Minecraft servers.</span>'
+  tagline: "We're a community-driven, open-source group making plugins and tools for server owners — no paywalls, no client mods, no strings. Our first release is MoParticles, a MoLang particle plugin for Paper."
   actions:
     - theme: brand
-      text: Download
+      text: Browse downloads
       link: /downloads
     - theme: alt
-      text: Docs
-      link: /moparticles/
+      text: Meet the team
+      link: /team
 features:
-  - icon: '✨'
-    title: Speaks MoLang
-    details: Drop in Bedrock particle JSON files — the bundled examples come from SnowStorm.
-    link: /moparticles/particles
-  - icon: '📦'
-    title: Vanilla item displays
-    details: Animations play with vanilla item displays. No client mod, no custom protocol.
-    link: /moparticles/
-  - icon: '🎨'
-    title: Automatic resource pack
-    details: Textures are synthesized and a resource pack is generated on boot.
-    link: /moparticles/getting-started
+  - icon: '🔓'
+    title: Open source, always
+    details: Every line we ship lives on GitHub. Read it, fork it, improve it — pull requests welcome.
+    link: https://github.com/Chest-Solutions
+  - icon: '🧩'
+    title: Made for Paper
+    details: Our plugins drop straight into your plugins/ folder — no client mods, no custom protocols, no setup rituals.
+    link: /downloads
+  - icon: '🤝'
+    title: Community-driven
+    details: Discord feedback and GitHub issues shape what we build next. Your server, your say.
+    link: /contact
 ---
