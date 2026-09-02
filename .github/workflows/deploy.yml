@@ -1,82 +1,23 @@
-#name: Build and Deploy to GitHub Pages
-#
-#on:
-#  push:
-#    branches: ["main"]
-#  workflow_dispatch:
-#
-#permissions:
-#  contents: write
-#
-#concurrency:
-#  group: "pages"
-#  cancel-in-progress: true
-#
-#jobs:
-#  build-and-deploy:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Node.js
-#        uses: actions/setup-node@v4
-#        with:
-#          node-version: "22"
-#          cache: "npm"
-#
-#      - name: Install dependencies
-#        run: npm ci
-#
-#      - name: Build project
-#        run: npm run build
-#
-#      # GitHub Pages for this repo is configured to serve the main branch
-#      # (Settings > Pages), so the built site is committed back to the
-#      # repository root. Identical rebuilds produce no diff, which is what
-#      # stops this from re-triggering itself forever.
-#      - name: Commit built site to main
-#        run: |
-#          git config user.name "github-actions[bot]"
-#          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-#          # Drop hashed bundles from the previous deploy, then lay the new
-#          # build over the repo root.
-#          git rm -rq assets 2>/dev/null || true
-#          cp -a dist/. ./
-#          git add -A
-#          if git diff --cached --quiet; then
-#            echo "Build output unchanged — nothing to deploy."
-#            exit 0
-#          fi
-#          git commit -qm "Deploy VitePress build"
-#          git push origin HEAD:main
-#
-name: Deploy in-dev to /indev
+name: Build and Deploy to GitHub Pages
 
-# This file lives on `main`: for push events, GitHub reads workflow files
-# from the default branch, so pushes to `in-dev` run this workflow even
-# though the file is not in in-dev.
 on:
   push:
-    branches: ["in-dev"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# Separate concurrency group so this never cancels the main site's deploy.
 concurrency:
-  group: "in-dev"
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout in-dev
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: in-dev
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -87,21 +28,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # in-dev's App.jsx has no router basename and its build script has no
-      # --base flag, so the app would render its 404 page at /indev. Patch
-      # the runner's copy only (in-dev and main source stay untouched):
-      #  - router basename comes from Vite's BASE_URL (/indev when built
-      #    with --base=/indev/, / in the main build)
-      #  - logo assets use BASE_URL too, so they load from /indev/
-      # The grep check fails loudly if in-dev is ever refactored so the
-      # patch no longer applies.
-      - name: Patch SPA for /indev (runner copy only)
-        run: |
-          sed -i 's@<BrowserRouter>@<BrowserRouter basename={import.meta.env.BASE_URL.replace(/\\/$/, "") || "/"}>@' src/App.jsx
-          sed -i 's@src="/chest.svg"@src={import.meta.env.BASE_URL + "chest.svg"}@' src/components/Header.jsx src/components/Footer.jsx
-          grep -q 'basename=' src/App.jsx
-
       - name: Build project
+        run: npm run build
+
+      # GitHub Pages for this repo is configured to serve the main branch
+      # (Settings > Pages), so the built site is committed back to the
+      # repository root. Identical rebuilds produce no diff, which is what
+      # stops this from re-triggering itself forever.
+      - name: Commit built site to main
         run: |
-          npm exec -- vite build --base=/indev/ --outDir dist
-          cp -f dist/index.html dist/404.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Drop hashed bundles from the previous deploy, then lay the new
+          # build over the repo root.
+          git rm -rq assets 2>/dev/null || true
+          cp -a dist/. ./
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Build output unchanged — nothing to deploy."
+            exit 0
+          fi
+          git commit -qm "Deploy VitePress build"
+          git push origin HEAD:main
