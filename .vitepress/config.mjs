@@ -44,7 +44,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   themeConfig: {
-    logo: '/brand/mark-square.png',
+    logo: '/brand/mark-square.svg',
     siteTitle: 'chest solutions',
     nav: [
       { text: 'MoParticles', link: '/moparticles/' },

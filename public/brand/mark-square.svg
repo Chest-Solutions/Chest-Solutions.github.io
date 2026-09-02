@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Chest Solutions">
+  <defs>
+    <linearGradient id="cs-g" x1="0" y1="8" x2="118" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8b7bff"/>
+      <stop offset="1" stop-color="#3ecbff"/>
+    </linearGradient>
+    <mask id="cs-cut">
+      <rect width="128" height="128" fill="#fff"/>
+      <!-- negative-space band -->
+      <rect x="4" y="58" width="120" height="9" fill="#000"/>
+      <!-- negative-space clasp notch -->
+      <rect x="54" y="50" width="20" height="25" rx="6" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#cs-cut)">
+    <!-- lid -->
+    <path d="M18 62V50c0-13.8 20.6-24 46-24s46 10.2 46 24v12z" fill="url(#cs-g)"/>
+    <!-- body -->
+    <path d="M18 62h92v29a11 11 0 0 1-11 11H29a11 11 0 0 1-11-11z" fill="url(#cs-g)"/>
+  </g>
+  <!-- clasp -->
+  <rect x="58" y="54" width="12" height="17" rx="3.5" fill="url(#cs-g)"/>
+</svg>
