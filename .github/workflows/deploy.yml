@@ -7,15 +7,13 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -33,57 +31,22 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./dist"
-
-  # Also publish to the gh-pages branch so the site works whether
-  # Settings > Pages is set to deploy from a branch (this repo's old
-  # setup) or from GitHub Actions.
-  deploy-gh-pages:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build project
-        run: npm run build
-
-      - name: Push dist to gh-pages branch
+      # GitHub Pages for this repo is configured to serve the main branch
+      # (Settings > Pages), so the built site is committed back to the
+      # repository root. Identical rebuilds produce no diff, which is what
+      # stops this from re-triggering itself forever.
+      - name: Commit built site to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf gh-pages-deploy
-          mkdir gh-pages-deploy
-          cp -a dist/. gh-pages-deploy/
-          cd gh-pages-deploy
-          git init -q
+          # Drop hashed bundles from the previous deploy, then lay the new
+          # build over the repo root.
+          git rm -rq assets 2>/dev/null || true
+          cp -a dist/. ./
           git add -A
-          git commit -qm "Deploy VitePress build ($(git -C .. log -1 --format=%h))"
-          git branch -M gh-pages
-          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
-
-  deploy-pages:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if git diff --cached --quiet; then
+            echo "Build output unchanged — nothing to deploy."
+            exit 0
+          fi
+          git commit -qm "Deploy VitePress build"
+          git push origin HEAD:main
