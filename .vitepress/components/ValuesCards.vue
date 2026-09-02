@@ -29,11 +29,11 @@ const values = [
         </p>
       </div>
 
-      <div class="mx-auto grid max-w-3xl gap-6 md:grid-cols-3">
+      <div class="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="v in values"
           :key="v.title"
-          class="group mx-auto aspect-square w-full max-w-56 overflow-hidden rounded-3xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
+          class="group mx-auto aspect-3/2 w-full max-w-72 overflow-hidden rounded-3xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
         >
           <div
             class="flex h-full flex-col items-center justify-center gap-3 p-7 text-center"
