@@ -7,7 +7,7 @@ const latest = {
 </script>
 
 <template>
-  <div class="my-8 overflow-hidden rounded-[28px] border border-white/10 bg-ink-900">
+  <div class="my-8 overflow-hidden rounded-[28px] border border-line bg-surface">
     <div class="relative flex flex-col gap-8 p-8 sm:flex-row sm:items-start">
       <img
         src="/brand/moparticles.png"
@@ -16,14 +16,14 @@ const latest = {
       />
       <div class="min-w-0">
         <div class="flex flex-wrap items-center gap-3">
-          <h2 class="font-display text-2xl font-semibold text-white sm:text-3xl">MoParticles</h2>
+          <h2 class="font-display text-2xl font-semibold text-heading sm:text-3xl">MoParticles</h2>
           <span
-            class="rounded-full border border-aqua-400/30 bg-aqua-400/10 px-3 py-1 text-xs font-semibold text-aqua-300"
+            class="rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-accent"
           >
             {{ latest.version }}
           </span>
         </div>
-        <p class="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+        <p class="mt-3 max-w-xl text-sm leading-relaxed text-body sm:text-base">
           A Paper plugin that parses MoLang — Bedrock's particle language — bakes the result into a
           Java-compatible animation using item displays, and generates a resource pack with the
           necessary textures.
@@ -33,7 +33,7 @@ const latest = {
           <span
             v-for="b in ['Java 21+', 'Paper 1.21.x', 'Shaded all-in-one jar']"
             :key="b"
-            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-400"
+            class="inline-flex items-center gap-2 rounded-full border border-line bg-fill px-3.5 py-1.5 text-xs font-medium text-body"
           >
             {{ b }}
           </span>
@@ -42,7 +42,7 @@ const latest = {
         <div class="mt-7 flex flex-wrap gap-3">
           <a
             :href="latest.url"
-            class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
+            class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink-950 transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
             style="
               background: var(--color-brand-500);
               box-shadow: 0 0 20px rgba(74, 168, 240, 0.22);
@@ -57,13 +57,13 @@ const latest = {
             href="https://github.com/Chest-Solutions/MoParticles"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-white/10 active:scale-[0.98]"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-6 py-3 text-sm font-semibold text-heading backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-fill-strong active:scale-[0.98]"
           >
             GitHub
           </a>
           <a
             href="/moparticles/getting-started"
-            class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-white/10 active:scale-[0.98]"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-6 py-3 text-sm font-semibold text-heading backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-fill-strong active:scale-[0.98]"
           >
             Install guide
           </a>

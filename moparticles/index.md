@@ -1,6 +1,6 @@
 # MoParticles
 
-MoParticles is a Paper plugin that brings **Bedrock-style particle effects to Java Edition**. It parses **MoLang** particle definitions — the same JSON format used by Bedrock and the [SnowStorm](https://github.com/SkyFabriK/snowstorm) effect ecosystem — and converts them into smooth, Java-compatible animations rendered with vanilla **item displays**.
+MoParticles is a Paper plugin that brings **Bedrock-style particle effects to Java Edition**. It parses **MoLang** particle definitions — the same JSON format used by Bedrock and the [SnowStorm](https://github.com/JannisX11/snowstorm) effect ecosystem — and converts them into smooth, Java-compatible animations rendered with vanilla **item displays**.
 
 No client mod. No custom protocol. No configuration to get started.
 
@@ -31,7 +31,7 @@ flowchart LR
 
 ## Included effects
 
-Three effects ship with the plugin, extracted from [SnowStorm](https://github.com/SkyFabriK/snowstorm):
+Three effects ship with the plugin, extracted from [SnowStorm](https://github.com/JannisX11/snowstorm):
 
 | Effect ID | Description |
 | --- | --- |

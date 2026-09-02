@@ -11,6 +11,11 @@ plugin that brings Bedrock-style MoLang particle effects to Java Edition.
 The entire site — landing page and documentation — is a single [VitePress](https://vitepress.dev)
 project styled with [Tailwind CSS v4](https://tailwindcss.com). One build, one theme, one look.
 
+Images are compressed at build time by
+[vite-plugin-image-optimizer](https://www.npmjs.com/package/vite-plugin-image-optimizer) — every
+file in `public/` plus any imported asset, using [sharp](https://sharp.pixelplumbing.com) for
+rasters and [SVGO](https://svgo.dev) for SVGs. Nothing to run by hand: `npm run build` does it.
+
 ## Development
 
 ```bash
@@ -28,6 +33,10 @@ npm run preview
 # lint
 npm run lint
 ```
+
+Optimized images are cached in `node_modules/.cache/vite-plugin-image-optimizer/`. The cache
+directory is named after a hash of `public/`, so edited images are recompressed automatically —
+if you ever need a hard reset, delete that folder.
 
 ## Structure
 

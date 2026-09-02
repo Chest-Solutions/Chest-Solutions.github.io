@@ -1,16 +1,32 @@
 // Lightweight particle field: glowing motes drifting upward.
 // One pre-rendered glow sprite per color, then drawImage per frame.
-const COLORS = [
-  [74, 168, 240],
-  [124, 194, 251],
-  [169, 217, 255],
-  [255, 255, 255],
-]
+//
+// Two palettes, because the two themes need opposite things: on the dark page
+// the motes are drawn additively (`lighter`) in near-white blue, which is
+// invisible on a white page — additive blending against white is a no-op. On
+// the light page we switch to plain `source-over` and deeper blues instead.
+const PALETTES = {
+  dark: [
+    [74, 168, 240],
+    [124, 194, 251],
+    [169, 217, 255],
+    [255, 255, 255],
+  ],
+  light: [
+    [47, 138, 214],
+    [31, 108, 174],
+    [90, 160, 220],
+    [122, 186, 236],
+  ],
+}
 
 let active = null
 
-function makeSprites() {
-  return COLORS.map(([r, g, b]) => {
+// VitePress keeps the current appearance as a `.dark` class on <html>.
+const isDark = () => document.documentElement.classList.contains('dark')
+
+function makeSprites(dark) {
+  return (dark ? PALETTES.dark : PALETTES.light).map(([r, g, b]) => {
     const size = 64
     const c = document.createElement('canvas')
     c.width = size
@@ -35,7 +51,11 @@ export function mountParticleField(host) {
   canvas.className = 'particle-field'
   host.appendChild(canvas)
   const ctx = canvas.getContext('2d')
-  const sprites = makeSprites()
+
+  // Theme-dependent state; rebuilt whenever the appearance flips.
+  let dark = isDark()
+  let sprites = makeSprites(dark)
+  let composite = dark ? 'lighter' : 'source-over'
 
   let width = 0
   let height = 0
@@ -48,7 +68,7 @@ export function mountParticleField(host) {
     r: Math.random() * 2.2 + 0.8,
     vx: (Math.random() - 0.5) * 0.14,
     vy: -(Math.random() * 0.4 + 0.1),
-    c: (Math.random() * COLORS.length) | 0,
+    c: (Math.random() * PALETTES.dark.length) | 0,
     a: Math.random() * 0.5 + 0.12,
     tw: Math.random() * Math.PI * 2,
     tws: Math.random() * 0.02 + 0.004,
@@ -70,7 +90,7 @@ export function mountParticleField(host) {
 
   const draw = () => {
     ctx.clearRect(0, 0, width, height)
-    ctx.globalCompositeOperation = 'lighter'
+    ctx.globalCompositeOperation = composite
     for (const p of particles) {
       p.tw += p.tws
       p.x += p.vx
@@ -105,11 +125,25 @@ export function mountParticleField(host) {
   window.addEventListener('resize', onResize)
   document.addEventListener('visibilitychange', onVisibility)
 
+  // Re-tint the field when the theme toggle flips `.dark` on <html>.
+  const observer = new MutationObserver(() => {
+    const next = isDark()
+    if (next === dark) return
+    dark = next
+    sprites = makeSprites(dark)
+    composite = dark ? 'lighter' : 'source-over'
+  })
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  })
+
   active = {
     destroy() {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', onResize)
       document.removeEventListener('visibilitychange', onVisibility)
+      observer.disconnect()
       canvas.remove()
     },
   }

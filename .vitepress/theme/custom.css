@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+/* VitePress switches themes by toggling a `.dark` class on <html> — it does not
+   follow prefers-color-scheme — so `dark:` utilities have to key off that class
+   instead of Tailwind's default media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, sans-serif;
@@ -23,6 +28,23 @@
   --color-aqua-400: #93cdfb;
   --color-aqua-500: #5fb4f2;
 
+  /* ---------- Semantic, theme-aware tokens ----------
+     Every component colour goes through one of these instead of a hardcoded
+     `text-white` / `bg-ink-900` / `border-white/10`, so light mode is one
+     block of overrides rather than a second stylesheet. Values below are the
+     light defaults; `.dark` (further down) swaps in the dark palette. */
+  --color-surface: #ffffff;
+  --color-surface-2: #f4f7fb;
+  --color-line: rgba(6, 11, 18, 0.12);
+  --color-line-strong: rgba(6, 11, 18, 0.24);
+  --color-fill: rgba(6, 11, 18, 0.04);
+  --color-fill-strong: rgba(6, 11, 18, 0.08);
+  --color-heading: #060b12;
+  --color-body: #3d4757;
+  --color-muted: #5c6879;
+  --color-accent: #1f6cae;
+  --color-grid: rgba(6, 11, 18, 0.05);
+
   --animate-float: float 7s ease-in-out infinite;
 
   @keyframes float {
@@ -36,28 +58,49 @@
   }
 }
 
+/* Light palette is the default above; this is the dark side of every token.
+   Unlayered, so it beats the `:root` block Tailwind emits inside @layer theme. */
+.dark {
+  --color-surface: #0b131d;
+  --color-surface-2: rgba(6, 11, 18, 0.8);
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.2);
+  --color-fill: rgba(255, 255, 255, 0.05);
+  --color-fill-strong: rgba(255, 255, 255, 0.1);
+  --color-heading: #ffffff;
+  --color-body: #a1a1aa;
+  --color-muted: #71717a;
+  --color-accent: #a9d9ff;
+  --color-grid: rgba(255, 255, 255, 0.06);
+}
+
 html {
-  background-color: var(--color-ink-950);
+  background-color: var(--vp-c-bg);
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 ::selection {
   background: rgba(74, 168, 240, 0.35);
-  color: #fff;
+  color: var(--color-heading);
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ink-950);
+  background: var(--vp-c-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-ink-700);
+  background: var(--color-line-strong);
   border-radius: 8px;
-  border: 2px solid var(--color-ink-950);
+  border: 2px solid var(--vp-c-bg);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ink-600);
+  background: var(--color-muted);
 }
 
 /* ---------- Chest Solutions brand (VitePress vars) ---------- */
@@ -76,6 +119,11 @@ html {
   --vp-button-brand-border: transparent;
   --vp-button-brand-hover-border: transparent;
   --vp-button-brand-active-border: transparent;
+  /* VitePress defaults these to white, which is ~2.5:1 against the brand blue.
+     Dark ink reads cleanly on every state of the button, in both themes. */
+  --vp-button-brand-text: var(--color-ink-950);
+  --vp-button-brand-hover-text: var(--color-ink-950);
+  --vp-button-brand-active-text: var(--color-ink-950);
 }
 
 .dark {
@@ -136,12 +184,21 @@ h6.font-display {
 }
 
 .aurora-text {
-  color: var(--color-brand-300);
+  color: var(--color-accent);
 }
 
 /* ---------- Nav ---------- */
 
+/* Light values live on :root, dark ones on .dark — VitePress reads both from
+   the same custom properties, so one hardcoded dark value used to leave the
+   navbar (and the mobile menu) near-black on the light page. */
 :root {
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.82);
+  --vp-nav-screen-bg-color: rgba(255, 255, 255, 0.96);
+  --vp-local-nav-bg-color: var(--vp-nav-bg-color);
+}
+
+.dark {
   --vp-nav-bg-color: rgba(6, 11, 18, 0.85);
   --vp-nav-screen-bg-color: rgba(6, 11, 18, 0.95);
 }
@@ -149,7 +206,7 @@ h6.font-display {
 .VPNavBar {
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--color-line);
 }
 
 .VPNavBarTitle .site-name {
@@ -158,7 +215,9 @@ h6.font-display {
   letter-spacing: -0.01em;
 }
 
-.VPNavBarTitle img.logo {
+/* `screen` only reads correctly on the dark page — on a light navbar it blends
+   the mark away to nothing. */
+html.dark .VPNavBarTitle img.logo {
   mix-blend-mode: screen;
 }
 
@@ -216,8 +275,8 @@ h6.font-display {
   z-index: 0;
   opacity: 0.14;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
   background-size: 56px 56px;
   opacity: 0.08;
 }
@@ -229,6 +288,46 @@ h6.font-display {
   width: 100%;
   height: 100%;
   pointer-events: none;
+
+  /* Fade the motes out on all four edges instead of letting them pop in and
+     out of existence at the boundary. The vertical fade is the deep one — the
+     hero is a full viewport tall, so the hard cut-off at the top is the edge
+     you actually see; the sides only get a light vignette. Two mask layers
+     (one per axis) composited with `intersect` give the box-shaped falloff. */
+  --field-fade-y: 26%;
+  --field-fade-x: 10%;
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 var(--field-fade-y),
+      #000 calc(100% - var(--field-fade-y)),
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0,
+      #000 var(--field-fade-x),
+      #000 calc(100% - var(--field-fade-x)),
+      transparent 100%
+    );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 var(--field-fade-y),
+      #000 calc(100% - var(--field-fade-y)),
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0,
+      #000 var(--field-fade-x),
+      #000 calc(100% - var(--field-fade-x)),
+      transparent 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 .VPHero .container {
@@ -256,7 +355,7 @@ h6.font-display {
 }
 
 .hero-aurora {
-  color: var(--color-brand-300);
+  color: var(--color-accent);
 }
 
 .VPHero .tagline {
@@ -289,9 +388,9 @@ h6.font-display {
 }
 
 .VPFeature {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-line);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--color-fill);
   padding: 24px;
   transition:
     border-color 0.3s,
@@ -299,8 +398,8 @@ h6.font-display {
 }
 
 .VPFeature:hover {
-  border-color: rgba(124, 194, 251, 0.4);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  background: var(--color-fill-strong);
 }
 
 .VPFeature .icon {
@@ -323,13 +422,13 @@ h6.font-display {
 /* ---------- Footer ---------- */
 
 .VPFooter {
-  background: rgba(11, 19, 29, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--color-surface-2);
+  border-top: 1px solid var(--color-line);
 }
 
 .VPFooter .message,
 .VPFooter .copyright {
-  color: #52525b;
+  color: var(--color-muted);
 }
 
 /* ---------- Site pages & home sections ---------- */

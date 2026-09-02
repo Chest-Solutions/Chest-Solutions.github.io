@@ -20,7 +20,7 @@ Keep radii reasonable for busy lobbies, and use `/moparticles stopall` when you'
 
 ## Can I use existing SnowStorm effects?
 
-That's the point. The three bundled effects are taken from [SnowStorm](https://github.com/SkyFabriK/snowstorm). Drop any compatible `particle_effect` JSON into `plugins/MoParticles/particles/` and run `/moparticles reload`.
+That's the point. The three bundled effects are taken from [SnowStorm](https://github.com/JannisX11/snowstorm). Drop any compatible `particle_effect` JSON into `plugins/MoParticles/particles/` and run `/moparticles reload`.
 
 ## Why do I see invisible particles / nothing at all?
 

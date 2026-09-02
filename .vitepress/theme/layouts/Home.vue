@@ -40,7 +40,12 @@ onMounted(() => nextTick(() => syncParticleField()))
   width: 112px;
   height: 112px;
   margin: 0 auto 28px;
-  mix-blend-mode: screen;
   animation: float 7s ease-in-out infinite;
+}
+
+/* `screen` only works over the dark page — on a white background it blends the
+   mark away to nothing, so keep it dark-mode only. */
+:global(html.dark) .hero-mark {
+  mix-blend-mode: screen;
 }
 </style>

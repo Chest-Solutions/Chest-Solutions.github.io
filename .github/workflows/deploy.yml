@@ -12,7 +12,9 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  # Never cancel a run that is already deploying: Pages deployments that get
+  # interrupted halfway can leave the environment stuck on the old version.
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -20,6 +22,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # VitePress reads git history for `lastUpdated` (enabled in
+          # .vitepress/config.mjs); the default shallow clone (depth 1) makes
+          # every page report the clone time instead of its real edit date.
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -28,7 +35,24 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
+        # `sharp` (used by vite-plugin-image-optimizer) ships prebuilt native
+        # binaries as optional deps, so a plain npm ci resolves them on the
+        # runner — no extra system packages needed.
         run: npm ci
+
+      - name: Restore image optimizer cache
+        # Where vite-plugin-image-optimizer keeps its compressed copies. It
+        # keys them by path, not content, so the directory is content-hashed in
+        # .vitepress/config.mjs and this key hashes the images themselves — an
+        # edited image always gets recompressed instead of reusing the stale
+        # copy. Must run AFTER `npm ci`, which wipes node_modules. A miss only
+        # costs ~2s of recompression; the images are optimized either way.
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/vite-plugin-image-optimizer
+          key: ${{ runner.os }}-image-optimizer-${{ hashFiles('public/**/*.png', 'public/**/*.jpg', 'public/**/*.jpeg', 'public/**/*.svg', 'public/**/*.webp', 'public/**/*.gif', 'public/**/*.avif') }}
+          restore-keys: |
+            ${{ runner.os }}-image-optimizer-
 
       - name: Build project
         run: npm run build
