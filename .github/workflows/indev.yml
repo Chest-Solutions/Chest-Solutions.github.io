@@ -35,8 +35,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # No reliance on scripts defined inside in-dev (e.g. build:indev).
+      # This uses the `vite` binary that npm ci just installed, with the
+      # /indev base path so every asset URL is served from /indev/.
       - name: Build with /indev base path
-        run: npm run build:indev
+        run: |
+          npm exec -- vite build --base=/indev/ --outDir dist
+          cp -f dist/index.html dist/404.html
 
       - name: Publish to main under indev/
         run: |
