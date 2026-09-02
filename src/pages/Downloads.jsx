@@ -22,7 +22,7 @@ export default function Downloads() {
         <p className="mt-3 text-neutral-400">All software is free and open source.</p>
       </Reveal>
 
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product, i) => (
           <ProductCard key={product.name} product={product} delay={i * 0.08} />
         ))}
@@ -31,8 +31,7 @@ export default function Downloads() {
       <Reveal delay={0.24}>
         <p className="mt-8 flex items-start gap-2 text-xs leading-relaxed text-neutral-500">
           <Info className="mt-px h-3.5 w-3.5 shrink-0" />
-          Pre-alpha and alpha builds can change without notice — pin the version you run in
-          production.
+          Builds can change without notice — pin the version you run in production.
         </p>
       </Reveal>
 

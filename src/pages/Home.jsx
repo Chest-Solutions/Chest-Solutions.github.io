@@ -13,11 +13,11 @@ const notes = [
   },
   {
     title: 'No client mod required',
-    body: 'Everything runs server-side. ExpandFont only needs the resource pack your players already load.',
+    body: 'Everything runs server-side — where a resource pack is needed, the plugin builds it for you.',
   },
   {
-    title: 'Early where it says so',
-    body: 'Pre-alpha and alpha builds are labelled on the card, so you know what is going into production.',
+    title: 'One jar, no launcher',
+    body: 'Every build is a single .jar you drop into plugins/ — no installer, no account, no client side step.',
   },
 ]
 
@@ -89,7 +89,7 @@ export default function Home() {
                   Everything we ship
                 </h2>
                 <p className="mt-3 max-w-xl text-neutral-400">
-                  Three projects, all free, all on GitHub.
+                  Mods and plugins for Paper and Folia servers, all free.
                 </p>
               </div>
               <Link to="/downloads" className="btn-secondary">
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product, i) => (
               <ProductCard key={product.name} product={product} delay={i * 0.08} />
             ))}
@@ -146,8 +146,7 @@ export default function Home() {
               Bugs, ideas and updates land in Discord
             </h2>
             <p className="mt-3 max-w-xl text-neutral-400">
-              That is where we answer fastest — and where the ExpandFont docs send you when a
-              placeholder stops rendering.
+              That is where we answer fastest, and where a bug report turns into a fix.
             </p>
           </Reveal>
           <Reveal delay={0.08}>

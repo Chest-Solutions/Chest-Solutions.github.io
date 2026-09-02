@@ -1,24 +1,32 @@
 export const products = [
   {
-    name: 'ExpandFont',
-    description: 'Renders custom resource pack fonts inside your placeholders.',
-    href: 'https://github.com/Chest-Solutions/Expandfont',
+    name: 'MoParticles',
+    description:
+      'Plays Bedrock MoLang particle animations on Java servers — baked into item displays, with the resource pack generated for you.',
+    href: 'https://github.com/Chest-Solutions/MoParticles',
     status: null,
-    image: '/img/glyphs.webp',
+    image: '/img/moparticles.webp',
   },
   {
-    name: 'FoliaMines',
-    description: 'A fast and lightweight mines plugin for Folia and Paper.',
-    href: 'https://github.com/Chest-Solutions/FoliaMines',
-    status: 'Pre-alpha',
-    image: '/img/mining.webp',
+    name: 'DoorCards',
+    description: 'Door-based menus and interactions for Paper servers.',
+    href: 'https://github.com/Chest-Solutions',
+    status: null,
+    image: '/img/doorcards.webp',
   },
   {
-    name: 'RinoAC',
-    description: 'A fast Minecraft anticheat with little to no false positives.',
-    href: 'https://github.com/Chest-Solutions/Rino-AC',
-    status: 'Alpha',
-    image: '/img/arena.webp',
+    name: 'FoliaShops',
+    description: 'Player shops for Folia and Paper servers.',
+    href: 'https://github.com/Chest-Solutions',
+    status: null,
+    image: '/img/foliashops.webp',
+  },
+  {
+    name: 'FoliaGUI',
+    description: 'A lightweight GUI framework for Folia and Paper plugins.',
+    href: 'https://github.com/Chest-Solutions',
+    status: null,
+    image: '/img/foliagui.webp',
   },
 ]
 

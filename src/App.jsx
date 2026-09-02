@@ -6,7 +6,6 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Downloads from './pages/Downloads.jsx'
 import Docs from './pages/Docs.jsx'
-import ExpandFontDocs from './pages/ExpandFontDocs.jsx'
 import Team from './pages/Team.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -35,7 +34,6 @@ function RoutedContent() {
           <Route path="/" element={<Home />} />
           <Route path="/downloads" element={<Downloads />} />
           <Route path="/docs" element={<Docs />} />
-          <Route path="/docs/expandfonts" element={<ExpandFontDocs />} />
           <Route path="/team" element={<Team />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,14 +1,15 @@
-import { ArrowUpRight, Layers, Shield, Type } from 'lucide-react'
+import { ArrowUpRight, DoorOpen, LayoutGrid, Sparkles, Store } from 'lucide-react'
 import Reveal from './Reveal.jsx'
 
 const icons = {
-  ExpandFont: Type,
-  FoliaMines: Layers,
-  RinoAC: Shield,
+  MoParticles: Sparkles,
+  DoorCards: DoorOpen,
+  FoliaShops: Store,
+  FoliaGUI: LayoutGrid,
 }
 
 export default function ProductCard({ product, delay = 0 }) {
-  const Icon = icons[product.name] ?? Type
+  const Icon = icons[product.name] ?? Sparkles
 
   return (
     <Reveal delay={delay} className="h-full">
