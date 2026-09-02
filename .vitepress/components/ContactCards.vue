@@ -5,21 +5,21 @@ const channels = [
   {
     title: 'Discord server',
     desc: 'Chat with the developers, report bugs, get help, or show off what you built.',
-    accent: 'text-brand-600 dark:text-brand-400',
+    accent: 'text-brand-text',
     link: 'https://discord.gg/MsWqevupwh',
     icon: 'discord',
   },
   {
     title: 'Email',
     desc: "We don't have one yet — the Discord is the fastest way to reach us.",
-    accent: 'text-brand-700 dark:text-brand-300',
+    accent: 'text-brand-text',
     link: 'https://discord.gg/MsWqevupwh',
     icon: 'mail',
   },
   {
     title: 'Contribute',
     desc: 'Open issues or submit pull requests on our GitHub organization.',
-    accent: 'text-brand-600 dark:text-brand-500',
+    accent: 'text-brand-text',
     link: 'https://github.com/Chest-Solutions',
     icon: 'github',
   },
@@ -35,7 +35,7 @@ const channels = [
       target="_blank"
       rel="noopener noreferrer"
       class="group relative flex h-full flex-col rounded-3xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
-      :class="['bg-brand-500/10', c.accent]"
+      :class="['bg-brand-subtle', c.accent]"
     >
       <div class="mb-6 w-fit rounded-2xl border border-line bg-fill p-3.5">
         <svg v-if="c.icon === 'discord'" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">

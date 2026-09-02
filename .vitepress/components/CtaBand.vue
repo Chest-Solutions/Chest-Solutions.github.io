@@ -7,7 +7,7 @@
       <div
         class="relative overflow-hidden rounded-[32px] border border-line bg-surface px-8 py-16 text-center md:py-20"
       >
-        <div class="absolute inset-x-0 top-0 h-px bg-brand-500/40" />
+        <div class="absolute inset-x-0 top-0 h-px bg-brand-border" />
         <h2 class="font-display text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
           Free to download, <span class="aurora-text">free to keep</span>
         </h2>
@@ -18,8 +18,7 @@
         <div class="mt-8 flex justify-center">
           <a
             href="/downloads"
-            class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink-950 transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
-            style="background: var(--color-brand-500)"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-background px-6 py-3 text-sm font-semibold text-brand-foreground transition-all duration-200 hover:bg-brand-hover hover:scale-[1.03] active:scale-[0.98]"
           >
             Browse downloads
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

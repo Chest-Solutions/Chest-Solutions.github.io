@@ -9,10 +9,10 @@
           href="https://discord.gg/MsWqevupwh"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40"
+          class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-border"
         >
           <div
-            class="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-500/15 opacity-70 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+            class="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-subtle opacity-70 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
           />
           <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="text-accent">
             <path
@@ -32,10 +32,10 @@
           href="https://github.com/Chest-Solutions"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40"
+          class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-border"
         >
           <div
-            class="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-500/10 blur-3xl"
+            class="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-subtle blur-3xl"
           />
           <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" class="text-accent">
             <path

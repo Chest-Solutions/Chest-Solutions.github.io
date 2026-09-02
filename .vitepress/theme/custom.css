@@ -31,6 +31,31 @@
   --color-aqua-400: #93cdfb;
   --color-aqua-500: #5fb4f2;
 
+  /* ---------- Brand, semantic ----------
+     These are what components should reach for, instead of a raw step on the
+     scale plus a hand-picked `dark:` twin. Each maps onto the scale above, so
+     the palette still lives in one place, and the `.dark` block swaps the whole
+     set at once.
+       brand            base accent
+       brand-background solid fill (buttons)
+       brand-foreground text sitting *on* a brand fill
+       brand-hover      hover/active state of that fill
+       brand-text       brand-coloured text on a plain surface
+       brand-subtle     tinted panel fill
+       brand-border     tinted outline */
+  --color-brand: var(--color-brand-500);
+  --color-brand-background: var(--color-brand-500);
+  --color-brand-foreground: var(--color-ink-950);
+  --color-brand-hover: var(--color-brand-400);
+  --color-brand-active: var(--color-brand-600);
+  --color-brand-text: var(--color-brand-700);
+  --color-brand-subtle: rgba(74, 168, 240, 0.1);
+  --color-brand-border: rgba(47, 138, 214, 0.35);
+
+  /* Lives in the `--shadow-*` namespace so Tailwind emits `shadow-brand-glow`,
+     replacing the inline box-shadow the buttons used to carry. */
+  --shadow-brand-glow: 0 0 20px rgba(74, 168, 240, 0.22);
+
   /* ---------- Semantic, theme-aware tokens ----------
      Every component colour goes through one of these instead of a hardcoded
      `text-white` / `bg-ink-900` / `border-white/10`, so light mode is one
@@ -75,6 +100,18 @@
   --color-muted: #71717a;
   --color-accent: #a9d9ff;
   --color-grid: rgba(255, 255, 255, 0.06);
+
+  /* Brand, semantic — dark side. `foreground` stays ink-950: it is text on a
+     pale blue fill, which is dark in both themes. */
+  --color-brand: var(--color-brand-400);
+  --color-brand-background: var(--color-brand-400);
+  --color-brand-foreground: var(--color-ink-950);
+  --color-brand-hover: var(--color-brand-300);
+  --color-brand-active: var(--color-brand-500);
+  --color-brand-text: var(--color-brand-300);
+  --color-brand-subtle: rgba(124, 194, 251, 0.12);
+  --color-brand-border: rgba(124, 194, 251, 0.4);
+  --shadow-brand-glow: 0 0 20px rgba(124, 194, 251, 0.22);
 }
 
 html {

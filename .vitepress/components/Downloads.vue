@@ -12,13 +12,13 @@ const latest = {
       <img
         src="/brand/moparticles.png"
         alt="MoParticles"
-        class="h-28 w-28 shrink-0 animate-float rounded-[24px] shadow-2xl shadow-brand-600/30 sm:h-32 sm:w-32"
+        class="h-28 w-28 shrink-0 animate-float rounded-[24px] shadow-2xl shadow-brand/30 sm:h-32 sm:w-32"
       />
       <div class="min-w-0">
         <div class="flex flex-wrap items-center gap-3">
           <h2 class="font-display text-2xl font-semibold text-heading sm:text-3xl">MoParticles</h2>
           <span
-            class="rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-accent"
+            class="rounded-full border border-brand-border bg-brand-subtle px-3 py-1 text-xs font-semibold text-accent"
           >
             {{ latest.version }}
           </span>
@@ -42,11 +42,7 @@ const latest = {
         <div class="mt-7 flex flex-wrap gap-3">
           <a
             :href="latest.url"
-            class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink-950 transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
-            style="
-              background: var(--color-brand-500);
-              box-shadow: 0 0 20px rgba(74, 168, 240, 0.22);
-            "
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-background px-6 py-3 text-sm font-semibold text-brand-foreground shadow-brand-glow transition-all duration-200 hover:bg-brand-hover hover:scale-[1.03] active:scale-[0.98]"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" />

@@ -47,8 +47,7 @@ const features = [
         <div class="mt-7 flex flex-wrap items-center justify-center gap-3 md:mt-8">
           <a
             href="/downloads"
-            class="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-ink-950 transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
-            style="background: var(--color-brand-500)"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-background px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-all duration-200 hover:bg-brand-hover hover:scale-[1.03] active:scale-[0.98]"
           >
             Download MoParticles
           </a>
