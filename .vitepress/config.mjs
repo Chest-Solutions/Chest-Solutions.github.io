@@ -87,20 +87,28 @@ export default defineConfig({
       { text: 'Team', link: '/team' },
       { text: 'Contact', link: '/contact' },
     ],
-    sidebar: [
-      {
-        text: 'MoParticles',
-        collapsed: false,
-        items: [
-          { text: 'Overview', link: '/moparticles/' },
-          { text: 'Getting started', link: '/moparticles/getting-started' },
-          { text: 'Commands', link: '/moparticles/commands' },
-          { text: 'Particle format', link: '/moparticles/particles' },
-          { text: 'Plugin API', link: '/moparticles/api' },
-          { text: 'FAQ', link: '/moparticles/faq' },
-        ],
-      },
-    ],
+    // Keyed by path on purpose. A plain array is applied to *every* page, which
+    // puts the docs sidebar on the home page and on the standalone site pages
+    // too (VitePress only skips it for an exact `layout: home`, and this site's
+    // home uses the custom `layout: Home`). With the object form, only paths
+    // under /moparticles/ get sidebar items, so `hasSidebar` — and with it the
+    // fixed <aside> and VPContent's sidebar padding — stay on the doc pages.
+    sidebar: {
+      '/moparticles/': [
+        {
+          text: 'MoParticles',
+          collapsed: false,
+          items: [
+            { text: 'Overview', link: '/moparticles/' },
+            { text: 'Getting started', link: '/moparticles/getting-started' },
+            { text: 'Commands', link: '/moparticles/commands' },
+            { text: 'Particle format', link: '/moparticles/particles' },
+            { text: 'Plugin API', link: '/moparticles/api' },
+            { text: 'FAQ', link: '/moparticles/faq' },
+          ],
+        },
+      ],
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Chest-Solutions' },
       { icon: 'discord', link: 'https://discord.gg/MsWqevupwh' },
