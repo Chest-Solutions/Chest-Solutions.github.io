@@ -25,24 +25,24 @@ const features = [
 
 <template>
   <section class="bleed">
-    <div class="site-container">
-      <div class="mb-14 mt-24 text-center md:mt-32">
+    <div class="site-container pt-24 md:pt-32">
+      <div class="mb-16 text-center">
         <span
           class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium tracking-wide text-brand-300"
         >
           Featured project
         </span>
         <h2
-          class="mt-4 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl"
+          class="mt-7 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl"
         >
           Meet <span class="aurora-text">MoParticles</span>
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
           Our first release brings Bedrock-style MoLang particle effects to Paper: it parses
           particle JSON, bakes it into frames while it loads, and plays it back with vanilla item
           displays. Players just need the generated resource pack. More projects are in the works.
         </p>
-        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href="/downloads"
             class="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"

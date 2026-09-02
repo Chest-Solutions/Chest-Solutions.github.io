@@ -3,7 +3,7 @@
 
 <template>
   <section class="bleed">
-    <div class="site-container py-12 md:py-16">
+    <div class="site-container pt-24 md:pt-32">
       <div
         class="relative overflow-hidden rounded-[32px] border border-white/10 bg-ink-900 px-8 py-16 text-center md:py-20"
       >
