@@ -35,19 +35,20 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Chest Solutions' }],
     ['meta', { property: 'og:url', content: 'https://chest-solutions.github.io/' }],
-    // Brand link preview card (not a per-project image) — absolute URL so
-    // scrapers that don't resolve relative paths still pick it up.
+    // Brand icon (not a per-project image) — absolute URL so scrapers that
+    // don't resolve relative paths still pick it up.
     [
       'meta',
-      { property: 'og:image', content: 'https://chest-solutions.github.io/brand/og-cover.png' },
+      { property: 'og:image', content: 'https://chest-solutions.github.io/brand/mark-square.png' },
     ],
-    ['meta', { property: 'og:image:width', content: '1200' }],
-    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { property: 'og:image:type', content: 'image/png' }],
+    ['meta', { property: 'og:image:width', content: '512' }],
+    ['meta', { property: 'og:image:height', content: '512' }],
     [
       'meta',
-      { property: 'og:image:alt', content: 'Chest Solutions — free, open-source Minecraft server software' },
+      { property: 'og:image:alt', content: 'The Chest Solutions chest icon' },
     ],
-    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }],
     ['meta', { name: 'twitter:title', content: 'Chest Solutions' }],
     [
       'meta',
@@ -59,7 +60,7 @@ export default defineConfig({
     ],
     [
       'meta',
-      { name: 'twitter:image', content: 'https://chest-solutions.github.io/brand/og-cover.png' },
+      { name: 'twitter:image', content: 'https://chest-solutions.github.io/brand/mark-square.png' },
     ],
     ['meta', { name: 'theme-color', content: '#4aa8f0' }],
     [
