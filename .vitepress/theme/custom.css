@@ -119,6 +119,22 @@ h6.font-display {
   font-weight: revert-layer;
 }
 
+/* The same hazard hits <p>: VitePress's base reset also declares an unlayered
+   `p { margin: 0 }`, so Tailwind's margin utilities on paragraphs lose site-wide.
+   That is why the lead paragraph under "Meet MoParticles" (and the ones in
+   ValuesCards / CtaBand) sits flush left instead of centred: `mx-auto` never
+   reaches the element, so the max-w-2xl block stays pinned to the left edge of
+   the container even though the text inside it is centred. `mt-*` is dropped the
+   same way. It only shows up on desktop because on mobile the paragraph is as
+   wide as its container anyway. Revert the margin properties to the layered
+   cascade so the utilities win again. Scoped to `.site-home`, which renders only
+   these marketing sections; markdown prose keeps VitePress's own `.vp-doc p`
+   spacing. */
+.site-home p {
+  margin-block: revert-layer;
+  margin-inline: revert-layer;
+}
+
 .aurora-text {
   color: var(--color-brand-300);
 }
