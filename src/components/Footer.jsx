@@ -1,4 +1,4 @@
-import { GitHubIcon, DiscordIcon } from './icons.jsx'
+import { GitHubIcon, DiscordIcon, ModrinthIcon } from './icons.jsx'
 import Logo from './Logo.jsx'
 
 export default function Footer() {
@@ -10,7 +10,7 @@ export default function Footer() {
             <Logo className="h-5 w-5 opacity-80" />
             <span className="text-sm font-medium text-white">Chest Solutions</span>
           </div>
-          <div className="flex items-center gap-6 text-sm text-neutral-400">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-400">
             <a
               href="https://github.com/Chest-Solutions"
               target="_blank"
@@ -21,10 +21,19 @@ export default function Footer() {
               GitHub
             </a>
             <a
+              href="https://modrinth.com/organization/Chest-Solutions"
+              target="_blank"
+              rel="noreferrer"
+              className="social-modrinth inline-flex items-center gap-2"
+            >
+              <ModrinthIcon className="h-4 w-4" />
+              Modrinth
+            </a>
+            <a
               href="https://discord.gg/MsWqevupwh"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
+              className="social-discord inline-flex items-center gap-2"
             >
               <DiscordIcon className="h-4 w-4" />
               Discord

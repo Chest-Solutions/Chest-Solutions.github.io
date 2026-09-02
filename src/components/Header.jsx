@@ -2,7 +2,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { GitHubIcon, DiscordIcon } from './icons.jsx'
+import { GitHubIcon, DiscordIcon, ModrinthIcon } from './icons.jsx'
 import Logo from './Logo.jsx'
 
 const links = [
@@ -45,11 +45,20 @@ function Socials({ className }) {
         <GitHubIcon className="h-[18px] w-[18px]" />
       </a>
       <a
+        href="https://modrinth.com/organization/Chest-Solutions"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Modrinth"
+        className="social-modrinth"
+      >
+        <ModrinthIcon className="h-[18px] w-[18px]" />
+      </a>
+      <a
         href="https://discord.gg/MsWqevupwh"
         target="_blank"
         rel="noreferrer"
         aria-label="Discord"
-        className="text-neutral-400 transition-colors duration-300 hover:text-white"
+        className="social-discord"
       >
         <DiscordIcon className="h-[18px] w-[18px]" />
       </a>

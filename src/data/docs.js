@@ -15,7 +15,7 @@ export const docRegistry = {
     sections: [
       {
         id: 'overview',
-        title: 'Overview',
+        title: 'Introduction',
         body: [
           'MoParticles lets you play MoLang particle animations from Bedrock Edition resource packs on a vanilla Java client. Animations are baked into invisible item displays, so there is no client-side mod and no perceptible server tick cost.',
           'The plugin auto-generates a resource pack on first start so players only need to accept the server pack prompt. Effects are defined in YAML and can be triggered in-game by command, by event, or by direct API call from another plugin.',
@@ -24,7 +24,7 @@ export const docRegistry = {
       },
       {
         id: 'install',
-        title: 'Installation',
+        title: 'Installing',
         body: [
           'Drop the .jar from the latest release into your server’s plugins/ folder and (re)start the server. On the first boot the plugin writes plugins/MoParticles/config.yml, an effects/ directory of sample MoLang scripts, and a generated resource pack under plugins/MoParticles/pack/.',
           'Whitelist the pack or set server-resource-pack=required in server.properties so clients always load it. The pack SHA is reported in the server log on boot so you can paste it straight into a proxy or web panel.',
@@ -33,7 +33,7 @@ export const docRegistry = {
       },
       {
         id: 'config',
-        title: 'Configuration',
+        title: 'Setting it up',
         body: [
           'config.yml is split into three top-level keys: pack (resource-pack name, description, format version), effects (per-animation rate limit, range and view-distance falloff), and spawn (default cooldown when triggered without a per-event override).',
           'Per-animation files live in plugins/MoParticles/effects/<id>.yml and reference a .particle.geo.json plus a texture from the linked Bedrock pack. Hot-reload with /mp reload — there is no full restart needed.',
@@ -42,7 +42,7 @@ export const docRegistry = {
       },
       {
         id: 'commands',
-        title: 'Commands & permissions',
+        title: 'Using it',
         body: [
           'The base command is /mp. Subcommands: /mp spawn <effect> <target>, /mp play <effect> (broadcast), /mp list, /mp reload, /mp give <player> <effect>, /mp pack (print SHA and URL).',
           'Permissions mirror the subcommands 1:1 (moparticles.spawn, moparticles.play, moparticles.list, moparticles.reload, moparticles.give). OPs get everything by default; grant per-permission to players or roles via your permission plugin of choice.',
@@ -69,6 +69,16 @@ export const docRegistry = {
           'Does it work with Folia’s regionized threading? Yes — every spawn is dispatched to the region that owns the target, with no global scheduler ticks.',
         ],
       },
+      {
+        id: 'developer',
+        title: 'Developer docs',
+        body: [
+          'Add the MoParticles jar to your mod/plugin classpath and trigger effects from your own code with MoParticlesApi.spawn(effect, target). The call resolves to the Folia region owning the target, so it is safe to use from a plugin command or scheduler task.',
+          'Effects can also be registered at runtime: MoParticlesApi.register(effectDefinition) accepts the same fields as a YAML effect, and unregister(id) removes the animation and its resource-pack assets.',
+          'The API exposes spawn, play, list and reload events so another plugin can rate-limit, re-target or count effects before they are sent to clients. Keep the effect API calls off global threads on Folia.',
+          'For Maven or Gradle, publish the jar as a compileOnly dependency and add the MoParticles repository. The API version stays compatible with the plugin version prefix, e.g. moparticles-api.<version>.',
+        ],
+      },
     ],
   },
 
@@ -82,7 +92,7 @@ export const docRegistry = {
     sections: [
       {
         id: 'overview',
-        title: 'Overview',
+        title: 'Introduction',
         body: [
           'DoorCards turns physical doors in the world into interactive menus. Right-click a registered door to open a chest-style inventory, run a chain of console commands, or fire any action your permission plugin supports.',
           'It’s designed for survival-like servers where a giant command-block wall would be ugly, and where you want players to feel like they discovered something rather than reading a /help page.',
@@ -91,7 +101,7 @@ export const docRegistry = {
       },
       {
         id: 'install',
-        title: 'Installation',
+        title: 'Installing',
         body: [
           'Put the .jar in plugins/ and start the server. The plugin creates plugins/DoorCards/menus/ and a default config.yml on first boot. No resource pack, no dependencies.',
           'Players don’t need anything on their end — interaction is plain vanilla right-click on a door block.',
@@ -100,7 +110,7 @@ export const docRegistry = {
       },
       {
         id: 'config',
-        title: 'Menu definitions',
+        title: 'Setting it up',
         body: [
           'Each menu is a YAML file in plugins/DoorCards/menus/. A menu declares: a title (a MiniMessage string), the size (rows of an inventory — useful when the door is paired with a clickable custom model), a list of items, and an on-interact block.',
           'Items support vanilla material references, custom head textures (via base64 or Mojang UUID), lore, enchant glint (visual only), and click actions such as command, console, message, sound, or open-another-menu.',
@@ -109,7 +119,7 @@ export const docRegistry = {
       },
       {
         id: 'commands',
-        title: 'Commands & permissions',
+        title: 'Using it',
         body: [
           'Use /dc link <menu> while looking at a door to bind it. /dc unlink removes the binding, /dc list prints the world coordinates of every linked door, and /dc reload re-parses YAML files.',
           'Permissions: doorcards.link, doorcards.unlink, doorcards.list, doorcards.reload, and per-menu doorcards.use.<id>. The last one lets you lock a menu behind a rank without touching the YAML.',
@@ -136,6 +146,16 @@ export const docRegistry = {
           'Does it respect WorldGuard regions? Yes — set doorcards.respect-worldguard=true to silently skip clicks outside allowed regions.',
         ],
       },
+      {
+        id: 'developer',
+        title: 'Developer docs',
+        body: [
+          'DoorCards exposes DoorCardApi for registering menu definitions, actions and door bindings at runtime. Build a MenuDefinition in code, register it, and bind it to a door exactly as you would with a YAML menu.',
+          'The DoorCardInteractEvent fires whenever a player interacts with a linked door. You can cancel the interaction, rewrite the clicked menu, or run extra side effects such as logging, analytics or a level check.',
+          'Custom actions are supported: implement ActionHandler and register it against a custom action key. The handler receives the player, the menu context and the action data, and can run commands, messages or open another menu.',
+          'The API is available as a compileOnly dependency for Maven/Gradle. Use it to integrate with plugins that expose their own menus or to build a hub where doors route players to other plugins’ features.',
+        ],
+      },
     ],
   },
 
@@ -149,7 +169,7 @@ export const docRegistry = {
     sections: [
       {
         id: 'overview',
-        title: 'Overview',
+        title: 'Introduction',
         body: [
           'FoliaShops is a regionized-safe player shop plugin. Shops are owned by players, persist across restarts, and run on Folia’s per-region schedulers without locks or stalls.',
           'It supports physical (sign-based) and chest shops, a stock / unlimited mode per slot, an auction-house-style global search, and a tax / fee system that flows back into a server balance.',
@@ -158,7 +178,7 @@ export const docRegistry = {
       },
       {
         id: 'install',
-        title: 'Installation',
+        title: 'Installing',
         body: [
           'Add the .jar to plugins/ and start the server. FoliaShops creates a SQLite database at plugins/FoliaShops/data.db by default — switch to MySQL in config.yml if you run a multi-proxy network.',
           'Hook into Vault or the modern Economy API (Paper 1.21+) by setting economy.provider in config.yml. FoliaShops auto-detects Vault if present; otherwise the bundled placeholder provider is used so the plugin loads cleanly.',
@@ -167,7 +187,7 @@ export const docRegistry = {
       },
       {
         id: 'config',
-        title: 'Configuration walkthrough',
+        title: 'Setting it up',
         body: [
           'config.yml is grouped into: economy (provider, currency symbol, starting balance for new players), shop (max shops per player, max dist per world, chest-shop creation fee), tax (server tax percent, daily fee per shop), and announcement (broadcast chat on shop create / trade).',
           'Per-world overrides live in plugins/FoliaShops/worlds/<name>.yml — useful if your build server allows infinite shops and your survival server caps at five.',
@@ -176,7 +196,7 @@ export const docRegistry = {
       },
       {
         id: 'commands',
-        title: 'Commands & permissions',
+        title: 'Using it',
         body: [
           'Player commands: /shop create, /shop list, /shop search <item>, /shop buy <id>, /shop sell, /shop history.',
           'Admin commands: /shop admin (open a management GUI), /shop admin tp <id>, /shop admin remove <id>, /shop admin tax (set / view taxes), /shop reload.',
@@ -203,6 +223,16 @@ export const docRegistry = {
           'Does it integrate with EssentialsX Eco / CMI Economy? Yes — both are detected automatically. A custom provider is just a class implementing EconomyProvider in the API jar.',
         ],
       },
+      {
+        id: 'developer',
+        title: 'Developer docs',
+        body: [
+          'FoliaShops ships a FoliaShopsApi for plugins that want to create shops, list listings, or run trades without command parsing. Use it to build admin GUIs, donation rewards, or automated shop rotation.',
+          'Custom economy integrations implement EconomyProvider. Register the provider with FoliaShopsApi.registerEconomy(provider) so shop prices, fees and payouts use your backend while keeping transactions server-authoritative.',
+          'Development events — ShopCreateEvent, ShopPurchaseEvent and ShopDestroyEvent — are emitted on the owning region scheduler. Use them for anti-cheat hooks, webhooks, auditing, or cross-server leaderboards.',
+          'Add the API jar to your build as compileOnly. Keep the API version aligned with the plugin version; the database is not part of the public contract, so use the API rather than querying tables directly.',
+        ],
+      },
     ],
   },
 
@@ -216,7 +246,7 @@ export const docRegistry = {
     sections: [
       {
         id: 'overview',
-        title: 'What FoliaGUI is',
+        title: 'Introduction',
         body: [
           'FoliaGUI is an API-jar, not a plugin players interact with. Other plugins depend on it to build chest-style GUIs in code without writing boilerplate scheduler logic for Folia.',
           'The library is fully thread-safe: every open / click / close event is dispatched onto the region thread that owns the player, so other plugins can read world data without async hazards.',
@@ -225,7 +255,7 @@ export const docRegistry = {
       },
       {
         id: 'install',
-        title: 'Installation',
+        title: 'Installing',
         body: [
           'Add FoliaGUI.jar to your development classpath as a `compileOnly` dependency and shade it in via the plugins that depend on it. Alternatively drop it on the server under plugins/ if you want all dependents to share one copy.',
           'No config, no commands, no permissions. It’s a pure library.',
@@ -234,7 +264,7 @@ export const docRegistry = {
       },
       {
         id: 'api',
-        title: 'API quickstart',
+        title: 'Setting it up',
         body: [
           'Build a GUI: FoliaGUI.gui().title("Shop").rows(3).build(); then chain .slot(index, item, click -> …) to define layout.',
           'Open it for a player: gui.open(player). The library schedules to the correct Folia region automatically.',
@@ -243,7 +273,7 @@ export const docRegistry = {
       },
       {
         id: 'patterns',
-        title: 'Common patterns',
+        title: 'Using it',
         body: [
           'Confirm dialogs: open a 1-row GUI with “Confirm” on green wool and “Cancel” on red wool, then return a CompletableFuture<FoliaGui.Result>.',
           'Paginated lists: FoliaGUI.paginated(items, itemsPerPage()). Clicking beyond the last page is silently ignored and the navigation arrows are auto-injected.',
@@ -268,6 +298,16 @@ export const docRegistry = {
           'Does it support custom-model-data textures? Yes — pass ItemStackBuilder.modelData(int) for vanilla 1.21+ models or ModelDataWriter for legacy 1.20.4 packs.',
           'Is it on Maven Central? Yes — com.chestsolutions:foliagui. Pull it from there or build from source.',
           'Can I render entities (like holograms) inside the GUI? No — FoliaGUI only manages item inventories. Pair it with a separate hologram plugin for that effect.',
+        ],
+      },
+      {
+        id: 'developer',
+        title: 'Developer docs',
+        body: [
+          'FoliaGUI is an API-library rather than a full framework. Add the jar as compileOnly, then build GUIs with FoliaGUI.gui().title(...).rows(...).build() and chain .slot(...) / .thenOpen(...) / .onClose(...) to define behavior.',
+          'For deeper integration, FoliaGUI exposes GuiFrame, GuiContext and click-handler types. Use GuiContext to read the current inventory, the clicked slot, and the opener without touching Bukkit inventory APIs directly.',
+          'Register custom widgets and click actions by implementing SlotRenderer and ClickAction. The library schedules every callback to the owning Folia region, so you can read and write world state from handlers without spawning async tasks.',
+          'Distribute FoliaGUI as a compileOnly dependency and shade it into your plugin if you want one bundled copy per project. The Maven coordinate is com.chestsolutions:foliagui; JitPack is available for snapshot builds.',
         ],
       },
     ],

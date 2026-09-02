@@ -33,6 +33,7 @@ function RoutedContent() {
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/downloads" element={<Downloads />} />
+          <Route path="/docs/:slug/:section" element={<Docs />} />
           <Route path="/docs/:slug" element={<Docs />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/team" element={<Team />} />
