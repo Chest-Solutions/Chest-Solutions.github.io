@@ -1,31 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Chest Solutions">
   <defs>
-    <linearGradient id="cs-lid" x1="14" y1="24" x2="96" y2="62" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#a58cff"/>
-      <stop offset="1" stop-color="#62d0ff"/>
+    <linearGradient id="cs-barrel" x1="46" y1="16" x2="96" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a892ff"/>
+      <stop offset="0.5" stop-color="#7fd5ff"/>
+      <stop offset="1" stop-color="#45aeea"/>
     </linearGradient>
-    <linearGradient id="cs-body" x1="14" y1="62" x2="96" y2="104" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#6f5df0"/>
-      <stop offset="1" stop-color="#2fa8e8"/>
+    <linearGradient id="cs-cap" x1="20" y1="40" x2="64" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9a84f5"/>
+      <stop offset="1" stop-color="#5b46cf"/>
     </linearGradient>
-    <linearGradient id="cs-side" x1="94" y1="30" x2="116" y2="100" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#5647d6"/>
-      <stop offset="1" stop-color="#1f7fb8"/>
+    <linearGradient id="cs-front" x1="64" y1="58" x2="108" y2="106" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5cc7f5"/>
+      <stop offset="1" stop-color="#2b8fd6"/>
     </linearGradient>
-    <mask id="cs-cut">
-      <rect width="128" height="128" fill="#fff"/>
-      <rect x="0" y="58.5" width="128" height="7.5" fill="#000"/>
-      <rect x="48" y="50" width="22" height="26" rx="7" fill="#000"/>
-    </mask>
+    <linearGradient id="cs-side" x1="20" y1="58" x2="64" y2="106" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6a55e0"/>
+      <stop offset="1" stop-color="#3f30a8"/>
+    </linearGradient>
   </defs>
-  <g mask="url(#cs-cut)">
-    <!-- back/right depth plane, offset up-right, shares the lid arc -->
-    <path d="M30 34c8-5 18-8 29-8 24.3 0 44 10.7 44 24v40a11 11 0 0 1-11 11H74z" fill="url(#cs-side)"/>
-    <!-- front lid -->
-    <path d="M9 62V50c0-13.3 19.7-24 44-24s44 10.7 44 24v12z" fill="url(#cs-lid)"/>
-    <!-- front body -->
-    <path d="M9 62h88v29a11 11 0 0 1-11 11H20A11 11 0 0 1 9 91z" fill="url(#cs-body)"/>
-  </g>
-  <!-- clasp -->
-  <rect x="52" y="54" width="14" height="18" rx="4" fill="url(#cs-lid)"/>
+
+  <!-- ===== body: two visible faces ===== -->
+  <path d="M64 80 108 58v26l-44 22Z" fill="url(#cs-front)"/>
+  <path d="M64 80 20 58v26l44 22Z" fill="url(#cs-side)"/>
+
+  <!-- ===== lid: half-cylinder swept back-right ===== -->
+  <path d="M20 58
+           C22 42 32 40 42 42
+           C53 44 62 62 64 80
+           L108 58
+           C106 40 97 22 86 20
+           C76 18 66 20 64 36
+           Z" fill="url(#cs-barrel)"/>
+
+  <!-- lid near end cap -->
+  <path d="M20 58
+           C22 42 32 40 42 42
+           C53 44 62 62 64 80
+           Z" fill="url(#cs-cap)"/>
+
+  <!-- iron band along the lid-body seam -->
+  <path d="M20 58 64 80 108 58" fill="none" stroke="#ffffff" stroke-opacity="0.5"
+        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- clasp straddling the seam on the front face -->
+  <path d="M83 62 93 57v13l-10 5Z" fill="#eef6ff"/>
 </svg>
