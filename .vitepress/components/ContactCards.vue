@@ -33,7 +33,7 @@ const channels = [
       target="_blank"
       rel="noopener noreferrer"
       class="group relative flex h-full flex-col rounded-3xl border border-white/8 bg-ink-900 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
-      :style="{ background: `linear-gradient(225deg, ${c.color}14 0%, transparent 45%)` }"
+      :style="{ background: `${c.color}0d` }"
     >
       <div
         class="mb-6 w-fit rounded-2xl border border-white/10 bg-white/5 p-3.5"
