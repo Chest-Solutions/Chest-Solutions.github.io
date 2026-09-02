@@ -3,17 +3,14 @@ const values = [
   {
     title: 'Stable',
     desc: 'We test releases on our own servers before publishing them.',
-    img: '/brand/showcase-stability.png',
   },
   {
     title: 'Open source',
     desc: 'Everything is on GitHub. Read the code, fork it, or send a pull request.',
-    img: '/brand/showcase-open.png',
   },
   {
     title: 'Cheap to run',
     desc: 'We do the expensive work at load time and profile what ships, so your tick loop stays yours.',
-    img: '/brand/showcase-performance.png',
   },
 ]
 </script>
@@ -36,21 +33,13 @@ const values = [
         <div
           v-for="v in values"
           :key="v.title"
-          class="group overflow-hidden rounded-3xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
+          class="group aspect-square overflow-hidden rounded-3xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
         >
-          <div class="relative h-52 overflow-hidden bg-black">
-            <img
-              :src="v.img"
-              :alt="v.title"
-              class="h-full w-full object-cover opacity-90 mix-blend-screen transition-transform duration-700 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 bg-ink-950/45"
-            />
-          </div>
-          <div class="p-7">
+          <div
+            class="flex h-full flex-col items-center justify-center gap-3 p-7 text-center"
+          >
             <h3 class="font-display text-xl font-semibold text-heading">{{ v.title }}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{{ v.desc }}</p>
+            <p class="text-sm leading-relaxed text-muted">{{ v.desc }}</p>
           </div>
         </div>
       </div>
