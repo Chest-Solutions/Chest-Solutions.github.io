@@ -33,7 +33,35 @@ export default defineConfig({
       },
     ],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:image', content: '/brand/moparticles.png' }],
+    ['meta', { property: 'og:site_name', content: 'Chest Solutions' }],
+    ['meta', { property: 'og:url', content: 'https://chest-solutions.github.io/' }],
+    // Brand link preview card (not a per-project image) — absolute URL so
+    // scrapers that don't resolve relative paths still pick it up.
+    [
+      'meta',
+      { property: 'og:image', content: 'https://chest-solutions.github.io/brand/og-cover.png' },
+    ],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    [
+      'meta',
+      { property: 'og:image:alt', content: 'Chest Solutions — free, open-source Minecraft server software' },
+    ],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'Chest Solutions' }],
+    [
+      'meta',
+      {
+        name: 'twitter:description',
+        content:
+          'Chest Solutions — free, open-source software for Minecraft servers, built in the open by the community.',
+      },
+    ],
+    [
+      'meta',
+      { name: 'twitter:image', content: 'https://chest-solutions.github.io/brand/og-cover.png' },
+    ],
+    ['meta', { name: 'theme-color', content: '#4aa8f0' }],
     [
       'script',
       '',

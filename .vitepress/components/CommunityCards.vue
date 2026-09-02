@@ -3,7 +3,7 @@
 
 <template>
   <section class="bleed">
-    <div class="site-container py-16 md:py-20">
+    <div class="site-container pt-20 md:pt-24">
       <div class="grid gap-6 md:grid-cols-2">
         <a
           href="https://discord.gg/MsWqevupwh"

@@ -20,14 +20,14 @@ const values = [
 
 <template>
   <section class="bleed">
-    <div class="site-container">
-      <div class="mb-14 text-center">
+    <div class="site-container pt-24 md:pt-32">
+      <div class="mb-16 text-center">
         <h2
           class="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl"
         >
           What we <span class="aurora-text">care about</span>
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
           A few things we hold every project to.
         </p>
       </div>
