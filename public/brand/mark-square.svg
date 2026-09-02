@@ -16,7 +16,7 @@
         stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 
   <!-- ===== CLASP PLATE (embedded, flush with the face) ===== -->
-  <path d="M38.5 63.2 50.5 69.8 50.5 84.8 38.5 78.2Z" fill="#e7eef7"/>
+  <path d="M38.5 63.2 50.5 69.8 50.5 92.3 38.5 85.7Z" fill="#e7eef7"/>
   <path d="M38.5 63.2 50.5 69.8 50.5 71.15 38.5 64.55Z" fill="#0b131d" fill-opacity="0.15"/>
 
   <!-- ===== KEYHOLE BLOCK (raised off the plate) ===== -->
