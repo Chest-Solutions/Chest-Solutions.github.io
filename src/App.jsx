@@ -33,6 +33,7 @@ function RoutedContent() {
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/downloads" element={<Downloads />} />
+          <Route path="/docs/:slug" element={<Docs />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/team" element={<Team />} />
           <Route path="*" element={<NotFound />} />
@@ -46,7 +47,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex min-h-screen flex-col bg-neutral-800 text-white">
+      <div className="flex min-h-screen flex-col text-white" style={{ backgroundColor: '#2b2826' }}>
         <Header />
         <RoutedContent />
         <Footer />

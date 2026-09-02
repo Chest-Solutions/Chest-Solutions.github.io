@@ -1,4 +1,5 @@
 import { GitHubIcon, DiscordIcon } from './icons.jsx'
+import Logo from './Logo.jsx'
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
           <div className="flex items-center gap-2.5">
-            <img src="/img/chest.png" alt="" className="h-5 w-5 opacity-80" />
+            <Logo className="h-5 w-5 opacity-80" />
             <span className="text-sm font-medium text-white">Chest Solutions</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-neutral-400">

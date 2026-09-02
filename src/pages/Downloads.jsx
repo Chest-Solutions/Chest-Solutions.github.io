@@ -46,7 +46,7 @@ export default function Downloads() {
           <ol className="mt-8 grid gap-x-12 gap-y-6 sm:grid-cols-2">
             {steps.map((step, i) => (
               <li key={step} className="flex gap-3 text-sm leading-relaxed text-neutral-400">
-                <span className="text-neutral-600">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-neutral-500">{String(i + 1).padStart(2, '0')}</span>
                 {step}
               </li>
             ))}
@@ -55,7 +55,7 @@ export default function Downloads() {
         <Reveal delay={0.16}>
           <Link
             to="/docs"
-            className="mt-10 inline-flex items-center gap-1.5 text-sm text-neutral-300 transition-colors duration-300 hover:text-white"
+            className="mt-10 inline-flex items-center gap-1.5 text-sm text-neutral-400 transition-colors duration-300 hover:text-white"
           >
             Setup details per project
             <ArrowRight className="h-4 w-4" />
