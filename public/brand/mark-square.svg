@@ -1,61 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Chest Solutions">
   <defs>
-    <linearGradient id="cs-top" x1="24" y1="34" x2="104" y2="78" gradientUnits="userSpaceOnUse">
+    <linearGradient id="cs-top" x1="104" y1="34" x2="24" y2="78" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#b9a4ff"/>
       <stop offset="1" stop-color="#7fd9ff"/>
     </linearGradient>
-    <linearGradient id="cs-l-lid" x1="24" y1="56" x2="64" y2="90" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#8a74f2"/>
-      <stop offset="1" stop-color="#6a55e0"/>
-    </linearGradient>
-    <linearGradient id="cs-l-body" x1="24" y1="68" x2="64" y2="118" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#6a55e0"/>
-      <stop offset="1" stop-color="#3f30a8"/>
-    </linearGradient>
-    <linearGradient id="cs-r-lid" x1="64" y1="90" x2="104" y2="56" gradientUnits="userSpaceOnUse">
+    <!-- front = left face -->
+    <linearGradient id="cs-f-lid" x1="64" y1="90" x2="24" y2="56" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#4fbdee"/>
       <stop offset="1" stop-color="#79d8ff"/>
     </linearGradient>
-    <linearGradient id="cs-r-body" x1="64" y1="118" x2="104" y2="68" gradientUnits="userSpaceOnUse">
+    <linearGradient id="cs-f-body" x1="64" y1="118" x2="24" y2="68" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#2b8fd6"/>
       <stop offset="1" stop-color="#59c6f3"/>
     </linearGradient>
-    <linearGradient id="cs-gold" x1="76" y1="60" x2="94" y2="96" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ffe9a8"/>
-      <stop offset="1" stop-color="#f5b53c"/>
+    <!-- side = right face -->
+    <linearGradient id="cs-s-lid" x1="104" y1="56" x2="64" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8a74f2"/>
+      <stop offset="1" stop-color="#6a55e0"/>
+    </linearGradient>
+    <linearGradient id="cs-s-body" x1="104" y1="68" x2="64" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6a55e0"/>
+      <stop offset="1" stop-color="#3f30a8"/>
+    </linearGradient>
+    <linearGradient id="cs-latch" x1="39" y1="70" x2="49" y2="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f6ff"/>
+      <stop offset="1" stop-color="#b9c4de"/>
     </linearGradient>
   </defs>
 
   <!-- ================= LID (flat top) ================= -->
-  <!-- top face -->
   <path d="M64 34 104 56 64 78 24 56Z" fill="url(#cs-top)"/>
-  <!-- lid: left face -->
-  <path d="M24 56 64 78v12L24 68Z" fill="url(#cs-l-lid)"/>
-  <!-- lid: right face -->
-  <path d="M64 78 104 56v12L64 90Z" fill="url(#cs-r-lid)"/>
+  <!-- lid: front (left) face -->
+  <path d="M24 56 64 78v12L24 68Z" fill="url(#cs-f-lid)"/>
+  <!-- lid: side (right) face -->
+  <path d="M64 78 104 56v12L64 90Z" fill="url(#cs-s-lid)"/>
 
   <!-- ================= BODY ================= -->
-  <!-- left face -->
-  <path d="M24 68 64 90v28L24 96Z" fill="url(#cs-l-body)"/>
-  <!-- right face -->
-  <path d="M64 90 104 68v28l-40 22Z" fill="url(#cs-r-body)"/>
+  <path d="M24 68 64 90v28L24 96Z" fill="url(#cs-f-body)"/>
+  <path d="M64 90 104 68v28l-40 22Z" fill="url(#cs-s-body)"/>
 
   <!-- seam between lid and body -->
-  <path d="M24 68 64 90 104 68" fill="none" stroke="#ffffff" stroke-opacity="0.4"
-        stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M24 68 64 90 104 68" fill="none" stroke="#ffffff" stroke-opacity="0.35"
+        stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
 
-  <!-- ================= CLASP (on the right/front face) ================= -->
-  <!-- upper hasp: mounted on the lid, hangs over the seam -->
-  <path d="M76 82.9 92 74.1v11l-16 8.8Z" fill="url(#cs-gold)"/>
-  <!-- lower lock plate: mounted on the body -->
-  <path d="M78 89.4 90 82.8v13l-12 6.6Z" fill="url(#cs-gold)"/>
-  <!-- lit top edge of the hasp -->
-  <path d="M76 82.9 92 74.1v2.6l-16 8.8Z" fill="#ffffff" fill-opacity="0.5"/>
-  <!-- shadow under the hasp overhang -->
-  <path d="M78 89.4 90 82.8v2l-12 6.6Z" fill="#7a4a10" fill-opacity="0.35"/>
+  <!-- ================= Minecraft-style latch ================= -->
+  <!-- small square latch straddling the seam, centred on the front face -->
+  <path d="M39.6 70.6 48.4 75.4v12l-8.8-4.8Z" fill="url(#cs-latch)"/>
+  <!-- lit top sliver -->
+  <path d="M39.6 70.6 48.4 75.4v2.2l-8.8-4.8Z" fill="#ffffff" fill-opacity="0.6"/>
   <!-- keyhole -->
-  <path d="M82.4 93.6 85.6 91.8v5.4l-3.2 1.8Z" fill="#2a2350" fill-opacity="0.7"/>
-  <!-- ================= corner iron braces ================= -->
-  <path d="M64 90 68 87.8v28L64 118Z" fill="#ffffff" fill-opacity="0.13"/>
-  <path d="M64 90 60 87.8v28L64 118Z" fill="#000000" fill-opacity="0.1"/>
+  <path d="M42.6 76.6 45.4 78.1v4.4l-2.8-1.5Z" fill="#2a2350" fill-opacity="0.55"/>
+
+  <!-- vertical corner brace, front-left edge -->
+  <path d="M24 68v28l1.8 1v-28Z" fill="#ffffff" fill-opacity="0.18"/>
 </svg>
