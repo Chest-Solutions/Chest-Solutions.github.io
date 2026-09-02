@@ -1,8 +1,9 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { GitHubIcon, DiscordIcon } from './icons.jsx'
+import Logo from './Logo.jsx'
 
 const links = [
   { to: '/downloads', label: 'Downloads' },
@@ -59,27 +60,47 @@ function Socials({ className }) {
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { pathname } = useLocation()
+
+  // On docs pages the navbar is rendered in normal document flow (not
+  // fixed/floating). It sits at the top of the page like any other page
+  // header instead of overlapping content as you scroll.
+  const isStatic = pathname.startsWith('/docs')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    if (isStatic) return
+    const onScroll = () => setScrolled(window.scrollY > 16)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [isStatic])
+
+  // On static (docs) pages: no fixed/absolute positioning, no top/px wrapper.
+  // On floating (everything else): same as before — fixed at top-4, pill.
+  const wrapperClass = isStatic
+    ? 'w-full'
+    : 'pointer-events-none fixed inset-x-0 top-4 z-50 px-4 sm:px-6'
+
+  // Docs pages always show the frosted pill; other pages only after scroll.
+  const headerClass = isStatic
+    ? 'mx-auto flex h-14 max-w-5xl items-center justify-between rounded-xl bg-white/10 px-5 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.18)]'
+    : `pointer-events-auto mx-auto flex h-14 max-w-5xl items-center justify-between rounded-xl px-5 transition-colors duration-500 ${
+        scrolled
+          ? 'bg-white/10 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.18)]'
+          : 'bg-transparent'
+      }`
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
-      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`sticky top-0 z-50 border-b transition-colors duration-500 ${
-        scrolled ? 'border-white/10 bg-neutral-800/70 backdrop-blur-xl' : 'border-transparent bg-neutral-800'
-      }`}
-    >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+    <div className={wrapperClass}>
+      <motion.header
+        initial={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className={headerClass}
+      >
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <img src="/img/chest.png" alt="" className="h-6 w-6" />
-          <span className="text-[15px] font-semibold tracking-tight">Chest Solutions</span>
+          <Logo className="h-7 w-7" />
+          <span className="text-[15px] font-semibold tracking-tighter">Chest Solutions</span>
         </Link>
 
         <NavItems className="hidden items-center gap-8 md:flex" />
@@ -92,7 +113,7 @@ export default function Header() {
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </div>
+      </motion.header>
 
       <AnimatePresence>
         {open && (
@@ -101,18 +122,21 @@ export default function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-t border-white/10 bg-neutral-800/90 backdrop-blur-xl md:hidden"
+            className={`mx-auto mt-2 max-w-5xl overflow-hidden rounded-xl bg-white/10 backdrop-blur-2xl md:hidden ${
+              isStatic ? '' : 'pointer-events-auto'
+            }`}
           >
-            <div className="flex flex-col gap-1 px-6 py-4">
-              <NavItems
-                onNavigate={() => setOpen(false)}
-                className="flex flex-col gap-1"
-              />
-              <Socials className="mt-4 flex items-center gap-5 border-t border-white/10 pt-4" />
+            <div className="flex flex-col gap-1 px-5 py-4">
+              <NavItems onNavigate={() => setOpen(false)} className="flex flex-col gap-1" />
+              <Socials className="mt-4 flex items-center gap-5 pt-4" />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+
+      {/* Spacer so content under the static (docs) navbar starts below it.
+          Only renders when the navbar is not floating. */}
+      {isStatic && <div aria-hidden="true" className="h-6" />}
+    </div>
   )
 }

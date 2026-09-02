@@ -45,7 +45,7 @@ export default function Team() {
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {teamMembers.map((member, i) => (
           <Reveal key={member.name} delay={i * 0.08}>
-            <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+            <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6">
               <Avatar src={member.avatar} name={member.name} />
               <h2 className="mt-5 text-sm font-semibold">{member.name}</h2>
               <p className="mt-1 text-xs text-neutral-500">{member.role}</p>

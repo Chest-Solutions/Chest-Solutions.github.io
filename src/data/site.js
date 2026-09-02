@@ -60,6 +60,6 @@ export const teamMembers = [
     role: 'Contributor',
     github: 'https://github.com/maiminhdung',
     discord: null,
-    avatar: 'https://avatars.githubusercontent.com/u/99890979?v=4',
+    avatar: 'https://github.com/maiminhdung.png?size=256',
   },
 ]

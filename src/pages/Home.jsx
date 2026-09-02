@@ -12,12 +12,12 @@ const notes = [
     body: 'Every project is public and MIT licensed — read it, patch it, run it on your network.',
   },
   {
-    title: 'No client mod required',
-    body: 'Everything runs server-side — where a resource pack is needed, the plugin builds it for you.',
+    title: 'Performance comes first',
+    body: 'Built for tick budget, not for symmetry — plugins you can actually ship to a busy production server.',
   },
   {
-    title: 'One jar, no launcher',
-    body: 'Every build is a single .jar you drop into plugins/ — no installer, no account, no client side step.',
+    title: 'Across most platforms',
+    body: 'Available on Modrinth and GitHub — the same jar, wherever your players are.',
   },
 ]
 
@@ -27,29 +27,31 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden">
+      <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-center overflow-hidden">
+        {/* Background photo — scaled up heavily + offset so it covers the
+            entire section. A light blur washes it into a soft scrim so
+            the centered text reads cleanly on top. */}
         <img
-          src="/img/hero-sunset.webp"
+          src="/img/hero-birch.webp"
           alt=""
           aria-hidden="true"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          className="absolute left-1/2 top-1/2 -z-20 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 object-cover blur-sm"
         />
-        <div className="absolute inset-0 -z-10 bg-neutral-800/70" />
-        <div className="absolute inset-x-0 top-0 -z-10 h-24 bg-gradient-to-b from-neutral-800/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-b from-transparent to-neutral-800" />
+        <div className="absolute inset-0 -z-10 bg-black/45" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-[#2b2826] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-64 bg-gradient-to-b from-transparent to-[#2b2826]" />
 
-        <div className="mx-auto w-full max-w-6xl px-6 py-24">
+        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center px-6 py-24 text-center">
           <Reveal>
-            <h1 className="max-w-3xl text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
+            <h1 className="tracking-tighter text-4xl font-semibold leading-[1.05] md:text-6xl">
               Modern mods &amp; plugins.
-              <span className="block text-neutral-300">Free &amp; open-source.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-neutral-300 md:text-lg">
-              High-quality Minecraft software built for performance, stability, and accessibility.
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-neutral-200 md:text-lg">
+              Free, open-source Minecraft software — built for performance and stability.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link to="/downloads" className="btn-primary">
                 Downloads
                 <ArrowRight className="h-4 w-4" />
@@ -59,10 +61,6 @@ export default function Home() {
                 Documentation
               </Link>
             </div>
-            <p className="mt-20 flex items-center gap-3 text-xs text-neutral-500">
-              <span className="h-8 w-px bg-white/25" />
-              Scroll for what is inside
-            </p>
           </Reveal>
         </div>
       </section>
@@ -80,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section className="border-t border-white/10 bg-white/[0.02]">
+      <section className="border-t border-white/10 bg-white/[0.03]">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
@@ -128,49 +126,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community */}
-      <section className="relative isolate overflow-hidden border-t border-white/10">
-        <img
-          src="/img/mining.webp"
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 -z-10 bg-neutral-800/85" />
-
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 py-20 md:flex-row md:items-center">
+      {/* Community — mirrors the plugin card grid: two banner cards,
+          one for Discord, one for GitHub. Same banner-art aesthetic as
+          the plugin cards above (cosmic aurora, grain). */}
+      <section className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-20">
           <Reveal>
-            <h2 className="max-w-xl text-3xl font-semibold tracking-tight md:text-4xl">
-              Bugs, ideas and updates land in Discord
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+              Find us
             </h2>
             <p className="mt-3 max-w-xl text-neutral-400">
-              That is where we answer fastest, and where a bug report turns into a fix.
+              Bugs, ideas and updates live where the community does.
             </p>
           </Reveal>
-          <Reveal delay={0.08}>
-            <div className="flex flex-wrap gap-3">
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2">
+            {/* Discord */}
+            <Reveal delay={0.08}>
               <a
                 href="https://discord.gg/MsWqevupwh"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-primary"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06]"
               >
-                <DiscordIcon className="h-4 w-4" />
-                Join Discord
+                <div className="aspect-[16/9] w-full shrink-0 overflow-hidden border-b border-white/10">
+                  <img
+                    src="/img/discord-card.webp"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 items-center justify-between p-6">
+                  <div>
+                    <h3 className="text-lg font-semibold tracking-tight">Discord</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-neutral-400">
+                      That is where we answer fastest.
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition-colors duration-300 group-hover:bg-[#5865F2] group-hover:text-white">
+                    <DiscordIcon className="h-4 w-4" />
+                    Join
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </div>
               </a>
+            </Reveal>
+
+            {/* GitHub */}
+            <Reveal delay={0.16}>
               <a
                 href="https://github.com/Chest-Solutions"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-secondary"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06]"
               >
-                <GitHubIcon className="h-4 w-4" />
-                GitHub
+                <div className="aspect-[16/9] w-full shrink-0 overflow-hidden border-b border-white/10">
+                  <img
+                    src="/img/github-card.webp"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 items-center justify-between p-6">
+                  <div>
+                    <h3 className="text-lg font-semibold tracking-tight">GitHub</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-neutral-400">
+                      Source, releases and issues for every project.
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white transition-colors duration-300 group-hover:bg-white/10">
+                    <GitHubIcon className="h-4 w-4" />
+                    Visit
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </div>
               </a>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
     </>
