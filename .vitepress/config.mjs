@@ -10,8 +10,7 @@ const IMAGE_RE = /\.(png|jpe?g|gif|tiff|webp|avif|svg)$/i
 // vite-plugin-image-optimizer keys its cache by file *path*, not by content:
 // replace a screenshot and the stale compressed copy keeps being reused. Fold a
 // hash of the source images into the cache directory, so editing an image gets
-// a fresh directory (and CI's cache key — see .github/workflows/deploy.yml —
-// drops the old one at the same time).
+// a fresh directory and is recompressed instead of serving the stale copy.
 function hashImages(dir) {
   const hash = createHash('sha256')
   const walk = (current) => {
@@ -137,9 +136,8 @@ export default defineConfig({
             'sortAttrs',
           ],
         },
-        // Re-compressing ~5 MB of PNGs on every build is wasteful; the cache is
-        // content-hashed above and restored in CI via actions/cache (see
-        // .github/workflows/deploy.yml).
+        // Re-compressing ~5 MB of PNGs on every build is wasteful. The cache is
+        // content-hashed above, so it can never hand back a stale image.
         cache: true,
         cacheLocation: imageCacheDir,
       }),
