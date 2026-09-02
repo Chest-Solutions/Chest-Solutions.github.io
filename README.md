@@ -1,16 +1,55 @@
-# React + Vite
+# Chest Solutions — Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The website for [Chest Solutions](https://github.com/Chest-Solutions), a community-driven,
+open-source group building free software for Minecraft servers.
 
-Currently, two official plugins are available:
+Currently featuring **[MoParticles](https://github.com/Chest-Solutions/MoParticles)** — a Paper
+plugin that brings Bedrock-style MoLang particle effects to Java Edition.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+The entire site — landing page and documentation — is a single [VitePress](https://vitepress.dev)
+project styled with [Tailwind CSS v4](https://tailwindcss.com). One build, one theme, one look.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Development
 
-## Expanding the ESLint configuration
+```bash
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# dev server (http://localhost:5173)
+npm run dev
+
+# production build → dist/
+npm run build
+
+# serve the production build locally
+npm run preview
+
+# lint
+npm run lint
+```
+
+## Structure
+
+```text
+├── .vitepress/
+│   ├── config.mjs        # site config (nav, sidebar, theme)
+│   ├── theme/            # custom theme: brand CSS, layouts, particle field
+│   ├── components/       # site sections (hero showcase, downloads, team, …)
+│   └── dist/             # build output (gitignored)
+├── index.md              # home page (hero + features + sections)
+├── downloads.md          # MoParticles downloads
+├── team.md / contact.md / terms.md / privacy.md
+├── moparticles/          # documentation
+│   ├── index.md          # overview
+│   ├── getting-started.md
+│   ├── commands.md
+│   ├── particles.md
+│   ├── api.md
+│   └── faq.md
+├── public/               # brand art, favicon
+└── scripts/preview.mjs   # local static server for the built site
+```
+
+The GitHub Pages workflow (`.github/workflows/jekyll-gh-pages.yml`) runs `npm run build` and
+deploys `dist/`.

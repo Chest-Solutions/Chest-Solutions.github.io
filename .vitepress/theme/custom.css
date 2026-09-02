@@ -1,0 +1,291 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, sans-serif;
+
+  /* Surfaces */
+  --color-ink-950: #060609;
+  --color-ink-900: #0a0a10;
+  --color-ink-800: #10101a;
+  --color-ink-700: #181826;
+  --color-ink-600: #232338;
+
+  /* Brand — violet → cyan "aurora" */
+  --color-brand-300: #b7abff;
+  --color-brand-400: #9d8fff;
+  --color-brand-500: #7c6bff;
+  --color-brand-600: #6a55e8;
+  --color-aqua-300: #8fe8ff;
+  --color-aqua-400: #59d8ff;
+  --color-aqua-500: #2cc4f5;
+
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+}
+
+html {
+  background-color: var(--color-ink-950);
+}
+
+::selection {
+  background: rgba(124, 107, 255, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-700);
+  border-radius: 8px;
+  border: 2px solid var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-600);
+}
+
+/* ---------- Chest Solutions brand (VitePress vars) ---------- */
+
+:root {
+  --vp-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --vp-c-brand-1: #7c6bff;
+  --vp-c-brand-2: #8b7dff;
+  --vp-c-brand-3: #6a55e8;
+  --vp-c-brand-soft: rgba(124, 107, 255, 0.14);
+
+  --vp-button-brand-bg: #7c6bff;
+  --vp-button-brand-hover-bg: #8b7dff;
+  --vp-button-brand-active-bg: #6a55e8;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-active-border: transparent;
+}
+
+.dark {
+  --vp-c-bg: #060609;
+  --vp-c-bg-alt: #0a0a10;
+  --vp-c-bg-elv: #10101a;
+  --vp-c-bg-soft: #10101a;
+
+  --vp-c-brand-1: #8b7dff;
+  --vp-c-brand-2: #9a8cff;
+  --vp-c-brand-3: #7c6bff;
+  --vp-c-brand-soft: rgba(139, 124, 255, 0.16);
+}
+
+/* Display font for headings */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.VPHero .name,
+.VPHero .text {
+  font-family: 'Space Grotesk', var(--vp-font-family-base);
+}
+
+.aurora-text {
+  background: linear-gradient(100deg, var(--color-brand-300) 0%, var(--color-aqua-300) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Nav ---------- */
+
+:root {
+  --vp-nav-bg-color: rgba(6, 6, 9, 0.85);
+  --vp-nav-screen-bg-color: rgba(6, 6, 9, 0.95);
+}
+
+.VPNavBar {
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.VPNavBarTitle .site-name {
+  font-family: 'Space Grotesk', var(--vp-font-family-base);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.VPNavBarTitle img.logo {
+  mix-blend-mode: screen;
+}
+
+/* ---------- Hero ---------- */
+
+.VPHero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(124, 107, 255, 0.22), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 80% 60%, rgba(89, 216, 255, 0.08), transparent 70%),
+    var(--vp-c-bg);
+}
+
+/* subtle grid, faded toward the edges */
+.VPHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+}
+
+.particle-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.VPHero .container {
+  text-align: center;
+}
+
+.VPHero .heading {
+  align-items: center;
+}
+
+.VPHero .name,
+.VPHero .text {
+  margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+  .VPHero .name {
+    font-size: 60px;
+    line-height: 64px;
+  }
+  .VPHero .text {
+    font-size: 60px;
+    line-height: 64px;
+  }
+}
+
+.hero-aurora {
+  background: linear-gradient(100deg, var(--color-brand-300) 0%, var(--color-aqua-300) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.VPHero .tagline {
+  margin: 0 auto;
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+@media (min-width: 960px) {
+  .VPHero .tagline {
+    font-size: 18px;
+    line-height: 32px;
+  }
+}
+
+.VPHero .actions {
+  justify-content: center;
+}
+
+/* ---------- Home features ---------- */
+
+.VPFeatures {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 20px 0;
+  row-gap: 16px;
+  column-gap: 16px;
+}
+
+.VPFeature {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 24px;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+.VPFeature:hover {
+  border-color: rgba(124, 107, 255, 0.4);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.VPFeature .icon {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.VPFeature h3 {
+  font-family: 'Space Grotesk', var(--vp-font-family-base);
+  font-size: 15px;
+  color: var(--vp-c-text-1);
+}
+
+.VPFeature p.detail {
+  font-size: 14px;
+  color: var(--vp-c-text-3);
+  line-height: 1.6;
+}
+
+/* ---------- Footer ---------- */
+
+.VPFooter {
+  background: rgba(10, 10, 16, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.VPFooter .message,
+.VPFooter .copyright {
+  color: #52525b;
+}
+
+/* ---------- Site pages & home sections ---------- */
+
+.bleed {
+  width: 100%;
+}
+
+.site-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
