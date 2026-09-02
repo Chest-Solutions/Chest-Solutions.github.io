@@ -99,6 +99,26 @@ html {
   font-family: 'Space Grotesk', var(--vp-font-family-base);
 }
 
+/* Tailwind v4 emits utilities inside `@layer utilities`, while VitePress's
+   base reset (`h1..h6 { font-size: 16px; ... }`) is unlayered — and unlayered
+   rules always beat layered ones. Without this, utility classes on headings
+   (text-3xl, font-semibold, mt-*, ...) are silently clobbered on the custom
+   home/site sections. Headings that opt into Tailwind via `.font-display`
+   revert these reset properties back to the layered cascade, so utilities
+   win. Plain markdown headings (no utility classes, e.g. in /moparticles)
+   keep VitePress's default doc typography. */
+h1.font-display,
+h2.font-display,
+h3.font-display,
+h4.font-display,
+h5.font-display,
+h6.font-display {
+  margin: revert-layer;
+  line-height: revert-layer;
+  font-size: revert-layer;
+  font-weight: revert-layer;
+}
+
 .aurora-text {
   color: var(--color-brand-300);
 }
@@ -131,9 +151,26 @@ html {
   position: fixed !important;
 }
 
+/* The navbar is fixed at every breakpoint, so the local nav ("Menu" + outline
+   dropdown on doc pages) must sit below it at every breakpoint too.
+   VitePress only applies this offset >=960px; without it the local nav sticks
+   to top: 0 underneath the navbar and is invisible below 960px. */
+.VPLocalNav {
+  top: var(--vp-nav-height) !important;
+}
+
 /* Hide the mobile "Menu" / "Return to top" local nav bar on non-doc pages
    (pages without a sidebar: home, downloads, team, contact, legal, ...) */
 .VPLocalNav:not(.has-sidebar) {
+  display: none !important;
+}
+
+/* The home page uses a custom `layout: Home` (capital H), which dodges
+   VitePress's exact `layout === 'home'` checks — so its local nav renders
+   with `has-sidebar empty` (no outline, just a "Menu" button that duplicates
+   the always-fixed navbar's hamburger). Hide the empty variant; every real
+   doc page has h2/h3 headings, so only home (and 404) match this. */
+.VPLocalNav.empty.has-sidebar {
   display: none !important;
 }
 
