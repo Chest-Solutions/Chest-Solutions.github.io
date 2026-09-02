@@ -42,7 +42,10 @@ export default defineConfig({
   // Repository docs that are not part of the website
   srcExclude: ['COC.md', 'CONTRIBUTE.md', 'README.md'],
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    // The favicon is the brand mark itself: the nav logo and hero mark already
+    // pull /brand/logo.svg, so pointing the icon at the same URL means the
+    // browser reuses that cached response instead of fetching a second file.
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/brand/logo.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'true' }],
     [
