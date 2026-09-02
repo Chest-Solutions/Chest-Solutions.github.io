@@ -17,7 +17,7 @@ onMounted(() => nextTick(() => syncParticleField()))
   <div class="site-home">
     <VPHomeHero>
       <template #home-hero-info-before>
-        <img src="/brand/mark-square.svg" alt="" class="hero-mark" />
+        <img src="/brand/logo.svg" alt="" class="hero-mark" />
       </template>
     </VPHomeHero>
 

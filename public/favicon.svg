@@ -1,19 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1">
-      <stop offset="0" stop-color="#7c6bff"/>
-      <stop offset="1" stop-color="#59d8ff"/>
-    </linearGradient>
-    <linearGradient id="d" x1="0" y1="0" x2="0.35" y2="1">
-      <stop offset="0" stop-color="#322a5e"/>
-      <stop offset="1" stop-color="#173f52"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="#0a0a10"/>
-  <g shape-rendering="crispEdges">
-    <rect x="8" y="8" width="48" height="48" fill="url(#d)"/>
-    <rect x="11" y="11" width="42" height="42" fill="url(#g)"/>
-    <rect x="8" y="32" width="48" height="3" fill="url(#d)"/>
-    <rect x="29" y="29" width="6" height="6" fill="#eef4ff"/>
+  <!-- Chest Solutions favicon: the brand chest mark (see /brand/logo.svg)
+       centred in a rounded ink-950 tile, so it stays legible at 16px on both
+       light and dark browser chrome. -->
+  <rect width="64" height="64" rx="14" fill="#080c10"/>
+  <!-- The mark is drawn in a 128-grid with the chest at x 24-104, y 34-118;
+       scale 0.5714 fits its 84u height into 48u, then it is centred. -->
+  <g transform="translate(-4.57,-11.43) scale(0.5714)">
+    <!-- LID -->
+    <path d="M64 34 104 56 64 78 24 56Z" fill="#a9d9ff"/>
+    <path d="M24 56 64 78v12L24 68Z" fill="#7cc2fb"/>
+    <path d="M64 78 104 56v12L64 90Z" fill="#4aa8f0"/>
+
+    <!-- BODY -->
+    <path d="M24 68 64 90v28L24 96Z" fill="#4aa8f0"/>
+    <path d="M64 90 104 68v28l-40 22Z" fill="#2f8ad6"/>
+
+    <!-- lid / body seam -->
+    <path d="M24 68 64 90 104 68" fill="none" stroke="#0b131d" stroke-opacity="0.25"
+          stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+
+    <!-- CLASP PLATE -->
+    <path d="M38.5 63.2 50.5 69.8 50.5 92.3 38.5 85.7Z" fill="#e7eef7"/>
+    <path d="M38.5 63.2 50.5 69.8 50.5 71.15 38.5 64.55Z" fill="#0b131d" fill-opacity="0.15"/>
+
+    <!-- KEYHOLE BLOCK -->
+    <path d="M44.84 70.07 49.16 72.45 49.16 83.55 44.84 81.17Z" fill="#0b131d" fill-opacity="0.26"/>
+    <path d="M43.54 68.97 47.86 71.35 44.88 72.99 40.56 70.61Z" fill="#6b7d8f"/>
+    <path d="M47.86 71.35 47.86 82.45 44.88 84.09 44.88 72.99Z" fill="#37444f"/>
+    <path d="M43.54 80.07 47.86 82.45 44.88 84.09 40.56 81.71Z" fill="#2b3640"/>
+    <path d="M40.56 70.61 44.88 72.99 44.88 84.09 40.56 81.71Z" fill="#4a5a6b"/>
   </g>
 </svg>

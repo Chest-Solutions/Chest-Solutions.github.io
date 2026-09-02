@@ -68,7 +68,7 @@ export default defineConfig({
     // don't resolve relative paths still pick it up.
     [
       'meta',
-      { property: 'og:image', content: 'https://chest-solutions.github.io/brand/mark-square.png' },
+      { property: 'og:image', content: 'https://chest-solutions.github.io/brand/logo.png' },
     ],
     ['meta', { property: 'og:image:type', content: 'image/png' }],
     ['meta', { property: 'og:image:width', content: '512' }],
@@ -89,7 +89,7 @@ export default defineConfig({
     ],
     [
       'meta',
-      { name: 'twitter:image', content: 'https://chest-solutions.github.io/brand/mark-square.png' },
+      { name: 'twitter:image', content: 'https://chest-solutions.github.io/brand/logo.png' },
     ],
     ['meta', { name: 'theme-color', content: '#4aa8f0' }],
     [
@@ -149,7 +149,7 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    logo: '/brand/mark-square.svg',
+    logo: '/brand/logo.svg',
     siteTitle: 'Chest Solutions',
     nav: [
       { text: 'MoParticles', link: '/moparticles/' },
