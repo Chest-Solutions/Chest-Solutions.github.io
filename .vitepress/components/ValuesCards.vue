@@ -12,7 +12,7 @@ const values = [
   },
   {
     title: 'Cheap to run',
-    desc: 'Effects are baked into frames at load time, so playback just replays them.',
+    desc: 'We do the expensive work at load time and profile what ships, so your tick loop stays yours.',
     img: '/brand/showcase-performance.png',
   },
 ]
