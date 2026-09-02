@@ -1,9 +1,9 @@
 // Lightweight particle field: glowing motes drifting upward.
 // One pre-rendered glow sprite per color, then drawImage per frame.
 const COLORS = [
-  [124, 107, 255],
-  [89, 216, 255],
-  [183, 171, 255],
+  [74, 168, 240],
+  [124, 194, 251],
+  [169, 217, 255],
   [255, 255, 255],
 ]
 
