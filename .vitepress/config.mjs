@@ -80,7 +80,7 @@ export default defineConfig({
   },
   themeConfig: {
     logo: '/brand/mark-square.svg',
-    siteTitle: 'chest solutions',
+    siteTitle: 'Chest Solutions',
     nav: [
       { text: 'MoParticles', link: '/moparticles/' },
       { text: 'Downloads', link: '/downloads' },

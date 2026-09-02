@@ -126,6 +126,24 @@ html {
   mix-blend-mode: screen;
 }
 
+/* Pin the navbar to the top at every breakpoint (VitePress only fixes it >=960px) */
+.VPNav {
+  position: fixed !important;
+}
+
+/* Hide the mobile "Menu" / "Return to top" local nav bar on non-doc pages
+   (pages without a sidebar: home, downloads, team, contact, legal, ...) */
+.VPLocalNav:not(.has-sidebar) {
+  display: none !important;
+}
+
+/* Fixed nav is out of flow below 960px too, so offset the content */
+@media (max-width: 959px) {
+  .VPContent {
+    padding-top: var(--vp-nav-height);
+  }
+}
+
 /* ---------- Hero ---------- */
 
 .VPHero {
