@@ -20,7 +20,7 @@ const values = [
 
 <template>
   <section class="bleed">
-    <div class="site-container pt-16 md:pt-24">
+    <div class="site-container pt-8 pb-10 md:pt-12 md:pb-16">
       <div class="mb-16 text-center">
         <h2
           class="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl"
