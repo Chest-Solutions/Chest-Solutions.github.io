@@ -42,7 +42,7 @@ const latest = {
         <div class="mt-7 flex flex-wrap gap-3">
           <a
             :href="latest.url"
-            class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-background px-6 py-3 text-sm font-semibold text-brand-foreground shadow-brand-glow transition-all duration-200 hover:bg-brand-hover hover:scale-[1.03] active:scale-[0.98]"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-background px-6 py-3 text-sm font-semibold text-brand-foreground no-underline shadow-brand-glow transition-all duration-200 hover:bg-brand-hover hover:scale-[1.03] active:scale-[0.98]"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" />
@@ -53,13 +53,13 @@ const latest = {
             href="https://github.com/Chest-Solutions/MoParticles"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-6 py-3 text-sm font-semibold text-heading backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-fill-strong active:scale-[0.98]"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-6 py-3 text-sm font-semibold text-heading no-underline backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-fill-strong active:scale-[0.98]"
           >
             GitHub
           </a>
           <a
             href="/docs/moparticles/getting-started"
-            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-6 py-3 text-sm font-semibold text-heading backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-fill-strong active:scale-[0.98]"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-6 py-3 text-sm font-semibold text-heading no-underline backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-fill-strong active:scale-[0.98]"
           >
             Install guide
           </a>

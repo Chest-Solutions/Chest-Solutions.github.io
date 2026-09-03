@@ -34,7 +34,7 @@ const channels = [
       :href="c.link"
       target="_blank"
       rel="noopener noreferrer"
-      class="group relative flex h-full flex-col rounded-3xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
+      class="group relative flex h-full flex-col rounded-3xl border border-line bg-surface p-7 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
       :class="['bg-brand-subtle', c.accent]"
     >
       <div class="mb-6 w-fit rounded-2xl border border-line bg-fill p-3.5">
