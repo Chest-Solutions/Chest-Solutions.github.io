@@ -483,6 +483,30 @@ html.dark .VPNavBarTitle img.logo {
   }
 }
 
+/* ---------- Article chrome, docs only ----------
+   VitePress styles everything inside .vp-doc as a Markdown article, which
+   leaks onto the site pages, where the headings belong to components rather
+   than to prose:
+
+   - every heading gets a `#` permalink (`.header-anchor`, absolutely
+     positioned and revealed on hover) — noise on a card or a page title;
+   - `.vp-doc h2` gets a rule above it: `border-top` plus the `padding-top`
+     and `margin-top` that only exist to make room for that rule. The three
+     are one treatment, so they are reset together.
+
+   Reuses the same `.is-docs` flag as the search and local nav, so "is this a
+   doc page" still has exactly one definition. On real doc pages the permalink
+   and the h2 rule both stay — they are useful there. */
+html:not(.is-docs) .vp-doc .header-anchor {
+  display: none;
+}
+
+html:not(.is-docs) .vp-doc h2 {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+}
+
 /* ---------- Docs-only chrome ----------
    Two bits of VitePress chrome only make sense on documentation: the search
    box (its local index covers the docs) and the local nav (the mobile "Menu" +
