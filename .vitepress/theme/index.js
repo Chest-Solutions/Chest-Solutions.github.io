@@ -7,7 +7,8 @@ import Showcase from '../components/Showcase.vue'
 import ValuesCards from '../components/ValuesCards.vue'
 import CtaBand from '../components/CtaBand.vue'
 import CommunityCards from '../components/CommunityCards.vue'
-import Downloads from '../components/Downloads.vue'
+import DownloadsList from '../components/DownloadsList.vue'
+import PluginDownloads from '../components/PluginDownloads.vue'
 import TeamGrid from '../components/TeamGrid.vue'
 import ContactCards from '../components/ContactCards.vue'
 import { syncParticleField } from './particleField.js'
@@ -34,7 +35,8 @@ export default {
     app.component('ValuesCards', ValuesCards)
     app.component('CtaBand', CtaBand)
     app.component('CommunityCards', CommunityCards)
-    app.component('Downloads', Downloads)
+    app.component('DownloadsList', DownloadsList)
+    app.component('PluginDownloads', PluginDownloads)
     app.component('TeamGrid', TeamGrid)
     app.component('ContactCards', ContactCards)
 

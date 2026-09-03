@@ -5,6 +5,7 @@ import { defineConfig } from 'vitepress'
 import tailwindcss from '@tailwindcss/vite'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import { DOCS_ROOT, isDocsPath } from './docs-paths.js'
+import { findPlugin, latest } from './data/plugins.js'
 
 const IMAGE_RE = /\.(png|jpe?g|gif|tiff|webp|avif|svg)$/i
 
@@ -229,6 +230,20 @@ export default defineConfig({
     },
     outline: { label: 'On this page', level: [2, 3] },
     docFooter: { prev: 'Previous', next: 'Next' },
+  },
+
+  // Frontmatter is shared by every path a dynamic route generates, so
+  // /downloads/<id> gets its title and description here instead.
+  transformPageData(pageData) {
+    const id =
+      pageData.params?.plugin ??
+      /^downloads\/([^/]+)\.md$/.exec(pageData.relativePath)?.[1]
+    const plugin = id ? findPlugin(id) : undefined
+    if (!plugin) return
+    return {
+      title: `${plugin.name} ${latest(plugin).version} \u2014 Download`,
+      description: plugin.description,
+    }
   },
 
   // Stamp `is-docs` onto <html> at build time, so documentation chrome (search
