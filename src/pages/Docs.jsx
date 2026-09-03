@@ -1,14 +1,14 @@
 import {
   ArrowLeft,
   ArrowRight,
-  ChevronDown,
   DoorOpen,
   ExternalLink,
   LayoutGrid,
   Sparkles,
   Store,
 } from 'lucide-react'
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
+import PluginSelect from '../components/PluginSelect.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { useTitle } from '../hooks/useTitle.js'
 import { docRegistry } from '../data/docs.js'
@@ -30,37 +30,6 @@ function UserDocs(doc) {
 
 function DeveloperDocs(doc) {
   return doc.sections.filter((section) => section.id === 'developer')
-}
-
-function PluginSelect({ activeSlug, className = 'lg:w-64' }) {
-  const navigate = useNavigate()
-  const current = docRegistry[activeSlug]
-
-  return (
-    <div className={`relative ${className}`}>
-      <label htmlFor="docs-plugin" className="sr-only">
-        Select plugin
-      </label>
-      <select
-        id="docs-plugin"
-        value={activeSlug}
-        onChange={(event) => {
-          const slug = event.target.value
-          if (slug === activeSlug) return
-          const doc = docRegistry[slug]
-          if (doc) navigate(`/docs/${slug}/${firstSectionId(doc)}`)
-        }}
-        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-2 pr-9 text-sm text-white outline-none transition-colors duration-200 focus:border-white/25"
-      >
-        {Object.entries(docRegistry).map(([slug, doc]) => (
-          <option key={slug} value={slug} className="bg-[#2b2826] text-white">
-            {doc.name}
-          </option>
-        ))}
-      </select>
-      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
-    </div>
-  )
 }
 
 function SidebarLink({ to, active, children }) {
