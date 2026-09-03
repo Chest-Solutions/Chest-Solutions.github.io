@@ -84,15 +84,17 @@ function TeamCard({ member }) {
       <h2 className="mt-5 text-sm font-semibold">{member.name}</h2>
       <p className="mt-1 text-xs text-neutral-500">{member.role}</p>
       <div className="mt-4 flex items-center gap-4 pt-4 text-neutral-400">
-        <a
-          href={member.github}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${member.name} on GitHub`}
-          className="transition-colors duration-300 hover:text-white"
-        >
-          <GitHubIcon className="h-4 w-4" />
-        </a>
+        {member.github && (
+          <a
+            href={member.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${member.name} on GitHub`}
+            className="transition-colors duration-300 hover:text-white"
+          >
+            <GitHubIcon className="h-4 w-4" />
+          </a>
+        )}
         {member.discord && (
           <span
             title={member.discord}

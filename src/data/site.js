@@ -70,6 +70,16 @@ export const teamMembers = [
     avatar:
       'https://cdn.discordapp.com/avatars/1259867754580676708/f7c0bf3691909208b83b17899e191187.png?size=256',
   },
+  {
+    name: 'brain._.storm',
+    role: 'Staff',
+    github: null,
+    discord: 'brain._.storm',
+    // No numeric Discord ID yet, so the live avatar lookup is skipped and
+    // the default avatar below is shown until an ID is added.
+    discordId: null,
+    avatar: 'https://cdn.discordapp.com/embed/avatars/0.png',
+  },
 ]
 
 // GitHub logins that belong to team members (including alts), excluded
