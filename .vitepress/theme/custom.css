@@ -281,6 +281,59 @@ html.dark .VPNavBarTitle img.logo {
   }
 }
 
+/* ---------- Markdown link styling, scoped to prose ----------
+   VitePress colours, bolds and underlines every link inside .vp-doc with
+   `.vp-doc a`. That rule is unlayered, so it outranks any single Tailwind
+   utility no matter the specificity — a link one of our components renders as
+   a button silently loses its own colour to --vp-c-brand-1. On the download
+   button that put brand-blue text on a brand-blue fill: 1.42:1 in light mode
+   and 1.00:1 in dark, i.e. invisible.
+
+   So: undo it everywhere, then put the Markdown look back only on prose, which
+   is where real Markdown links live.
+
+   The undo has to outrank VitePress, which means !important — and !important
+   also outranks the utilities on our component links. Hence the third block:
+   one class more specific than `.vp-doc a`, so it wins the !important
+   comparison. Add a line there for any new colour or weight a component link
+   starts using, or it will fall back to `inherit`. */
+.vp-doc a {
+  color: inherit !important;
+  font-weight: inherit !important;
+  text-decoration: none !important;
+}
+
+.vp-doc :is(p, li, td, th, blockquote, dd, dt, figcaption, h1, h2, h3, h4, h5, h6) a {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+.vp-doc :is(p, li, td, th, blockquote, dd, dt, figcaption, h1, h2, h3, h4, h5, h6) a:hover {
+  color: var(--vp-c-brand-2) !important;
+}
+
+.vp-doc a.text-brand-foreground {
+  color: var(--color-brand-foreground) !important;
+}
+
+.vp-doc a.text-heading {
+  color: var(--color-heading) !important;
+}
+
+.vp-doc a.text-muted {
+  color: var(--color-muted) !important;
+}
+
+.vp-doc a.hover\:text-heading:hover {
+  color: var(--color-heading) !important;
+}
+
+.vp-doc a.font-semibold {
+  font-weight: var(--font-weight-semibold) !important;
+}
+
 /* ---------- Hero ---------- */
 
 .VPHero {
