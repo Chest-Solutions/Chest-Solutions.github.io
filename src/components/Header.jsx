@@ -105,7 +105,7 @@ export default function Header() {
         </button>
       </motion.header>
 
-      {/* Mobile menu — absolutely positioned below the pill so it overlays
+      {/* Mobile menu - absolutely positioned below the pill so it overlays
           the page instead of pushing the sticky wrapper taller. */}
       <AnimatePresence>
         {open && (

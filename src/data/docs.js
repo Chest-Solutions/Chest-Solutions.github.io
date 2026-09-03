@@ -12,7 +12,7 @@ export const docRegistry = {
   moparticles: {
     name: 'MoParticles',
     tagline:
-      'Parses MoLang — the Bedrock particle language — bakes it into a Java-compatible animation with item displays, generates the resource pack, and plays it client-side.',
+      'Parses MoLang - the Bedrock particle language - bakes it into a Java-compatible animation with item displays, generates the resource pack, and plays it client-side.',
     icon: 'Sparkles',
     hero: '/img/moparticles.webp',
     github: 'https://github.com/Chest-Solutions/MoParticles',
@@ -22,8 +22,8 @@ export const docRegistry = {
         id: 'overview',
         title: 'Introduction',
         body: [
-          'MoParticles is a Minecraft server plugin that plays Bedrock Edition particle effects on Java Edition servers. It parses MoLang — the particle language Bedrock resource packs use — and bakes the result into a Java-compatible animation built out of item displays.',
-          'When an effect is loaded, MoParticles also generates a resource pack containing the textures the effect needs and plays the animation client-side. Players see smooth, fully animated Bedrock-style particles on a completely vanilla Java client — no client-side mods required.',
+          'MoParticles is a Minecraft server plugin that plays Bedrock Edition particle effects on Java Edition servers. It parses MoLang - the particle language Bedrock resource packs use - and bakes the result into a Java-compatible animation built out of item displays.',
+          'When an effect is loaded, MoParticles also generates a resource pack containing the textures the effect needs and plays the animation client-side. Players see smooth, fully animated Bedrock-style particles on a completely vanilla Java client - no client-side mods required.',
           'The plugin ships with a small showcase of effects and accepts any MoLang particle definition you drop in, so animations from existing Bedrock resource packs can be replayed on your Java server with a single command.',
         ],
       },
@@ -31,7 +31,7 @@ export const docRegistry = {
         id: 'install',
         title: 'Installing',
         body: [
-          'Grab a jar. You can download it from the GitHub repository, or build it yourself from source — the project uses Gradle with the shadow plugin, so a single command produces the runnable jar:',
+          'Grab a jar. You can download it from the GitHub repository, or build it yourself from source - the project uses Gradle with the shadow plugin, so a single command produces the runnable jar:',
           { code: './gradlew shadowJar' },
           'Drop the resulting jar into your server’s plugins/ folder and restart. On first start, MoParticles creates its data folder at plugins/MoParticles/ with a particles/ directory containing the bundled example effects, and generates the resource pack with the required textures.',
           'Because the animations are baked into item displays and textures are delivered through the generated resource pack, players need to accept the server resource pack prompt when joining. Without the pack the animations will not render correctly.',
@@ -47,7 +47,7 @@ export const docRegistry = {
           { code: '/moparticles play <effect> <location> [radius]' },
           'Plays an effect at a specific location, optionally limited to a radius around it. This is the form to use from consoles, command blocks, or scripts when you want the effect somewhere other than where you are standing.',
           { code: '/moparticles playhere <effect> [radius]' },
-          'Plays an effect right where you are standing — handy for previewing animations in-game.',
+          'Plays an effect right where you are standing - handy for previewing animations in-game.',
           { code: '/moparticles stop <id>' },
           'Stops a single running animation by its id. Ids are returned when the animation starts (and are available to plugins through the API).',
           { code: '/moparticles stopall' },
@@ -63,9 +63,9 @@ export const docRegistry = {
         title: 'Effects',
         body: [
           'Effects are MoLang particle definition files in the same JSON format Bedrock resource packs use (the snowstorm format). MoParticles bundles three showcase effects (from snowstorm, plus a custom one) that are copied into plugins/MoParticles/particles/ on first start:',
-          { code: 'snowstorm:fire     — a custom snowstorm fire particle\nsnowstorm:loading  — snowstorm’s loading circle particle\nsnowstorm:rainbow  — snowstorm’s rainbow particle animation' },
+          { code: 'snowstorm:fire     - a custom snowstorm fire particle\nsnowstorm:loading  - snowstorm’s loading circle particle\nsnowstorm:rainbow  - snowstorm’s rainbow particle animation' },
           'To add your own effects, drop more .json particle definition files into plugins/MoParticles/particles/ and run /moparticles reload. Files placed in that folder are picked up without restarting the server.',
-          'Since the definitions are standard Bedrock MoLang particles, you can reuse animations from Bedrock resource packs you own — just make sure you have the rights to use and ship their textures in the generated resource pack.',
+          'Since the definitions are standard Bedrock MoLang particles, you can reuse animations from Bedrock resource packs you own - just make sure you have the rights to use and ship their textures in the generated resource pack.',
         ],
       },
       {
@@ -149,7 +149,7 @@ if (api.hasEffect(effectName)) { // Safety check
         id: 'overview',
         title: 'Introduction',
         body: [
-          'DoorCards turns physical doors in the world into interactive menus. Full documentation hasn’t been written yet — this page is a placeholder.',
+          'DoorCards turns physical doors in the world into interactive menus. Full documentation hasn’t been written yet - this page is a placeholder.',
           'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Chest Solutions Discord.',
         ],
       },
@@ -169,7 +169,7 @@ if (api.hasEffect(effectName)) { // Safety check
         id: 'overview',
         title: 'Introduction',
         body: [
-          'FoliaShops is a player shop plugin built to be safe on Folia’s regionized threading. Full documentation hasn’t been written yet — this page is a placeholder.',
+          'FoliaShops is a player shop plugin built to be safe on Folia’s regionized threading. Full documentation hasn’t been written yet - this page is a placeholder.',
           'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Chest Solutions Discord.',
         ],
       },
@@ -189,7 +189,7 @@ if (api.hasEffect(effectName)) { // Safety check
         id: 'overview',
         title: 'Introduction',
         body: [
-          'FoliaGUI is a library other plugins use to build GUIs that are thread-safe on Folia. Full documentation hasn’t been written yet — this page is a placeholder.',
+          'FoliaGUI is a library other plugins use to build GUIs that are thread-safe on Folia. Full documentation hasn’t been written yet - this page is a placeholder.',
           'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Chest Solutions Discord.',
         ],
       },

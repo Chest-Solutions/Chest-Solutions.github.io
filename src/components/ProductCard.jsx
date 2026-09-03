@@ -1,16 +1,8 @@
-import { ArrowUpRight, DoorOpen, LayoutGrid, Sparkles, Store } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import PluginTile from './PluginTile.jsx'
 import Reveal from './Reveal.jsx'
 
-const icons = {
-  MoParticles: Sparkles,
-  DoorCards: DoorOpen,
-  FoliaShops: Store,
-  FoliaGUI: LayoutGrid,
-}
-
 export default function ProductCard({ product, delay = 0 }) {
-  const Icon = icons[product.name] ?? Sparkles
-
   return (
     <Reveal delay={delay} className="h-full">
       <a
@@ -31,9 +23,7 @@ export default function ProductCard({ product, delay = 0 }) {
 
         <div className="flex flex-1 flex-col p-6">
           <div className="flex items-start justify-between">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5">
-              <Icon className="h-5 w-5 text-neutral-400" />
-            </div>
+            <PluginTile name={product.name} />
             {product.status && (
               <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-neutral-400">
                 {product.status}
