@@ -55,4 +55,3 @@ Try one out right away:
 
 - [GitHub repository](https://github.com/Chest-Solutions/MoParticles)
 - [Releases & downloads](https://github.com/Chest-Solutions/MoParticles/releases)
-- [Next: Getting started →](/docs/moparticles/getting-started)
