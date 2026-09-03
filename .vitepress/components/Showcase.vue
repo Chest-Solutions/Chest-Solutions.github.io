@@ -53,7 +53,7 @@ const features = [
           </a>
           <a
             href="/docs"
-            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-5 py-2.5 text-sm font-semibold text-heading transition-all duration-200 hover:border-brand-500/40 hover:bg-fill-strong"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-5 py-2.5 text-sm font-semibold text-heading transition-all duration-200 hover:border-brand-border hover:bg-fill-strong"
           >
             Read the docs
           </a>
@@ -65,7 +65,7 @@ const features = [
           <div
             v-for="f in features"
             :key="f.title"
-            class="group rounded-2xl border border-line bg-fill/50 p-5 transition-colors duration-300 hover:border-brand-500/40 hover:bg-fill"
+            class="group rounded-2xl border border-line bg-fill/50 p-5 transition-colors duration-300 hover:border-brand-border hover:bg-fill"
           >
             <span class="text-lg">{{ f.icon }}</span>
             <h3 class="mt-3 font-display text-[15px] font-semibold text-heading">{{ f.title }}</h3>
@@ -75,7 +75,7 @@ const features = [
 
         <div class="relative">
           <div
-            class="relative overflow-hidden rounded-3xl border border-line bg-surface shadow-2xl shadow-brand-600/10"
+            class="relative overflow-hidden rounded-3xl border border-line bg-surface shadow-2xl shadow-brand/10"
           >
             <div class="flex items-center gap-4 border-b border-line p-6">
               <img src="/brand/moparticles.png" alt="MoParticles" class="h-16 w-16 animate-float rounded-2xl" />
@@ -84,7 +84,7 @@ const features = [
                 <p class="text-sm text-muted">MoLang → item displays, baked &amp; replayed</p>
               </div>
               <span
-                class="ml-auto rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-[11px] font-semibold text-accent"
+                class="ml-auto rounded-full border border-brand-border bg-brand-subtle px-3 py-1 text-[11px] font-semibold text-accent"
               >
                 v1.1.0
               </span>
@@ -117,7 +117,7 @@ const features = [
                 <span class="text-accent"> ✓ stopped all animations</span>
               </p>
               <p class="text-muted">
-                <span class="inline-block h-4 w-2 animate-pulse bg-brand-400" />
+                <span class="inline-block h-4 w-2 animate-pulse bg-brand-background" />
               </p>
             </div>
           </div>

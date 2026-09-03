@@ -57,10 +57,10 @@ const groups = [
         <div
           v-for="m in g.members"
           :key="m.name"
-          class="group relative overflow-hidden rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40"
+          class="group relative overflow-hidden rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-border"
         >
           <div
-            class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-brand-500/10 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+            class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-brand-subtle opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
           />
           <div class="flex items-center gap-4">
             <img
@@ -72,7 +72,7 @@ const groups = [
             <div class="min-w-0">
               <h3 class="truncate font-display text-lg font-semibold text-heading">{{ m.name }}</h3>
               <span
-                class="mt-1 inline-block rounded-full border border-brand-500/30 bg-brand-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent"
+                class="mt-1 inline-block rounded-full border border-brand-border bg-brand-subtle px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent"
               >
                 {{ m.role }}
               </span>
