@@ -11,6 +11,16 @@ import Downloads from '../components/Downloads.vue'
 import TeamGrid from '../components/TeamGrid.vue'
 import ContactCards from '../components/ContactCards.vue'
 import { syncParticleField } from './particleField.js'
+import { isDocsPath } from '../docs-paths.js'
+
+// VitePress navigates client-side and never re-renders <html>, so the class the
+// build stamped for the initial page has to be re-applied on every route change.
+// CSS does the hiding; this only reports which page we are on, using the same
+// isDocsPath() definition the build used.
+export function syncDocsChrome() {
+  if (typeof document === 'undefined') return
+  document.documentElement.classList.toggle('is-docs', isDocsPath(location.pathname))
+}
 
 export default {
   ...DefaultTheme,
@@ -32,7 +42,11 @@ export default {
     // VitePress's router is not vue-router: it exposes onAfterRouteChange, not afterEach.
     // syncParticleField no-ops until the app has hydrated.
     if (typeof window !== 'undefined') {
-      const sync = () => nextTick(() => syncParticleField())
+      const sync = () =>
+        nextTick(() => {
+          syncParticleField()
+          syncDocsChrome()
+        })
       router.onAfterRouteChange = sync
       sync()
     }

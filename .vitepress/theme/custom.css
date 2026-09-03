@@ -274,21 +274,6 @@ html.dark .VPNavBarTitle img.logo {
   top: var(--vp-nav-height) !important;
 }
 
-/* Hide the mobile "Menu" / "Return to top" local nav bar on non-doc pages
-   (pages without a sidebar: home, downloads, team, contact, legal, ...) */
-.VPLocalNav:not(.has-sidebar) {
-  display: none !important;
-}
-
-/* The home page uses a custom `layout: Home` (capital H), which dodges
-   VitePress's exact `layout === 'home'` checks — so its local nav renders
-   with `has-sidebar empty` (no outline, just a "Menu" button that duplicates
-   the always-fixed navbar's hamburger). Hide the empty variant; every real
-   doc page has h2/h3 headings, so only home (and 404) match this. */
-.VPLocalNav.empty.has-sidebar {
-  display: none !important;
-}
-
 /* Fixed nav is out of flow below 960px too, so offset the content */
 @media (max-width: 959px) {
   .VPContent {
@@ -490,4 +475,19 @@ html.dark .VPNavBarTitle img.logo {
     padding-left: 32px;
     padding-right: 32px;
   }
+}
+
+/* ---------- Docs-only chrome ----------
+   Two bits of VitePress chrome only make sense on documentation: the search
+   box (its local index covers the docs) and the local nav (the mobile "Menu" +
+   outline bar, which is a sidebar affordance). They are hidden everywhere
+   else.
+
+   `.is-docs` is the one flag that says what a doc page is. config.mjs stamps
+   it on <html> at build time (correct on first paint, works without JS) and
+   `theme/index.js` re-applies it on client-side navigation; both ask
+   isDocsPath() in .vitepress/docs-paths.js, which is the only definition. */
+html:not(.is-docs) .VPNavBarSearch,
+html:not(.is-docs) .VPLocalNav {
+  display: none;
 }

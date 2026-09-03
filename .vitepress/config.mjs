@@ -4,6 +4,7 @@ import { join, relative } from 'node:path'
 import { defineConfig } from 'vitepress'
 import tailwindcss from '@tailwindcss/vite'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
+import { DOCS_ROOT, isDocsPath } from './docs-paths.js'
 
 const IMAGE_RE = /\.(png|jpe?g|gif|tiff|webp|avif|svg)$/i
 
@@ -155,7 +156,7 @@ export default defineConfig({
     logo: '/brand/logo.svg',
     siteTitle: 'Chest Solutions',
     nav: [
-      { text: 'Docs', link: '/docs' },
+      { text: 'Docs', link: DOCS_ROOT },
       { text: 'Downloads', link: '/downloads' },
       { text: 'Team', link: '/team' },
       { text: 'Contact', link: '/contact' },
@@ -169,7 +170,7 @@ export default defineConfig({
     // /docs itself opts out with `sidebar: false` in frontmatter: it is a hub,
     // and the cards already link to everything listed here.
     sidebar: {
-      '/docs/': [
+      [`${DOCS_ROOT}/`]: [
         {
           text: 'MoParticles',
           collapsed: false,
@@ -197,4 +198,20 @@ export default defineConfig({
     docFooter: { prev: 'Previous', next: 'Next' },
   },
 
+  // Stamp `is-docs` onto <html> at build time, so documentation chrome (search
+  // and the local nav) is correct on the very first paint and still correct
+  // with JS disabled.
+  //
+  // This covers the initial load only: VitePress navigates client-side and does
+  // not re-render <html> when a link is clicked, so the theme re-applies the
+  // same class on every route change. Both sides call the same isDocsPath(),
+  // so "what is a doc page" is still defined in exactly one place.
+  transformHtml(html, id, ctx) {
+    if (!isDocsPath(ctx.page)) return
+    return html.replace(/<html([^>]*)>/, (tag, attrs) =>
+      /\bclass="/.test(attrs)
+        ? `<html${attrs.replace(/\bclass="([^"]*)"/, 'class="$1 is-docs"')}>`
+        : `<html${attrs} class="is-docs">`,
+    )
+  },
 })
