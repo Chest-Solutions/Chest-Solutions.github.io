@@ -17,7 +17,7 @@ const current = computed(() => (plugin.value ? latest(plugin.value) : undefined)
       <img
         :src="plugin.icon"
         :alt="plugin.name"
-        class="h-28 w-28 shrink-0 animate-float rounded-[24px] shadow-2xl shadow-brand/30 sm:h-32 sm:w-32"
+        class="h-28 w-28 shrink-0 rounded-[24px] shadow-2xl shadow-brand/30 sm:h-32 sm:w-32"
       />
       <div class="min-w-0">
         <div class="flex flex-wrap items-center gap-3">

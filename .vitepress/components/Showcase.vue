@@ -78,7 +78,7 @@ const features = [
             class="relative overflow-hidden rounded-3xl border border-line bg-surface shadow-2xl shadow-brand/10"
           >
             <div class="flex items-center gap-4 border-b border-line p-6">
-              <img src="/brand/moparticles.png" alt="MoParticles" class="h-16 w-16 animate-float rounded-2xl" />
+              <img src="/brand/moparticles.png" alt="MoParticles" class="h-16 w-16 rounded-2xl" />
               <div>
                 <h3 class="font-display text-lg font-semibold text-heading">MoParticles</h3>
                 <p class="text-sm text-muted">MoLang → item displays, baked &amp; replayed</p>

@@ -40,7 +40,6 @@ onMounted(() => nextTick(() => syncParticleField()))
   width: 112px;
   height: 112px;
   margin: 0 auto 28px;
-  animation: float 7s ease-in-out infinite;
 }
 
 /* `screen` only works over the dark page — on a white background it blends the

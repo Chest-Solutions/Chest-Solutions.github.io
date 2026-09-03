@@ -79,17 +79,6 @@
   --color-accent: #1f6cae;
   --color-grid: rgba(15, 20, 26, 0.05);
 
-  --animate-float: float 7s ease-in-out infinite;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-12px);
-    }
-  }
 }
 
 /* Light palette is the default above; this is the dark side of every token.
