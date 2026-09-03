@@ -8,6 +8,18 @@ import { DOCS_ROOT, isDocsPath } from './docs-paths.js'
 
 const IMAGE_RE = /\.(png|jpe?g|gif|tiff|webp|avif|svg)$/i
 
+// Cascade layer order for the bundled CSS. Tailwind declares
+// `theme, base, components, utilities`; this inserts `vitepress` between base
+// and utilities, so:
+//   - above base: preflight's `*{margin:0}` cannot flatten VitePress's prose
+//     spacing and typography;
+//   - below utilities: any Tailwind utility beats any VitePress theme rule,
+//     regardless of specificity.
+// It has to be emitted in front of the first `@layer vitepress{...}` block —
+// a layer's priority is fixed by its first appearance, and VitePress's CSS is
+// bundled ahead of custom.css, so declaring it there is too late.
+const LAYER_ORDER = '@layer theme, base, vitepress, components, utilities;'
+
 // vite-plugin-image-optimizer keys its cache by file *path*, not by content:
 // replace a screenshot and the stale compressed copy keeps being reused. Fold a
 // hash of the source images into the cache directory, so editing an image gets
@@ -106,6 +118,27 @@ export default defineConfig({
   vite: {
     plugins: [
       tailwindcss(),
+      // VitePress's theme CSS is unlayered, so it outranks every Tailwind
+      // utility no matter the specificity: `.vp-doc a` (0-1-1) beats
+      // `.text-brand-foreground` (0-1-0), which painted the download button
+      // brand-blue text on a brand-blue fill — invisible in dark mode. The
+      // same thing was quietly overriding component headings, margins and
+      // weights anywhere a page renders inside .vp-doc.
+      //
+      // Moving the theme into the `vitepress` layer (see LAYER_ORDER) keeps
+      // the cascade inside the theme intact, while making every utility win
+      // against it. fonts.css is skipped: it is a remote @import, @import
+      // inside @layer is not handled everywhere, and fonts compete with
+      // nothing.
+      {
+        name: 'vitepress-theme-layer',
+        enforce: 'pre',
+        transform(code, id) {
+          if (!/node_modules[/\\]vitepress[/\\].*\.css$/.test(id)) return
+          if (id.endsWith('fonts.css')) return
+          return `${LAYER_ORDER}\n@layer vitepress {\n${code}\n}`
+        },
+      },
       // Compress every image that ends up in the build: imported assets plus
       // everything in `public/` (brand art, showcase screenshots). `sharp` and
       // `svgo` are separate peer installs, both pinned in devDependencies.
