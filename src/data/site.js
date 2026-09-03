@@ -66,11 +66,9 @@ export const teamMembers = [
     role: 'Staff',
     github: 'https://github.com/Rytedd',
     discord: 'rytedd',
-    // No Discord user ID on file yet - Discord lookups only work by ID
-    // (usernames can't be resolved), so his GitHub avatar (which is itself
-    // always current) is used until an ID is added here.
-    discordId: null,
-    avatar: 'https://github.com/Rytedd.png?size=256',
+    discordId: '1259867754580676708',
+    avatar:
+      'https://cdn.discordapp.com/avatars/1259867754580676708/f7c0bf3691909208b83b17899e191187.png?size=256',
   },
 ]
 
