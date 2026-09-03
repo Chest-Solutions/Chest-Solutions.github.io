@@ -1,3 +1,8 @@
+---
+title: Plugin API
+order: 5
+---
+
 # Plugin API
 
 MoParticles exposes a small, dependency-light API so other plugins can trigger effects. Everything is available through the static `MoParticleAPI` class.
@@ -87,7 +92,7 @@ if (api.hasEffect(effectName)) {          // safety check
 | `stopAll()` | `void` | Stop every animation |
 | `getResourcePackFile()` | `File` | Path to the generated `resourcepack.zip` |
 
-Effect IDs passed to `hasEffect` / `play` support the same shorthand resolution as commands — see [Effect IDs](/moparticles/particles#effect-ids).
+Effect IDs passed to `hasEffect` / `play` support the same shorthand resolution as commands — see [Effect IDs](/docs/moparticles/particles#effect-ids).
 
 ### Keeping an effect alive
 

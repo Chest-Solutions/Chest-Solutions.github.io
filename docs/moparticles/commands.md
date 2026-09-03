@@ -1,3 +1,8 @@
+---
+title: Commands
+order: 3
+---
+
 # Commands
 
 All commands live under `/moparticles` (tab-completion enabled).
@@ -12,7 +17,7 @@ All commands live under `/moparticles` (tab-completion enabled).
 | `/moparticles reload` | Re-scan `particles/` and reload all effects (pack is regenerated) |
 | `/moparticles info <effect>` | Show details about an effect (frames, texture, emitter) |
 
-All commands accept **shorthand effect IDs** — see [Effect IDs](/moparticles/particles#effect-ids) for the resolution rules.
+All commands accept **shorthand effect IDs** — see [Effect IDs](/docs/moparticles/particles#effect-ids) for the resolution rules.
 
 ## Examples
 

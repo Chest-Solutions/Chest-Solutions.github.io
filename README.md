@@ -49,7 +49,7 @@ if you ever need a hard reset, delete that folder.
 ├── index.md              # home page (hero + features + sections)
 ├── downloads.md          # MoParticles downloads
 ├── team.md / contact.md / terms.md / privacy.md
-├── moparticles/          # documentation
+├── docs/                 # documentation hub + per-project docs (/docs/moparticles/)
 │   ├── index.md          # overview
 │   ├── getting-started.md
 │   ├── commands.md

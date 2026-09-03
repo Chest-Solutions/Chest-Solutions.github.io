@@ -155,7 +155,7 @@ export default defineConfig({
     logo: '/brand/logo.svg',
     siteTitle: 'Chest Solutions',
     nav: [
-      { text: 'MoParticles', link: '/moparticles/' },
+      { text: 'Docs', link: '/docs' },
       { text: 'Downloads', link: '/downloads' },
       { text: 'Team', link: '/team' },
       { text: 'Contact', link: '/contact' },
@@ -164,20 +164,22 @@ export default defineConfig({
     // puts the docs sidebar on the home page and on the standalone site pages
     // too (VitePress only skips it for an exact `layout: home`, and this site's
     // home uses the custom `layout: Home`). With the object form, only paths
-    // under /moparticles/ get sidebar items, so `hasSidebar` — and with it the
-    // fixed <aside> and VPContent's sidebar padding — stay on the doc pages.
+    // under /docs/ get sidebar items, so `hasSidebar` — and with it the fixed
+    // <aside> and VPContent's sidebar padding — stay on the doc pages.
+    // /docs itself opts out with `sidebar: false` in frontmatter: it is a hub,
+    // and the cards already link to everything listed here.
     sidebar: {
-      '/moparticles/': [
+      '/docs/': [
         {
           text: 'MoParticles',
           collapsed: false,
           items: [
-            { text: 'Overview', link: '/moparticles/' },
-            { text: 'Getting started', link: '/moparticles/getting-started' },
-            { text: 'Commands', link: '/moparticles/commands' },
-            { text: 'Particle format', link: '/moparticles/particles' },
-            { text: 'Plugin API', link: '/moparticles/api' },
-            { text: 'FAQ', link: '/moparticles/faq' },
+            { text: 'Overview', link: '/docs/moparticles/' },
+            { text: 'Getting started', link: '/docs/moparticles/getting-started' },
+            { text: 'Commands', link: '/docs/moparticles/commands' },
+            { text: 'Particle format', link: '/docs/moparticles/particles' },
+            { text: 'Plugin API', link: '/docs/moparticles/api' },
+            { text: 'FAQ', link: '/docs/moparticles/faq' },
           ],
         },
       ],
@@ -194,4 +196,5 @@ export default defineConfig({
     outline: { label: 'On this page', level: [2, 3] },
     docFooter: { prev: 'Previous', next: 'Next' },
   },
+
 })

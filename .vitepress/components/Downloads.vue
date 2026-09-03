@@ -58,7 +58,7 @@ const latest = {
             GitHub
           </a>
           <a
-            href="/moparticles/getting-started"
+            href="/docs/moparticles/getting-started"
             class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-6 py-3 text-sm font-semibold text-heading backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-fill-strong active:scale-[0.98]"
           >
             Install guide

@@ -1,3 +1,8 @@
+---
+title: Getting started
+order: 2
+---
+
 # Getting started
 
 ## Requirements

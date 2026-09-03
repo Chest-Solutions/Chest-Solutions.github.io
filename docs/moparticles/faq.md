@@ -1,3 +1,8 @@
+---
+title: FAQ
+order: 6
+---
+
 # FAQ
 
 ## Do players need to install anything?

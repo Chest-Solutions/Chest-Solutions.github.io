@@ -52,7 +52,7 @@ const features = [
             Download MoParticles
           </a>
           <a
-            href="/moparticles/"
+            href="/docs"
             class="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-fill px-5 py-2.5 text-sm font-semibold text-heading transition-all duration-200 hover:border-brand-500/40 hover:bg-fill-strong"
           >
             Read the docs

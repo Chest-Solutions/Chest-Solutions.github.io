@@ -1,3 +1,8 @@
+---
+title: Particle format
+order: 4
+---
+
 # Particle format
 
 MoParticles reads **Bedrock `particle_effect` JSON files** — the same format used by resource packs and the SnowStorm effect library. The goal is broad compatibility: components MoParticles doesn't understand are safely ignored, so most Bedrock effect files just work.
