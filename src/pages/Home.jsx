@@ -9,15 +9,15 @@ import { products } from '../data/site.js'
 const notes = [
   {
     title: 'Free and open source',
-    body: 'Every project is public and MIT licensed — read it, patch it, run it on your network.',
+    body: 'Every project is public and MIT licensed - read it, patch it, run it on your network.',
   },
   {
     title: 'Performance comes first',
-    body: 'Built for tick budget, not for symmetry — plugins you can actually ship to a busy production server.',
+    body: 'Built for tick budget, not for symmetry - plugins you can actually ship to a busy production server.',
   },
   {
     title: 'Across most platforms',
-    body: 'Available on Modrinth and GitHub — the same jar, wherever your players are.',
+    body: 'Available on Modrinth and GitHub - the same jar, wherever your players are.',
   },
 ]
 
@@ -28,7 +28,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-center overflow-hidden">
-        {/* Background photo — scaled up heavily + offset so it covers the
+        {/* Background photo - scaled up heavily + offset so it covers the
             entire section. A light blur washes it into a soft scrim so
             the centered text reads cleanly on top. */}
         <img
@@ -49,7 +49,7 @@ export default function Home() {
               Modern mods &amp; plugins.
             </h1>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-neutral-200 md:text-lg">
-              Free, open-source Minecraft software — built for performance and stability.
+              Free, open-source Minecraft software - built for performance and stability.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link to="/downloads" className="btn-primary">
@@ -126,7 +126,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community — mirrors the plugin card grid: two banner cards,
+      {/* Community - mirrors the plugin card grid: two banner cards,
           one for Discord, one for GitHub. Same banner-art aesthetic as
           the plugin cards above (cosmic aurora, grain). */}
       <section className="border-t border-white/10">

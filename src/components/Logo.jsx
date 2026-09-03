@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 // Two preloaded Audio objects so the sounds can play instantly on hover.
 // Volume is intentionally extremely low so the sound is a subtle feedback cue
-// and never a jumpscare — adjust VOLUME here if you want it different.
+// and never a jumpscare - adjust VOLUME here if you want it different.
 const VOLUME = 0.08
 
 let _openAudio = null
@@ -37,7 +37,7 @@ const SNAPPY_SPRING = { type: 'spring', stiffness: 600, damping: 22, mass: 0.6 }
  * Chest Solutions logo: snaps between the closed and open chest variants
  * with a small bounce, and plays the matching Minecraft chest sound on
  * every state change. Both images stay mounted so the transition is just
- * opacity + scale — never a flicker.
+ * opacity + scale - never a flicker.
  */
 export default function Logo({ className = 'h-7 w-7', alt = 'Chest Solutions' }) {
   const [hovered, setHovered] = useState(false)

@@ -31,7 +31,7 @@ export default function Downloads() {
       <Reveal delay={0.24}>
         <p className="mt-8 flex items-start gap-2 text-xs leading-relaxed text-neutral-500">
           <Info className="mt-px h-3.5 w-3.5 shrink-0" />
-          Builds can change without notice — pin the version you run in production.
+          Builds can change without notice - pin the version you run in production.
         </p>
       </Reveal>
 

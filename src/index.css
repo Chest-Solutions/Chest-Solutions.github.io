@@ -11,7 +11,7 @@ html {
 }
 
 /*
- * Slightly warmer than neutral-800 (#262626) — a tiny cream tint baked
+ * Slightly warmer than neutral-800 (#262626) - a tiny cream tint baked
  * into the dark background so the page doesn't feel like pure gray.
  */
 body {
@@ -25,7 +25,7 @@ body {
 }
 
 /* ------------------------------------------------------------------
- * Custom scrollbar — slim, dark, with a subtle hover to match the
+ * Custom scrollbar - slim, dark, with a subtle hover to match the
  * site's neutral palette.
  * ------------------------------------------------------------------ */
 ::-webkit-scrollbar {
@@ -74,7 +74,7 @@ body {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-white/10;
   }
 
-  /* Discord-branded variant — uses the official Discord indigo on hover. */
+  /* Discord-branded variant - uses the official Discord indigo on hover. */
   .btn-discord {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:bg-[#5865F2] hover:text-white;
   }
