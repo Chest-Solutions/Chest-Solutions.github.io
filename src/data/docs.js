@@ -150,7 +150,7 @@ if (api.hasEffect(effectName)) { // Safety check
         title: 'Introduction',
         body: [
           'DoorCards turns physical doors in the world into interactive menus. Full documentation hasn’t been written yet - this page is a placeholder.',
-          'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Chest Solutions Discord.',
+          'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Nocturne Discord.',
         ],
       },
     ],
@@ -170,7 +170,7 @@ if (api.hasEffect(effectName)) { // Safety check
         title: 'Introduction',
         body: [
           'FoliaShops is a player shop plugin built to be safe on Folia’s regionized threading. Full documentation hasn’t been written yet - this page is a placeholder.',
-          'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Chest Solutions Discord.',
+          'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Nocturne Discord.',
         ],
       },
     ],
@@ -190,7 +190,7 @@ if (api.hasEffect(effectName)) { // Safety check
         title: 'Introduction',
         body: [
           'FoliaGUI is a library other plugins use to build GUIs that are thread-safe on Folia. Full documentation hasn’t been written yet - this page is a placeholder.',
-          'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Chest Solutions Discord.',
+          'In the meantime, you can follow development or open an issue on GitHub, or ask questions in the Nocturne Discord.',
         ],
       },
     ],

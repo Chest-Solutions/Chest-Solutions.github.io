@@ -34,12 +34,12 @@ const FRAME = 'relative inline-block h-7 w-7 shrink-0'
 const SNAPPY_SPRING = { type: 'spring', stiffness: 600, damping: 22, mass: 0.6 }
 
 /**
- * Chest Solutions logo: snaps between the closed and open chest variants
+ * Nocturne logo: snaps between the closed and open chest variants
  * with a small bounce, and plays the matching Minecraft chest sound on
  * every state change. Both images stay mounted so the transition is just
  * opacity + scale - never a flicker.
  */
-export default function Logo({ className = 'h-7 w-7', alt = 'Chest Solutions' }) {
+export default function Logo({ className = 'h-7 w-7', alt = 'Nocturne' }) {
   const [hovered, setHovered] = useState(false)
   const { open, close } = getAudio()
 

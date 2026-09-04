@@ -184,7 +184,7 @@ export default function PluginSelect({ activeSlug, className = 'lg:w-64' }) {
             }
             transition={reduce ? { duration: 0.1 } : { duration: 0.2, ease: EASE }}
             style={{ transformOrigin: 'top center' }}
-            className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-40 max-h-72 max-w-xs overflow-y-auto rounded-xl border border-white/10 bg-[#2e2b28]/95 p-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-2xl"
+            className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-40 max-h-72 max-w-xs overflow-y-auto rounded-xl border border-white/10 bg-[#0d0f14]/95 p-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-2xl"
           >
             <p className="px-2.5 pb-1 pt-1.5 text-xs uppercase tracking-[0.15em] text-neutral-500">
               Plugins
