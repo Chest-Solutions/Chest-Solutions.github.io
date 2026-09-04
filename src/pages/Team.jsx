@@ -208,10 +208,11 @@ export default function Team() {
   const contributors = useContributors()
 
   return (
-    <div className="mx-auto max-w-6xl px-6 pb-24 pt-20">
+    <div className="mx-auto max-w-6xl px-6 pb-24 pt-24">
       <Reveal>
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Team</h1>
-        <p className="mt-3 text-neutral-400">The people behind Chest Solutions.</p>
+        <p className="eyebrow">Staff &amp; contributors</p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Team</h1>
+        <p className="mt-3 text-neutral-400">The people behind Dark.</p>
       </Reveal>
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -228,7 +229,7 @@ export default function Team() {
             Contributors
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-400">
-            Everyone who has committed to a Chest Solutions repo, pulled
+            Everyone who has committed to a Dark repo, pulled
             live from GitHub.
           </p>
         </Reveal>

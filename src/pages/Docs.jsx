@@ -19,7 +19,7 @@ function DocsIndex() {
     <section className="pb-24 pt-24">
       <div className="mx-auto w-full max-w-5xl px-6">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.15em] text-neutral-500">
+          <p className="eyebrow">
             Documentation
           </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -232,7 +232,7 @@ function DocPage({ slug, section }) {
               <div className="flex flex-wrap items-start gap-3">
                 <PluginTile name={doc.name} />
                 <div className="min-w-0">
-                  <p className="text-xs uppercase tracking-[0.15em] text-neutral-500">
+                  <p className="eyebrow">
                     {doc.name} - Docs
                   </p>
                   <h1 className="mt-1 text-3xl font-semibold tracking-tight md:text-4xl">

@@ -90,7 +90,7 @@ export default function Header() {
       >
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <Logo className="h-7 w-7" />
-          <span className="text-[15px] font-semibold tracking-tighter">Chest Solutions</span>
+          <span className="text-[15px] font-semibold tracking-tighter">Dark</span>
         </Link>
 
         <NavItems className="hidden items-center gap-8 md:flex" />

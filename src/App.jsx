@@ -54,10 +54,12 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex min-h-screen flex-col text-white" style={{ backgroundColor: '#2b2826' }}>
+      <div className="flex min-h-screen flex-col text-white" style={{ backgroundColor: '#161310' }}>
         <Header />
         <RoutedContent />
         <Footer />
+        {/* Static film grain over everything - texture only, no motion. */}
+        <div className="film-grain" aria-hidden="true" />
       </div>
     </BrowserRouter>
   )

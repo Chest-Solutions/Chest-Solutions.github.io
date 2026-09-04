@@ -39,16 +39,24 @@ export default function Home() {
           decoding="async"
           className="absolute left-1/2 top-1/2 -z-20 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 object-cover blur-sm"
         />
-        <div className="absolute inset-0 -z-10 bg-black/45" />
-        <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-[#2b2826] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-64 bg-gradient-to-b from-transparent to-[#2b2826]" />
+        <div className="absolute inset-0 -z-10 bg-black/55" />
+        {/* Letterbox vignette - darkens the frame edges so the hero reads
+            like a shot, with the title plated over the centre. */}
+        <div
+          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.55)_100%)]"
+        />
+        <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-[#161310] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-64 bg-gradient-to-b from-transparent to-[#161310]" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center px-6 py-24 text-center">
           <Reveal>
-            <h1 className="tracking-tighter text-4xl font-semibold leading-[1.05] md:text-6xl">
+            <p className="eyebrow">
+              Minecraft mods &amp; plugins ‧ Paper / Folia
+            </p>
+            <h1 className="mt-6 tracking-tighter text-5xl font-medium leading-[1.02] md:text-7xl">
               Modern mods &amp; plugins.
             </h1>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-neutral-200 md:text-lg">
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-neutral-300 md:text-lg">
               Free, open-source Minecraft software - built for performance and stability.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -66,8 +74,15 @@ export default function Home() {
       </section>
 
       {/* Notes */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-10 md:grid-cols-3">
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <Reveal>
+          {/* Section slate - index number, label, hairline to the edge. */}
+          <div className="flex items-center gap-6">
+            <p className="eyebrow shrink-0">01 — Principles</p>
+            <span className="h-px flex-1 bg-white/10" aria-hidden="true" />
+          </div>
+        </Reveal>
+        <div className="mt-10 grid gap-10 md:grid-cols-3">
           {notes.map((note, i) => (
             <Reveal key={note.title} delay={i * 0.08}>
               <h2 className="text-sm font-semibold tracking-tight">{note.title}</h2>
@@ -79,11 +94,12 @@ export default function Home() {
 
       {/* Projects */}
       <section className="border-t border-white/10 bg-white/[0.03]">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+                <p className="eyebrow">02 — Projects</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
                   Everything we ship
                 </h2>
                 <p className="mt-3 max-w-xl text-neutral-400">
@@ -130,9 +146,10 @@ export default function Home() {
           one for Discord, one for GitHub. Same banner-art aesthetic as
           the plugin cards above (cosmic aurora, grain). */}
       <section className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-6xl px-6 py-24">
           <Reveal>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            <p className="eyebrow">03 — Community</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
               Find us
             </h2>
             <p className="mt-3 max-w-xl text-neutral-400">

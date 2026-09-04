@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
           <div className="flex items-center gap-2.5">
             <Logo className="h-5 w-5 opacity-80" />
-            <span className="text-sm font-medium text-white">Chest Solutions</span>
+            <span className="text-sm font-medium text-white">Dark</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-400">
             <a
@@ -40,8 +40,12 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <p className="mt-8 text-xs text-neutral-500">
-          © {new Date().getFullYear()} Chest Solutions. Not affiliated with Mojang or Microsoft.
+        {/* Informative micro-strip - the small caps "ticker" line. */}
+        <p className="mt-8 text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-500">
+          Open source ‧ MIT licensed ‧ Built for Paper &amp; Folia
+        </p>
+        <p className="mt-3 text-xs text-neutral-500">
+          © {new Date().getFullYear()} Dark. Not affiliated with Mojang or Microsoft.
         </p>
       </div>
     </footer>

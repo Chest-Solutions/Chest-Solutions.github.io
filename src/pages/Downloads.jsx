@@ -16,9 +16,10 @@ export default function Downloads() {
   useTitle('Downloads')
 
   return (
-    <div className="mx-auto max-w-6xl px-6 pb-24 pt-20">
+    <div className="mx-auto max-w-6xl px-6 pb-24 pt-24">
       <Reveal>
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Downloads</h1>
+        <p className="eyebrow">Software — all free</p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Downloads</h1>
         <p className="mt-3 text-neutral-400">All software is free and open source.</p>
       </Reveal>
 
