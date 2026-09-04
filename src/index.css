@@ -11,14 +11,14 @@ html {
 }
 
 /*
- * Deep warm black - a faint cream tint keeps it from reading as pure
- * gray, and the low luminance gives the page its cinematic, film-grade
- * base. Everything (hero fades, dropdowns, theme-color) matches this.
+ * True cinematic black - a cool, near-black base with the faintest
+ * neutral tint. The low luminance is the film stage: glass panels,
+ * the sunset hero and the accent details all play against it.
  */
 body {
   @apply text-white antialiased;
   font-family: var(--font-sans);
-  background-color: #161310;
+  background-color: #0a0a0c;
 }
 
 /* ------------------------------------------------------------------
@@ -32,7 +32,7 @@ body {
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.045;
+  opacity: 0.05;
   background-repeat: repeat;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

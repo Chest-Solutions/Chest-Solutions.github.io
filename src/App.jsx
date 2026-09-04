@@ -54,7 +54,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex min-h-screen flex-col text-white" style={{ backgroundColor: '#161310' }}>
+      <div className="flex min-h-screen flex-col text-white" style={{ backgroundColor: '#0a0a0c' }}>
         <Header />
         <RoutedContent />
         <Footer />

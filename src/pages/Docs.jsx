@@ -1,8 +1,10 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { motion, useScroll } from 'framer-motion'
 import PluginSelect from '../components/PluginSelect.jsx'
 import PluginTile from '../components/PluginTile.jsx'
 import Reveal from '../components/Reveal.jsx'
+import SectionSlate from '../components/SectionSlate.jsx'
 import { useTitle } from '../hooks/useTitle.js'
 import { docRegistry } from '../data/docs.js'
 
@@ -10,19 +12,36 @@ function firstSectionId(doc) {
   return doc.sections[0]?.id
 }
 
-/** The `/docs` landing page: a list of every plugin's docs. Clicking a
- * card opens that plugin's first doc section. */
+/**
+ * Thin reading-progress line that pins to the top of the viewport while
+ * the doc scrolls. Maps scroll position directly (no easing loop), so
+ * it always tells you exactly where you are in the document. Sticky,
+ * not fixed: the routed <main> keeps a blur filter on it, which would
+ * otherwise become the containing block and break position:fixed.
+ */
+function ReadingProgress() {
+  const { scrollYProgress } = useScroll()
+
+  return (
+    <motion.div
+      aria-hidden="true"
+      style={{ scaleX: scrollYProgress }}
+      className="sticky top-0 z-40 h-[2px] origin-left bg-sky-400/80"
+    />
+  )
+}
+
+/** The `/docs` landing page: a track list of every plugin's docs. */
 function DocsIndex() {
   const entries = Object.entries(docRegistry)
 
   return (
-    <section className="pb-24 pt-24">
+    <section className="pb-28 pt-28">
+      <ReadingProgress />
       <div className="mx-auto w-full max-w-5xl px-6">
         <Reveal>
-          <p className="eyebrow">
-            Documentation
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+          <SectionSlate label="Documentation" />
+          <h1 className="mt-8 text-4xl font-semibold tracking-tight md:text-6xl">
             Plugin docs
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-400">
@@ -31,42 +50,29 @@ function DocsIndex() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {entries.map(([slug, doc], i) => {
-            return (
-              <Reveal key={slug} delay={0.06 * i} className="h-full">
-                <Link
-                  to={`/docs/${slug}/${firstSectionId(doc)}`}
-                  className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06]"
-                >
-                  <div className="flex items-start justify-between">
-                    <PluginTile name={doc.name} />
-                    {doc.stub ? (
-                      <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-neutral-400">
-                        Coming soon
-                      </span>
-                    ) : (
-                      <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-neutral-400">
-                        Docs
-                      </span>
-                    )}
-                  </div>
-
-                  <h2 className="mt-5 text-lg font-semibold tracking-tight">
+        <div className="mt-14 divide-y divide-white/10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+          {entries.map(([slug, doc], i) => (
+            <Reveal key={slug} delay={0.05 * i}>
+              <Link
+                to={`/docs/${slug}/${firstSectionId(doc)}`}
+                className="group flex items-center gap-5 px-6 py-6 transition-colors duration-300 hover:bg-white/[0.04] md:px-8"
+              >
+                <PluginTile name={doc.name} size="h-10 w-10" iconSize="h-4 w-4" />
+                <div className="min-w-0 flex-1">
+                  <h2 className="text-sm font-semibold tracking-tight">
                     {doc.name}
                   </h2>
-                  <p className="mt-1.5 text-sm leading-relaxed text-neutral-400">
+                  <p className="mt-1 truncate text-xs text-neutral-500 md:text-sm">
                     {doc.tagline}
                   </p>
-
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-neutral-400 transition-colors duration-300 group-hover:text-white">
-                    Read the docs
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </span>
-                </Link>
-              </Reveal>
-            )
-          })}
+                </div>
+                <span className="hidden shrink-0 text-xs text-neutral-500 sm:block">
+                  {doc.stub ? 'Coming soon' : `${doc.sections.length} sections`}
+                </span>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-neutral-600 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
@@ -85,11 +91,12 @@ function SidebarLink({ to, active, children }) {
   return (
     <Link
       to={to}
-      className={`block rounded-md px-2 py-1.5 transition-colors duration-200 ${
+      className={`flex items-center gap-2 rounded-lg px-2.5 py-1.5 transition-colors duration-200 ${
         active ? 'bg-white/10 text-white' : 'text-neutral-500 hover:text-white'
       }`}
     >
-      {children}
+      {active && <span className="h-1 w-1 shrink-0 rounded-full bg-sky-400" />}
+      <span className="truncate">{children}</span>
     </Link>
   )
 }
@@ -102,37 +109,19 @@ function DocsSidebar({ activeSlug, activeSectionId }) {
   const developer = DeveloperDocs(doc)
 
   return (
-    <aside className="sticky top-24 hidden max-h-[calc(100vh-7rem)] overflow-y-auto pr-4 text-sm lg:block">
-      <div className="mb-6">
-        <PluginSelect activeSlug={activeSlug} />
-      </div>
+    <aside className="hidden lg:block">
+      {/* Glass rail: the plugin picker and the section nav float in one
+          frosted panel beside the article. */}
+      <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm">
+        <PluginSelect activeSlug={activeSlug} className="w-full" />
 
-      <nav className="space-y-8">
-        <div>
-          <p className="mb-2 px-2 text-xs uppercase tracking-[0.15em] text-neutral-500">
-            User Setup
-          </p>
-          <ul className="space-y-1 border-l border-white/10 pl-4">
-            {user.map((section) => (
-              <li key={section.id}>
-                <SidebarLink
-                  to={`/docs/${activeSlug}/${section.id}`}
-                  active={section.id === activeSectionId}
-                >
-                  {section.title}
-                </SidebarLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {developer.length > 0 && (
+        <nav className="mt-6 space-y-8">
           <div>
-            <p className="mb-2 px-2 text-xs uppercase tracking-[0.15em] text-neutral-500">
-              Developer Setup
+            <p className="mb-2 px-2.5 text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-500">
+              User setup
             </p>
-            <ul className="space-y-1 border-l border-white/10 pl-4">
-              {developer.map((section) => (
+            <ul className="space-y-1">
+              {user.map((section) => (
                 <li key={section.id}>
                   <SidebarLink
                     to={`/docs/${activeSlug}/${section.id}`}
@@ -144,8 +133,28 @@ function DocsSidebar({ activeSlug, activeSectionId }) {
               ))}
             </ul>
           </div>
-        )}
-      </nav>
+
+          {developer.length > 0 && (
+            <div>
+              <p className="mb-2 px-2.5 text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-500">
+                Developer setup
+              </p>
+              <ul className="space-y-1">
+                {developer.map((section) => (
+                  <li key={section.id}>
+                    <SidebarLink
+                      to={`/docs/${activeSlug}/${section.id}`}
+                      active={section.id === activeSectionId}
+                    >
+                      {section.title}
+                    </SidebarLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </nav>
+      </div>
     </aside>
   )
 }
@@ -164,7 +173,7 @@ function DocsMobileNav({ activeSlug, activeSectionId }) {
             <Link
               key={section.id}
               to={`/docs/${activeSlug}/${section.id}`}
-              className={`rounded-full border border-white/10 px-3 py-1.5 text-sm transition-colors duration-200 hover:border-white/25 hover:text-white ${
+              className={`rounded-full border border-white/10 px-3.5 py-1.5 text-xs transition-colors duration-200 hover:border-white/25 hover:text-white ${
                 section.id === activeSectionId
                   ? 'bg-white/10 text-white'
                   : 'text-neutral-400'
@@ -181,23 +190,33 @@ function DocsMobileNav({ activeSlug, activeSectionId }) {
 
 function OnThisPage({ doc, section }) {
   return (
-    <div className="sticky top-24 text-sm">
-      <p className="mb-3 text-xs uppercase tracking-[0.15em] text-neutral-500">
-        On this page
-      </p>
-      <ul className="space-y-2">
+    <div className="sticky top-28 text-sm">
+      <p className="eyebrow">On this page</p>
+      <ul className="mt-4 space-y-2">
         <li>
-          <a href={`#${section.id}`} className="text-neutral-400 transition-colors duration-200 hover:text-white">
+          <a
+            href={`#${section.id}`}
+            className="flex items-center gap-2 text-neutral-400 transition-colors duration-200 hover:text-white"
+          >
+            <span className="h-1 w-1 rounded-full bg-sky-400" />
             {section.title}
           </a>
         </li>
       </ul>
 
-      <div className="mt-8">
-        <p className="mb-3 text-xs uppercase tracking-[0.15em] text-neutral-500">
-          Plugin
+      <div className="mt-10">
+        <p className="eyebrow">Plugin</p>
+        <div className="mt-4 flex items-center gap-3 text-neutral-400">
+          <PluginTile name={doc.name} size="h-8 w-8" iconSize="h-3.5 w-3.5" />
+          <span className="text-sm">{doc.name}</span>
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <p className="eyebrow">Versions</p>
+        <p className="mt-4 text-xs leading-relaxed text-neutral-500">
+          {doc.versions.join(' ‧ ')}
         </p>
-        <div className="flex items-center gap-2 text-neutral-400">{doc.name}</div>
       </div>
     </div>
   )
@@ -220,7 +239,8 @@ function DocPage({ slug, section }) {
   const next = doc.sections[index + 1]
 
   return (
-    <article className="pb-16 pt-20">
+    <article className="pb-20 pt-28">
+      <ReadingProgress />
       <div className="mx-auto w-full max-w-[1600px] px-6">
         <div className="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)_220px]">
           <DocsSidebar activeSlug={slug} activeSectionId={section} />
@@ -229,19 +249,18 @@ function DocPage({ slug, section }) {
             <DocsMobileNav activeSlug={slug} activeSectionId={section} />
 
             <Reveal>
-              <div className="flex flex-wrap items-start gap-3">
+              <p className="eyebrow">
+                Docs ‧ {doc.name} ‧ {String(index + 1).padStart(2, '0')}/
+                {String(doc.sections.length).padStart(2, '0')}
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
                 <PluginTile name={doc.name} />
-                <div className="min-w-0">
-                  <p className="eyebrow">
-                    {doc.name} - Docs
-                  </p>
-                  <h1 className="mt-1 text-3xl font-semibold tracking-tight md:text-4xl">
-                    {current.title}
-                  </h1>
-                </div>
+                <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+                  {current.title}
+                </h1>
               </div>
 
-              <div className="mt-4 flex flex-wrap items-center gap-2">
+              <div className="mt-6 flex flex-wrap items-center gap-2">
                 {doc.versions.map((version) => (
                   <span
                     key={version}
@@ -257,7 +276,7 @@ function DocPage({ slug, section }) {
                 )}
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <a href={doc.github} target="_blank" rel="noreferrer" className="btn-primary">
                   <ExternalLink className="h-4 w-4" />
                   Open GitHub
@@ -268,7 +287,7 @@ function DocPage({ slug, section }) {
             <Reveal delay={0.08}>
               <div
                 id={current.id}
-                className="mt-10 max-w-3xl scroll-mt-24 space-y-4 text-sm leading-relaxed text-neutral-400"
+                className="mt-12 max-w-3xl scroll-mt-24 space-y-4 text-sm leading-relaxed text-neutral-400"
               >
                 {current.body.map((block, i) =>
                   typeof block === 'string' ? (
@@ -276,7 +295,7 @@ function DocPage({ slug, section }) {
                   ) : (
                     <pre
                       key={i}
-                      className="overflow-x-auto rounded-xl border border-white/10 bg-black/30 p-4 text-xs leading-relaxed text-neutral-300"
+                      className="overflow-x-auto rounded-xl border border-white/10 bg-black/40 p-4 text-xs leading-relaxed text-neutral-300"
                     >
                       <code>{block.code}</code>
                     </pre>
@@ -285,14 +304,18 @@ function DocPage({ slug, section }) {
               </div>
             </Reveal>
 
-            <div className="mt-14 flex items-center justify-between gap-4 border-t border-white/10 pt-8">
+            {/* Prev / next as two glass cards rather than bare links. */}
+            <div className="mt-16 grid gap-4 border-t border-white/10 pt-10 sm:grid-cols-2">
               {previous ? (
                 <Link
                   to={`/docs/${slug}/${previous.id}`}
-                  className="inline-flex items-center gap-1.5 text-sm text-neutral-400 transition-colors duration-300 hover:text-white"
+                  className="group rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.06]"
                 >
-                  <ArrowLeft className="h-4 w-4" />
-                  {previous.title}
+                  <p className="eyebrow">Previous</p>
+                  <p className="mt-3 flex items-center gap-2 text-sm font-medium text-neutral-300 transition-colors duration-300 group-hover:text-white">
+                    <ArrowLeft className="h-4 w-4 shrink-0" />
+                    {previous.title}
+                  </p>
                 </Link>
               ) : (
                 <span />
@@ -301,10 +324,13 @@ function DocPage({ slug, section }) {
               {next ? (
                 <Link
                   to={`/docs/${slug}/${next.id}`}
-                  className="inline-flex items-center gap-1.5 text-right text-sm text-neutral-400 transition-colors duration-300 hover:text-white"
+                  className="group rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5 text-right transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.06]"
                 >
-                  {next.title}
-                  <ArrowRight className="h-4 w-4" />
+                  <p className="eyebrow">Next</p>
+                  <p className="mt-3 flex items-center justify-end gap-2 text-sm font-medium text-neutral-300 transition-colors duration-300 group-hover:text-white">
+                    {next.title}
+                    <ArrowRight className="h-4 w-4 shrink-0" />
+                  </p>
                 </Link>
               ) : (
                 <span />
