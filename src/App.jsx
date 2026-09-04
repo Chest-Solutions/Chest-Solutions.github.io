@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import Lenis from 'lenis'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
@@ -9,12 +10,49 @@ import Docs from './pages/Docs.jsx'
 import Team from './pages/Team.jsx'
 import NotFound from './pages/NotFound.jsx'
 
+// The active Lenis instance (null when reduced motion is preferred).
+// ScrollToTop needs it because window.scrollTo alone doesn't reset
+// Lenis's internal scroll state.
+let activeLenis = null
+
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
+    if (activeLenis) {
+      activeLenis.scrollTo(0, { immediate: true, force: true })
+    }
     window.scrollTo(0, 0)
   }, [pathname])
   return null
+}
+
+/**
+ * Lenis smooth scrolling - inertia-based scroll smoothing over the whole
+ * page. Skipped entirely when the user prefers reduced motion.
+ */
+function useSmoothScroll() {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const lenis = new Lenis({
+      duration: 1.1,
+      smoothWheel: true,
+    })
+    activeLenis = lenis
+
+    let frame
+    function raf(time) {
+      lenis.raf(time)
+      frame = requestAnimationFrame(raf)
+    }
+    frame = requestAnimationFrame(raf)
+
+    return () => {
+      cancelAnimationFrame(frame)
+      lenis.destroy()
+      activeLenis = null
+    }
+  }, [])
 }
 
 function RoutedContent() {
@@ -30,10 +68,10 @@ function RoutedContent() {
     <AnimatePresence mode="wait">
       <motion.main
         key={pageKey}
-        initial={{ opacity: 0, y: 12, filter: 'blur(8px)' }}
+        initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        exit={{ opacity: 0, y: -8, filter: 'blur(8px)' }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        exit={{ opacity: 0, y: -12, filter: 'blur(8px)' }}
+        transition={{ duration: 0.45, ease: [0.83, 0, 0.17, 1] }}
         className="flex-1"
       >
         <Routes location={location}>
@@ -51,10 +89,12 @@ function RoutedContent() {
 }
 
 export default function App() {
+  useSmoothScroll()
+
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex min-h-screen flex-col text-white" style={{ backgroundColor: '#2b2826' }}>
+      <div className="flex min-h-screen flex-col text-white" style={{ backgroundColor: '#07080b' }}>
         <Header />
         <RoutedContent />
         <Footer />

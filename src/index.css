@@ -1,32 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 @import 'tailwindcss';
 
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  /* Moonlight accent - the one color Nocturne allows itself. */
+  --color-accent: #a9b8ff;
 }
 
 html {
   color-scheme: dark;
-  scroll-behavior: smooth;
+  /* Native smooth scrolling is off - Lenis handles scroll smoothing. */
+  scroll-behavior: auto;
 }
 
 /*
- * Slightly warmer than neutral-800 (#262626) - a tiny cream tint baked
- * into the dark background so the page doesn't feel like pure gray.
+ * Nocturne palette - film-black with a faint blue cast. Nearly no hue in
+ * the surface itself; the moonlight accent does all the color work.
  */
 body {
   @apply text-white antialiased;
   font-family: var(--font-sans);
-  background-color: #2b2826;
+  background-color: #07080b;
+}
+
+/*
+ * Cinematic film grain - a static, almost invisible noise layer over the
+ * whole page. Pure texture (no objects), pointer-events off, one SVG
+ * data-URI, no JS.
+ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  @apply bg-neutral-100 text-neutral-900;
+  background: #a9b8ff;
+  color: #07080b;
 }
 
 /* ------------------------------------------------------------------
- * Custom scrollbar - slim, dark, with a subtle hover to match the
- * site's neutral palette.
+ * Custom scrollbar - slim, dark, subtle hover.
  * ------------------------------------------------------------------ */
 ::-webkit-scrollbar {
   width: 10px;
@@ -56,8 +75,7 @@ body {
 }
 
 @layer components {
-  /* Brand-colored social hover states. Kept as explicit classes so they
-     always override the neutral gray link color. */
+  /* Brand-colored social hover states. */
   .social-modrinth {
     @apply text-neutral-400 transition-colors duration-300 hover:text-[#1bd96a];
   }
@@ -66,23 +84,37 @@ body {
     @apply text-neutral-400 transition-colors duration-300 hover:text-[#5865F2];
   }
 
+  /* Editorial buttons - sharp corners, small tracked uppercase labels.
+   * Deliberately not the rounded-pill look. */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:bg-neutral-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-neutral-950 transition-colors duration-300 hover:bg-accent;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-white/10;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:border-accent hover:text-accent;
   }
 
-  /* Discord-branded variant - uses the official Discord indigo on hover. */
   .btn-discord {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:bg-[#5865F2] hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-neutral-950 transition-colors duration-300 hover:bg-[#5865F2] hover:text-white;
   }
 
-  /* Tighter tracking than Tailwind's `tracking-tight` (-0.025em) so
-   * display headings feel a little compressed by default. */
+  /* Tighter tracking for display headings. */
   .tracking-tighter {
     letter-spacing: -0.035em;
+  }
+
+  /* Small, wide-tracked, uppercase informative label - the only kind of
+   * decoration the design allows: tiny text that says something. */
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.3em] text-neutral-500;
+  }
+
+  /* Serif italic accent inside display headings - "This is *Nocturne*." */
+  .display-accent {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 }
 

@@ -20,13 +20,13 @@ function initialsOf(name) {
     .toUpperCase()
 }
 
-function Avatar({ src, name, className = 'h-12 w-12' }) {
+function Avatar({ src, name, className = 'h-14 w-14' }) {
   const [failed, setFailed] = useState(false)
 
   if (failed) {
     return (
       <div
-        className={`flex ${className} items-center justify-center rounded-xl border border-white/10 bg-white/5 text-sm font-medium text-neutral-400`}
+        className={`flex ${className} items-center justify-center border border-white/10 bg-white/5 text-sm font-medium text-neutral-400`}
       >
         {initialsOf(name)}
       </div>
@@ -39,7 +39,7 @@ function Avatar({ src, name, className = 'h-12 w-12' }) {
       alt={name}
       loading="lazy"
       onError={() => setFailed(true)}
-      className={`${className} rounded-xl border border-white/10 object-cover`}
+      className={`${className} border border-white/10 object-cover grayscale transition-all duration-500 group-hover:grayscale-0`}
     />
   )
 }
@@ -75,15 +75,25 @@ function useDiscordAvatar(discordId, fallback) {
   return src
 }
 
-function TeamCard({ member }) {
+/**
+ * A team member as an editorial index row: number, portrait, name in
+ * display type, role, then contact links pushed to the right edge.
+ */
+function TeamRow({ member }) {
   const avatar = useDiscordAvatar(member.discordId, member.avatar)
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-      <Avatar src={avatar} name={member.name} />
-      <h2 className="mt-5 text-sm font-semibold">{member.name}</h2>
-      <p className="mt-1 text-xs text-neutral-500">{member.role}</p>
-      <div className="mt-4 flex items-center gap-4 pt-4 text-neutral-400">
+    <div className="group grid items-center gap-x-6 gap-y-4 border-t border-white/10 py-6 md:grid-cols-12 md:py-8">
+      <div className="flex items-center gap-5 md:col-span-7">
+        <Avatar src={avatar} name={member.name} />
+        <h2 className="tracking-tighter text-2xl font-semibold md:text-3xl">
+          {member.name}
+        </h2>
+      </div>
+
+      <p className="eyebrow md:col-span-2">{member.role}</p>
+
+      <div className="flex items-center gap-5 text-neutral-400 md:col-span-3 md:justify-self-end">
         {member.github && (
           <a
             href={member.github}
@@ -178,25 +188,30 @@ function useContributors() {
   return list
 }
 
-function ContributorCard({ contributor, delay = 0 }) {
+function ContributorRow({ contributor, delay = 0 }) {
   return (
-    <Reveal delay={delay} className="h-full">
+    <Reveal delay={delay}>
       <a
         href={contributor.profile}
         target="_blank"
         rel="noreferrer"
-        className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06]"
+        className="group grid items-center gap-x-6 gap-y-3 border-t border-white/10 py-5 md:grid-cols-12"
       >
-        <Avatar src={contributor.avatar} name={contributor.login} />
-        <h2 className="mt-5 text-sm font-semibold">{contributor.login}</h2>
-        <p className="mt-1 text-xs text-neutral-500">
+        <div className="flex items-center gap-4 md:col-span-7">
+          <Avatar src={contributor.avatar} name={contributor.login} className="h-10 w-10" />
+          <h2 className="text-lg font-semibold tracking-tight transition-colors duration-300 group-hover:text-accent">
+            {contributor.login}
+          </h2>
+        </div>
+
+        <p className="eyebrow md:col-span-3">
           {contributor.contributions != null
             ? `${contributor.contributions} contribution${contributor.contributions === 1 ? '' : 's'}`
             : 'Contributor'}
         </p>
-        <span className="mt-4 inline-flex items-center gap-1.5 pt-4 text-xs text-neutral-500 transition-colors duration-300 group-hover:text-white">
-          GitHub
-          <ArrowUpRight className="h-3.5 w-3.5" />
+
+        <span className="hidden text-neutral-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white md:col-span-2 md:block md:justify-self-end">
+          <ArrowUpRight className="h-4 w-4" />
         </span>
       </a>
     </Reveal>
@@ -208,39 +223,38 @@ export default function Team() {
   const contributors = useContributors()
 
   return (
-    <div className="mx-auto max-w-6xl px-6 pb-24 pt-20">
+    <div className="mx-auto w-full max-w-[90rem] px-6 pb-24 pt-32 md:px-10 md:pt-40">
       <Reveal>
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Team</h1>
-        <p className="mt-3 text-neutral-400">The people behind Chest Solutions.</p>
+        <h1 className="tracking-tighter text-5xl font-semibold md:text-7xl">
+          The people <span className="display-accent text-neutral-400">behind Nocturne.</span>
+        </h1>
       </Reveal>
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-16 flex flex-col">
         {teamMembers.map((member, i) => (
-          <Reveal key={member.name} delay={i * 0.08} className="h-full">
-            <TeamCard member={member} />
+          <Reveal key={member.name} delay={i * 0.08}>
+            <TeamRow member={member} />
           </Reveal>
         ))}
+        <div className="border-t border-white/10" />
       </div>
 
-      <section className="mt-20 border-t border-white/10 pt-12">
+      <section className="mt-24 md:mt-32">
         <Reveal>
-          <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
-            Contributors
+          <h2 className="tracking-tighter text-3xl font-semibold md:text-4xl">
+            Contributors, <span className="display-accent text-neutral-400">pulled live from GitHub.</span>
           </h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-400">
-            Everyone who has committed to a Chest Solutions repo, pulled
-            live from GitHub.
-          </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 flex flex-col">
           {contributors.map((contributor, i) => (
-            <ContributorCard
+            <ContributorRow
               key={contributor.login}
               contributor={contributor}
               delay={i * 0.06}
             />
           ))}
+          <div className="border-t border-white/10" />
         </div>
       </section>
     </div>

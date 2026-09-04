@@ -1,6 +1,6 @@
-# Chest Solutions
+# Nocturne
 
-The Chest Solutions website — free and open-source Minecraft mods and plugins.
+The Nocturne website — free and open-source Minecraft mods and plugins.
 
 Built with React, Vite, Tailwind CSS, Framer Motion, and lucide-react.
 

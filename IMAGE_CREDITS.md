@@ -16,9 +16,15 @@ https://www.minecraft.net/en-us/usage-guidelines
 | `img/chest.png`, `favicon.png` | Render of the Minecraft chest block | toppng.com (Minecraft chest render) |
 
 **Generated** — the four plugin card artworks (`img/moparticles.webp`,
-`img/doorcards.webp`, `img/foliashops.webp`, `img/foliagui.webp`) are AI-generated
-abstract graphics in the site's dark, grainy style. They are decoration only — no
-in-game content, and nothing else on the site is generated.
+`img/doorcards.webp`, `img/foliashops.webp`, `img/foliagui.webp`) are
+AI-generated graphics in the site's dark, grainy style. They are decoration
+only — no in-game content, and nothing else on the site is generated.
+
+The home hero background (`img/hero-night.webp`) is a searched image: a misty
+Minecraft night forest rendered with shaders, found at
+wallpapercave.com/minecraft-night-wallpapers, cropped and re-encoded as WebP.
+Player-made Minecraft content used under Mojang's non-commercial usage
+guidelines.
 
 Minecraft is a trademark of Mojang Synergies AB. We are not affiliated with or
 endorsed by Mojang or Microsoft.

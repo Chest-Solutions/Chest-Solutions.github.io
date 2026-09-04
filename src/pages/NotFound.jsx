@@ -7,13 +7,17 @@ export default function NotFound() {
   useTitle('Page not found')
 
   return (
-    <section className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
+    <section className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center">
       <Reveal>
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">404</p>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight">Page not found</h1>
-        <p className="mt-3 text-sm text-neutral-400">The page you're looking for doesn't exist.</p>
-        <Link to="/" className="btn-secondary mt-8">
-          <ArrowLeft className="h-4 w-4" />
+        <p className="eyebrow">Error 404</p>
+        <h1 className="tracking-tighter mt-5 text-5xl font-semibold md:text-7xl">
+          Lost in <span className="display-accent text-neutral-400">the dark.</span>
+        </h1>
+        <p className="mt-4 text-sm text-neutral-400">
+          The page you're looking for doesn't exist.
+        </p>
+        <Link to="/" className="btn-secondary mt-10">
+          <ArrowLeft className="h-3.5 w-3.5" />
           Back home
         </Link>
       </Reveal>
