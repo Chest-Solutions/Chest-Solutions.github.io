@@ -11,13 +11,30 @@ html {
 }
 
 /*
- * Slightly warmer than neutral-800 (#262626) - a tiny cream tint baked
- * into the dark background so the page doesn't feel like pure gray.
+ * True cinematic black - a cool, near-black base with the faintest
+ * neutral tint. The low luminance is the film stage: glass panels,
+ * the sunset hero and the accent details all play against it.
  */
 body {
   @apply text-white antialiased;
   font-family: var(--font-sans);
-  background-color: #2b2826;
+  background-color: #0a0a0c;
+}
+
+/* ------------------------------------------------------------------
+ * Static film grain - a single repeating noise tile laid over the
+ * whole viewport at a barely-there opacity. Purely textural (no
+ * animation, no pointer events), it just takes the edge off the flat
+ * digital background so the page feels shot on film.
+ * ------------------------------------------------------------------ */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
@@ -56,6 +73,12 @@ body {
 }
 
 @layer components {
+  /* Cinematic micro-label: small, wide-tracked uppercase text that names
+     each section of the page. Purely informative - no icons, no objects. */
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-500;
+  }
+
   /* Brand-colored social hover states. Kept as explicit classes so they
      always override the neutral gray link color. */
   .social-modrinth {
