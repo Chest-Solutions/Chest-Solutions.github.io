@@ -75,9 +75,7 @@ export const teamMembers = [
     role: 'Staff',
     github: null,
     discord: 'brain._.storm',
-    // No numeric Discord ID yet, so the live avatar lookup is skipped and
-    // the default avatar below is shown until an ID is added.
-    discordId: null,
+    discordId: '1068394558293024850',
     avatar: 'https://cdn.discordapp.com/embed/avatars/0.png',
   },
 ]
