@@ -1,6 +1,6 @@
-# Chest Solutions
+# Dark
 
-The Chest Solutions website — free and open-source Minecraft mods and plugins.
+The Dark website — free and open-source Minecraft mods and plugins.
 
 Built with React, Vite, Tailwind CSS, Framer Motion, and lucide-react.
 

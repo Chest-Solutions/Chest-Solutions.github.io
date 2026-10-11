@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
+import SectionSlate from '../components/SectionSlate.jsx'
 import { GitHubIcon, DiscordIcon } from '../components/icons.jsx'
 import { useTitle } from '../hooks/useTitle.js'
 import {
@@ -26,7 +27,7 @@ function Avatar({ src, name, className = 'h-12 w-12' }) {
   if (failed) {
     return (
       <div
-        className={`flex ${className} items-center justify-center rounded-xl border border-white/10 bg-white/5 text-sm font-medium text-neutral-400`}
+        className={`flex ${className} items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-medium text-neutral-400`}
       >
         {initialsOf(name)}
       </div>
@@ -39,7 +40,7 @@ function Avatar({ src, name, className = 'h-12 w-12' }) {
       alt={name}
       loading="lazy"
       onError={() => setFailed(true)}
-      className={`${className} rounded-xl border border-white/10 object-cover`}
+      className={`${className} rounded-2xl border border-white/10 object-cover`}
     />
   )
 }
@@ -79,20 +80,26 @@ function TeamCard({ member }) {
   const avatar = useDiscordAvatar(member.discordId, member.avatar)
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-      <Avatar src={avatar} name={member.name} />
-      <h2 className="mt-5 text-sm font-semibold">{member.name}</h2>
+    <div className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.06]">
+      <Avatar
+        src={avatar}
+        name={member.name}
+        className="h-16 w-16 grayscale transition-all duration-500 group-hover:grayscale-0"
+      />
+      <h2 className="mt-6 text-base font-semibold tracking-tight">
+        {member.name}
+      </h2>
       <p className="mt-1 text-xs text-neutral-500">{member.role}</p>
-      <div className="mt-4 flex items-center gap-4 pt-4 text-neutral-400">
+      <div className="mt-5 flex flex-wrap items-center gap-4 pt-5 text-neutral-400">
         {member.github && (
           <a
             href={member.github}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${member.name} on GitHub`}
-            className="transition-colors duration-300 hover:text-white"
+            className="inline-flex items-center gap-1.5 text-xs transition-colors duration-300 hover:text-white"
           >
             <GitHubIcon className="h-4 w-4" />
+            GitHub
           </a>
         )}
         {member.discord && (
@@ -178,28 +185,20 @@ function useContributors() {
   return list
 }
 
-function ContributorCard({ contributor, delay = 0 }) {
+function TeamSection({ label, members, columns }) {
   return (
-    <Reveal delay={delay} className="h-full">
-      <a
-        href={contributor.profile}
-        target="_blank"
-        rel="noreferrer"
-        className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06]"
-      >
-        <Avatar src={contributor.avatar} name={contributor.login} />
-        <h2 className="mt-5 text-sm font-semibold">{contributor.login}</h2>
-        <p className="mt-1 text-xs text-neutral-500">
-          {contributor.contributions != null
-            ? `${contributor.contributions} contribution${contributor.contributions === 1 ? '' : 's'}`
-            : 'Contributor'}
-        </p>
-        <span className="mt-4 inline-flex items-center gap-1.5 pt-4 text-xs text-neutral-500 transition-colors duration-300 group-hover:text-white">
-          GitHub
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </span>
-      </a>
-    </Reveal>
+    <div className="mt-16 first:mt-0">
+      <Reveal>
+        <SectionSlate label={label} />
+      </Reveal>
+      <div className={`mt-10 grid gap-4 ${columns}`}>
+        {members.map((member, i) => (
+          <Reveal key={member.name} delay={i * 0.08} className="h-full">
+            <TeamCard member={member} />
+          </Reveal>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -207,41 +206,77 @@ export default function Team() {
   useTitle('Team')
   const contributors = useContributors()
 
+  const founders = teamMembers.filter((member) => member.role === 'Founder')
+  const staff = teamMembers.filter((member) => member.role !== 'Founder')
+
   return (
-    <div className="mx-auto max-w-6xl px-6 pb-24 pt-20">
+    <div className="mx-auto max-w-6xl px-6 pb-28 pt-28">
       <Reveal>
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Team</h1>
-        <p className="mt-3 text-neutral-400">The people behind Chest Solutions.</p>
+        <SectionSlate label="People" />
+        <h1 className="mt-8 text-4xl font-semibold tracking-tight md:text-6xl">
+          Team
+        </h1>
+        <p className="mt-4 text-neutral-400">The people behind Dark.</p>
       </Reveal>
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {teamMembers.map((member, i) => (
-          <Reveal key={member.name} delay={i * 0.08} className="h-full">
-            <TeamCard member={member} />
-          </Reveal>
-        ))}
+      <div className="mt-16">
+        <TeamSection label="Founders" members={founders} columns="sm:grid-cols-2" />
+        <TeamSection label="Staff" members={staff} columns="sm:grid-cols-2 lg:grid-cols-3" />
       </div>
 
-      <section className="mt-20 border-t border-white/10 pt-12">
+      {/* Contributors - a single glass panel: the avatar stack on the
+          left, the live count and context on the right. */}
+      <section className="mt-24">
         <Reveal>
-          <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
-            Contributors
-          </h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-400">
-            Everyone who has committed to a Chest Solutions repo, pulled
-            live from GitHub.
-          </p>
+          <SectionSlate label="Contributors" />
         </Reveal>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {contributors.map((contributor, i) => (
-            <ContributorCard
-              key={contributor.login}
-              contributor={contributor}
-              delay={i * 0.06}
-            />
-          ))}
-        </div>
+        <Reveal delay={0.1}>
+          <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:p-10">
+            <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+              <div className="flex -space-x-3">
+                {contributors.map((contributor) => (
+                  <a
+                    key={contributor.login}
+                    href={contributor.profile}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={
+                      contributor.contributions != null
+                        ? `${contributor.login} - ${contributor.contributions} contributions`
+                        : contributor.login
+                    }
+                    className="rounded-full ring-2 ring-[#0a0a0c] transition-transform duration-300 hover:-translate-y-1"
+                  >
+                    <img
+                      src={contributor.avatar}
+                      alt={contributor.login}
+                      loading="lazy"
+                      className="h-12 w-12 rounded-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
+                    />
+                  </a>
+                ))}
+              </div>
+              <div className="max-w-sm">
+                <p className="eyebrow">
+                  {contributors.length} contributors - live from GitHub
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-neutral-400">
+                  Everyone who has committed to a Dark repo, aggregated
+                  across the organization.
+                </p>
+                <a
+                  href="https://github.com/Chest-Solutions"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm text-neutral-400 transition-colors duration-300 hover:text-white"
+                >
+                  View on GitHub
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </section>
     </div>
   )
